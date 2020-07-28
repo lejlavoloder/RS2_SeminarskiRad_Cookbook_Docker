@@ -34,7 +34,6 @@ namespace Cookbook.WinUI.Kategorija
         private void dgvKategorija_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             var id = dgvKategorija.SelectedRows[0].Cells[0].Value;
-
             frmKategorijaDetalji frm = new frmKategorijaDetalji(int.Parse(id.ToString()));
             frm.Show();
         }

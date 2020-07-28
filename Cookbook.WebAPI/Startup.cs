@@ -39,7 +39,8 @@ namespace Cookbook.WebAPI
             services.AddScoped<ICRUDService<Model.Sastojak, SastojakSearchRequest,SastojakInsertRequest, SastojakInsertRequest>, SastojakService>();
             services.AddScoped<ICRUDService<Model.Kategorija,KategorijaSearchRequest,KategorijaInsertRequest,KategorijaInsertRequest>,KategorijaService>();
             services.AddScoped<ICRUDService<Model.MjernaJedinica, MjernaJedinicaSearchRequest, MjernaJedinicaInsertRequest, MjernaJedinicaInsertRequest>, MjernaJedinicaService>();
-
+            services.AddScoped<ICRUDService<Model.GrupaJela, GrupaJelaSearchRequest, GrupaJelaUpsertRequest, GrupaJelaUpsertRequest>, GrupaJelaService>();
+            services.AddScoped<ICRUDService<Model.Slozenost, SlozenostSearchRequest, SlozenostUpsertRequest, SlozenostUpsertRequest>, SlozenostService>();
             var connection = @"data source =.; initial catalog = Cookbook; integrated security = True;";
             services.AddDbContext<CookbookContext>(options => options.UseSqlServer(connection));
         }

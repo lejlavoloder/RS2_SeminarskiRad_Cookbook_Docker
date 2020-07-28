@@ -139,6 +139,18 @@
     <Compile Include="frmIndex.Designer.cs">
       <DependentUpon>frmIndex.cs</DependentUpon>
     </Compile>
+    <Compile Include="GrupaJela\frmGrupaJela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GrupaJela\frmGrupaJela.Designer.cs">
+      <DependentUpon>frmGrupaJela.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrupaJela\frmGrupaJelaDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GrupaJela\frmGrupaJelaDetalji.Designer.cs">
+      <DependentUpon>frmGrupaJelaDetalji.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kategorija\frmKategorija.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,8 +194,26 @@
     <Compile Include="Sastojak\frmSastojakDetalji.Designer.cs">
       <DependentUpon>frmSastojakDetalji.cs</DependentUpon>
     </Compile>
+    <Compile Include="Slozenost\frmSlozenost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Slozenost\frmSlozenost.Designer.cs">
+      <DependentUpon>frmSlozenost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Slozenost\frmSlozenostDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Slozenost\frmSlozenostDetalji.Designer.cs">
+      <DependentUpon>frmSlozenostDetalji.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrupaJela\frmGrupaJela.resx">
+      <DependentUpon>frmGrupaJela.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrupaJela\frmGrupaJelaDetalji.resx">
+      <DependentUpon>frmGrupaJelaDetalji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kategorija\frmKategorija.resx">
       <DependentUpon>frmKategorija.cs</DependentUpon>
@@ -207,6 +237,12 @@
     <EmbeddedResource Include="Sastojak\frmSastojakDetalji.resx">
       <DependentUpon>frmSastojakDetalji.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Slozenost\frmSlozenost.resx">
+      <DependentUpon>frmSlozenost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Slozenost\frmSlozenostDetalji.resx">
+      <DependentUpon>frmSlozenostDetalji.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
@@ -227,5 +263,6 @@
       <Name>Cookbook.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

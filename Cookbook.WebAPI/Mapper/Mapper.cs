@@ -22,6 +22,12 @@ namespace Cookbook.WebAPI.Mapper
 
             CreateMap<Database.MjernaJedinica, Model.MjernaJedinica>();
             CreateMap<Database.MjernaJedinica, MjernaJedinicaInsertRequest>().ReverseMap();
+
+            CreateMap<Database.GrupaJela, Model.GrupaJela>();
+            CreateMap<Database.GrupaJela, GrupaJelaUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.Slozenost, Model.Slozenost>();
+            CreateMap<Database.Slozenost, SlozenostUpsertRequest>().ReverseMap();
         }
     }
 }

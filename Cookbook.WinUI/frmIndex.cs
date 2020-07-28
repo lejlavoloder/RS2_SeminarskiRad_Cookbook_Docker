@@ -1,6 +1,8 @@
-﻿using Cookbook.WinUI.Kategorija;
+﻿using Cookbook.WinUI.GrupaJela;
+using Cookbook.WinUI.Kategorija;
 using Cookbook.WinUI.MjernaJedinica;
 using Cookbook.WinUI.Sastojak;
+using Cookbook.WinUI.Slozenost;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -149,6 +151,32 @@ namespace Cookbook.WinUI
         private void novaMjernaJedinicaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmMjernaJedinicaDetalji frm = new frmMjernaJedinicaDetalji();
+            frm.Show();
+        }
+
+        private void pretragaToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            frmGrupaJela frm = new frmGrupaJela();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void novaGrupaJelaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGrupaJelaDetalji frm = new frmGrupaJelaDetalji();
+            frm.Show();
+        }
+
+        private void pretragaToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            frmSlozenost frm = new frmSlozenost();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void novaSloženostToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSlozenostDetalji frm = new frmSlozenostDetalji();
             frm.Show();
         }
     }

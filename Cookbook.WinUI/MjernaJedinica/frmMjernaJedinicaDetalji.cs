@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -48,6 +49,24 @@ namespace Cookbook.WinUI.MjernaJedinica
             {
                 var mjernajedinica = await _apiService.GetById<Model.MjernaJedinica>(_id);
                 txtNaziv.Text = mjernajedinica.Naziv;
+            }
+        }
+
+        private void txtNaziv_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNaziv.Text))
+            {
+                errorProvider.SetError(txtNaziv, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else if (!Regex.IsMatch(txtNaziv.Text, @"^[a-zA-Z ]+$"))
+            {
+                errorProvider.SetError(txtNaziv, Properties.Resources.NeispravanFormat);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtNaziv, null);
             }
         }
     }

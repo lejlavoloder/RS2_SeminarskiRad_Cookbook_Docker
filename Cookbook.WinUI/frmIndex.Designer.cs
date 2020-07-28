@@ -36,12 +36,19 @@
             this.kategorijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pretragaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.novaKategorijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.mjernaJedinicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pretragaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.novaMjernaJedinicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.grupaJelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretragaToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.novaGrupaJelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.slozenostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretragaToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.novaSloženostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +59,10 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sastojciToolStripMenuItem,
             this.kategorijaToolStripMenuItem,
-            this.mjernaJedinicaToolStripMenuItem});
+            this.mjernaJedinicaToolStripMenuItem,
+            this.grupaJelaToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.slozenostToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(843, 28);
@@ -94,34 +104,16 @@
             // pretragaToolStripMenuItem1
             // 
             this.pretragaToolStripMenuItem1.Name = "pretragaToolStripMenuItem1";
-            this.pretragaToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.pretragaToolStripMenuItem1.Size = new System.Drawing.Size(198, 26);
             this.pretragaToolStripMenuItem1.Text = "Pretraga";
             this.pretragaToolStripMenuItem1.Click += new System.EventHandler(this.pretragaToolStripMenuItem1_Click);
             // 
             // novaKategorijaToolStripMenuItem
             // 
             this.novaKategorijaToolStripMenuItem.Name = "novaKategorijaToolStripMenuItem";
-            this.novaKategorijaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.novaKategorijaToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
             this.novaKategorijaToolStripMenuItem.Text = "Nova kategorija";
             this.novaKategorijaToolStripMenuItem.Click += new System.EventHandler(this.novaKategorijaToolStripMenuItem_Click);
-            // 
-            // statusStrip
-            // 
-            this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 532);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip.Size = new System.Drawing.Size(843, 26);
-            this.statusStrip.TabIndex = 2;
-            this.statusStrip.Text = "StatusStrip";
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(49, 20);
-            this.toolStripStatusLabel.Text = "Status";
             // 
             // mjernaJedinicaToolStripMenuItem
             // 
@@ -145,6 +137,75 @@
             this.novaMjernaJedinicaToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
             this.novaMjernaJedinicaToolStripMenuItem.Text = "Nova mjerna jedinica";
             this.novaMjernaJedinicaToolStripMenuItem.Click += new System.EventHandler(this.novaMjernaJedinicaToolStripMenuItem_Click);
+            // 
+            // grupaJelaToolStripMenuItem
+            // 
+            this.grupaJelaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pretragaToolStripMenuItem3,
+            this.novaGrupaJelaToolStripMenuItem});
+            this.grupaJelaToolStripMenuItem.Name = "grupaJelaToolStripMenuItem";
+            this.grupaJelaToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
+            this.grupaJelaToolStripMenuItem.Text = "Grupa jela";
+            // 
+            // pretragaToolStripMenuItem3
+            // 
+            this.pretragaToolStripMenuItem3.Name = "pretragaToolStripMenuItem3";
+            this.pretragaToolStripMenuItem3.Size = new System.Drawing.Size(198, 26);
+            this.pretragaToolStripMenuItem3.Text = "Pretraga";
+            this.pretragaToolStripMenuItem3.Click += new System.EventHandler(this.pretragaToolStripMenuItem3_Click);
+            // 
+            // novaGrupaJelaToolStripMenuItem
+            // 
+            this.novaGrupaJelaToolStripMenuItem.Name = "novaGrupaJelaToolStripMenuItem";
+            this.novaGrupaJelaToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.novaGrupaJelaToolStripMenuItem.Text = "Nova grupa jela";
+            this.novaGrupaJelaToolStripMenuItem.Click += new System.EventHandler(this.novaGrupaJelaToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(14, 24);
+            // 
+            // slozenostToolStripMenuItem
+            // 
+            this.slozenostToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pretragaToolStripMenuItem4,
+            this.novaSloženostToolStripMenuItem});
+            this.slozenostToolStripMenuItem.Name = "slozenostToolStripMenuItem";
+            this.slozenostToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
+            this.slozenostToolStripMenuItem.Text = "Složenost";
+            // 
+            // pretragaToolStripMenuItem4
+            // 
+            this.pretragaToolStripMenuItem4.Name = "pretragaToolStripMenuItem4";
+            this.pretragaToolStripMenuItem4.Size = new System.Drawing.Size(224, 26);
+            this.pretragaToolStripMenuItem4.Text = "Pretraga";
+            this.pretragaToolStripMenuItem4.Click += new System.EventHandler(this.pretragaToolStripMenuItem4_Click);
+            // 
+            // novaSloženostToolStripMenuItem
+            // 
+            this.novaSloženostToolStripMenuItem.Name = "novaSloženostToolStripMenuItem";
+            this.novaSloženostToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.novaSloženostToolStripMenuItem.Text = "Nova složenost";
+            this.novaSloženostToolStripMenuItem.Click += new System.EventHandler(this.novaSloženostToolStripMenuItem_Click);
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 532);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip.Size = new System.Drawing.Size(843, 26);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "StatusStrip";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(49, 20);
+            this.toolStripStatusLabel.Text = "Status";
             // 
             // frmIndex
             // 
@@ -183,6 +244,13 @@
         private System.Windows.Forms.ToolStripMenuItem mjernaJedinicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pretragaToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem novaMjernaJedinicaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem grupaJelaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pretragaToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem novaGrupaJelaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem slozenostToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pretragaToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem novaSloženostToolStripMenuItem;
     }
 }
 
