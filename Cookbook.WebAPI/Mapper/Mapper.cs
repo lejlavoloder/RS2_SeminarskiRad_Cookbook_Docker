@@ -11,9 +11,7 @@ namespace Cookbook.WebAPI.Mapper
     {
         public Mapper()
         {
-            CreateMap<Database.Korisnik, Model.Korisnik>();
-            CreateMap<Database.Korisnik, KorisniciInsertRequest>().ReverseMap();
-
+           
             CreateMap<Database.Sastojak, Model.Sastojak>();
             CreateMap<Database.Sastojak, SastojakInsertRequest>().ReverseMap();
 
@@ -28,6 +26,27 @@ namespace Cookbook.WebAPI.Mapper
 
             CreateMap<Database.Slozenost, Model.Slozenost>();
             CreateMap<Database.Slozenost, SlozenostUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.MjernaKolicina, Model.MjernaKolicina>();
+            CreateMap<Database.MjernaKolicina, MjernaKolicinaUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.VrstaClanka, Model.VrstaClanka>();
+            CreateMap<Database.VrstaClanka, VrstaClankaInsertRequest>().ReverseMap();
+
+            CreateMap<Database.Korisnik, Model.Korisnik>();
+            CreateMap<Database.Korisnik, KorisnikInsertRequest>().ReverseMap();
+
+            CreateMap<Database.Uloga, Model.Uloga>();
+
+            CreateMap<Database.KorisnikUloga, Model.KorisnikUloga>();
+
+            CreateMap<Database.Korisnik, Model.KorisnikLogin>();
+            
+            CreateMap<Database.Posjetilac, Model.Posjetilac>();
+            CreateMap<Database.Posjetilac, PosjetilacUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.Clanak, Model.Clanak>();
+            CreateMap<Database.Clanak, ClanakInsertRequest>().ReverseMap();
         }
     }
 }

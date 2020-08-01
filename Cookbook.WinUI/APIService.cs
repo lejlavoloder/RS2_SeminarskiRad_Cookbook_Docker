@@ -24,7 +24,7 @@ namespace Cookbook.WinUI
 
         public async Task<T> Get<T>(object search)
         {
-            var url = $"{Settings.Default.APIUrl}/{_route}";
+            var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
 
             try
             {

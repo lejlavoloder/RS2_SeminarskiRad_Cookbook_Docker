@@ -17,7 +17,8 @@ namespace Cookbook.WinUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmIndex());
+            if (new frmLogin().ShowDialog() == DialogResult.OK)
+                Application.Run(new frmIndex());
         }
     }
 }

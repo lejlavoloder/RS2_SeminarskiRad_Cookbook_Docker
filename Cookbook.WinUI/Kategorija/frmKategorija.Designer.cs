@@ -30,11 +30,11 @@
         {
             this.Kategorija = new System.Windows.Forms.GroupBox();
             this.dgvKategorija = new System.Windows.Forms.DataGridView();
+            this.KategorijaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtKategorija = new System.Windows.Forms.TextBox();
             this.btnPrikazi = new System.Windows.Forms.Button();
-            this.KategorijaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kategorija.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKategorija)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +68,26 @@
             this.dgvKategorija.TabIndex = 0;
             this.dgvKategorija.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvKategorija_MouseDoubleClick);
             // 
+            // KategorijaId
+            // 
+            this.KategorijaId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.KategorijaId.DataPropertyName = "KategorijaId";
+            this.KategorijaId.HeaderText = "KategorijaId";
+            this.KategorijaId.MinimumWidth = 6;
+            this.KategorijaId.Name = "KategorijaId";
+            this.KategorijaId.ReadOnly = true;
+            this.KategorijaId.Visible = false;
+            this.KategorijaId.Width = 125;
+            // 
+            // Naziv
+            // 
+            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.MinimumWidth = 6;
+            this.Naziv.Name = "Naziv";
+            this.Naziv.ReadOnly = true;
+            this.Naziv.Width = 125;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -93,26 +113,6 @@
             this.btnPrikazi.Text = "Prikaži";
             this.btnPrikazi.UseVisualStyleBackColor = true;
             this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
-            // 
-            // KategorijaId
-            // 
-            this.KategorijaId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.KategorijaId.DataPropertyName = "KategorijaId";
-            this.KategorijaId.HeaderText = "KategorijaId";
-            this.KategorijaId.MinimumWidth = 6;
-            this.KategorijaId.Name = "KategorijaId";
-            this.KategorijaId.ReadOnly = true;
-            this.KategorijaId.Visible = false;
-            this.KategorijaId.Width = 125;
-            // 
-            // Naziv
-            // 
-            this.Naziv.DataPropertyName = "Naziv";
-            this.Naziv.HeaderText = "Naziv";
-            this.Naziv.MinimumWidth = 6;
-            this.Naziv.Name = "Naziv";
-            this.Naziv.ReadOnly = true;
-            this.Naziv.Width = 125;
             // 
             // frmKategorija
             // 

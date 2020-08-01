@@ -37,5 +37,7 @@ namespace Cookbook.WinUI.MjernaJedinica
             frmMjernaJedinicaDetalji frm = new frmMjernaJedinicaDetalji(int.Parse(id.ToString()));
             frm.Show();
         }
+
+      
     }
 }

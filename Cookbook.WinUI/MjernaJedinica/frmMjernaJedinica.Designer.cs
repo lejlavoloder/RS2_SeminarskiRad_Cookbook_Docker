@@ -92,6 +92,7 @@
             this.dgvMjernaJedinica.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMjernaJedinica.Size = new System.Drawing.Size(241, 287);
             this.dgvMjernaJedinica.TabIndex = 0;
+
             this.dgvMjernaJedinica.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvMjernaJedinica_MouseDoubleClick);
             // 
             // MjernaJedinicaId
@@ -125,6 +126,7 @@
             this.Controls.Add(this.btnPrikazi);
             this.Name = "frmMjernaJedinica";
             this.Text = "frmMjernaJedinica";
+           
             this.MjernaJedinica.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMjernaJedinica)).EndInit();
             this.ResumeLayout(false);

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Cookbook.WinUI
+namespace Cookbook.WinUI.Clanak
 {
-    public partial class Form1 : Form
+    public partial class frmClanak : Form
     {
-        public Form1()
+        public frmClanak()
         {
             InitializeComponent();
         }
