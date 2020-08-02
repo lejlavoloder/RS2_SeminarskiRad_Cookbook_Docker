@@ -30,7 +30,7 @@
         {
             this.dgvMjernaKolicina = new System.Windows.Forms.DataGridView();
             this.MjernaKolicinaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MjernaKolicina = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Kolicina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.dgvMjernaKolicina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMjernaKolicina.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MjernaKolicinaId,
-            this.MjernaKolicina});
+            this.Kolicina});
             this.dgvMjernaKolicina.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMjernaKolicina.Location = new System.Drawing.Point(4, 19);
             this.dgvMjernaKolicina.Margin = new System.Windows.Forms.Padding(4);
@@ -58,6 +58,7 @@
             this.dgvMjernaKolicina.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMjernaKolicina.Size = new System.Drawing.Size(270, 262);
             this.dgvMjernaKolicina.TabIndex = 0;
+            this.dgvMjernaKolicina.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvMjernaKolicina_MouseDoubleClick);
             // 
             // MjernaKolicinaId
             // 
@@ -69,14 +70,14 @@
             this.MjernaKolicinaId.Visible = false;
             this.MjernaKolicinaId.Width = 125;
             // 
-            // MjernaKolicina
+            // Kolicina
             // 
-            this.MjernaKolicina.DataPropertyName = "MjernaKolicina";
-            this.MjernaKolicina.HeaderText = "Mjerna količina";
-            this.MjernaKolicina.MinimumWidth = 6;
-            this.MjernaKolicina.Name = "MjernaKolicina";
-            this.MjernaKolicina.ReadOnly = true;
-            this.MjernaKolicina.Width = 125;
+            this.Kolicina.DataPropertyName = "Kolicina";
+            this.Kolicina.HeaderText = "Kolicina";
+            this.Kolicina.MinimumWidth = 6;
+            this.Kolicina.Name = "Kolicina";
+            this.Kolicina.ReadOnly = true;
+            this.Kolicina.Width = 125;
             // 
             // groupBox1
             // 
@@ -127,6 +128,7 @@
             this.btnDodaj.TabIndex = 23;
             this.btnDodaj.Text = "Dodaj novu";
             this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // frmMjernaKolicina
             // 
@@ -156,6 +158,6 @@
         private System.Windows.Forms.TextBox txtNaziv;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.DataGridViewTextBoxColumn MjernaKolicinaId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MjernaKolicina;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Kolicina;
     }
 }

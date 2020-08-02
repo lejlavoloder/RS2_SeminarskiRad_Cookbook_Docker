@@ -242,6 +242,9 @@
     <Compile Include="VrstaClanka\frmVrstaClankaDetalji.Designer.cs">
       <DependentUpon>frmVrstaClankaDetalji.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Clanak\frmClanak.resx">
+      <DependentUpon>frmClanak.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clanak\frmClanakDetalji.resx">
       <DependentUpon>frmClanakDetalji.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MjernaKolicina\frmMjernaKolicina.resx">
       <DependentUpon>frmMjernaKolicina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MjernaKolicina\frmMjernaKolicinaDetalji.resx">
+      <DependentUpon>frmMjernaKolicinaDetalji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

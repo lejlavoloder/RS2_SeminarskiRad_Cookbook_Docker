@@ -25,10 +25,34 @@ namespace Cookbook.WinUI.MjernaKolicina
             {
                 Kolicina = txtNaziv.Text
             };
-            double n = double.Parse(request.Kolicina);
-            var result = await _apiService.Get<List<Model.MjernaKolicina>>(n);
+            double.TryParse(request.Kolicina, out var n);
 
-            dgvMjernaKolicina.DataSource = result;
+            try
+            {
+                var result = await _apiService.Get<List<Model.MjernaKolicina>>(n);
+                dgvMjernaKolicina.DataSource = result;
+            }
+            catch(Exception)
+            {
+                DialogResult r = MessageBox.Show("Nemate pravo pristupa");
+                if (r == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
+        }
+
+        private void dgvMjernaKolicina_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var id = dgvMjernaKolicina.SelectedRows[0].Cells[0].Value;
+            var frm = new frmMjernaKolicinaDetalji(int.Parse(id.ToString()));
+            frm.Show();
+        }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            frmMjernaKolicinaDetalji frm = new frmMjernaKolicinaDetalji();
+            frm.Show();
         }
     }
 }
