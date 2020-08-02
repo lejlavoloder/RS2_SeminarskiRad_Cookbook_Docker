@@ -206,6 +206,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Recept\frmRecept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recept\frmRecept.Designer.cs">
+      <DependentUpon>frmRecept.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sastojak\frmSastojak.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recept\frmRecept.resx">
+      <DependentUpon>frmRecept.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sastojak\frmSastojak.resx">
       <DependentUpon>frmSastojak.cs</DependentUpon>

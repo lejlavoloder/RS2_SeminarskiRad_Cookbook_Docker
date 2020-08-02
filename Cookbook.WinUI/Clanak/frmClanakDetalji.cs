@@ -40,8 +40,9 @@ namespace Cookbook.WinUI.Clanak
             var result = await _vrstaclanka.Get<List<Model.VrstaClanka>>(null);
             cmbVrstaClanka.DisplayMember = "Naziv";
             cmbVrstaClanka.ValueMember = "VrstaClankaId";
-            cmbVrstaClanka.SelectedItem = null;
-            cmbVrstaClanka.SelectedText = "--Odaberite--";
+            //cmbVrstaClanka.SelectedItem = null;
+            result.Insert(0, new Model.VrstaClanka());
+            //cmbVrstaClanka.SelectedText = "--Odaberite--";
             cmbVrstaClanka.DataSource = result;
         }
 

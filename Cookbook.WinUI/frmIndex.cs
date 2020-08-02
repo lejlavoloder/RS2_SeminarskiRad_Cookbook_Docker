@@ -3,6 +3,7 @@ using Cookbook.WinUI.GrupaJela;
 using Cookbook.WinUI.Kategorija;
 using Cookbook.WinUI.MjernaJedinica;
 using Cookbook.WinUI.MjernaKolicina;
+using Cookbook.WinUI.Recept;
 using Cookbook.WinUI.Sastojak;
 using Cookbook.WinUI.Slozenost;
 using Cookbook.WinUI.VrstaClanka;
@@ -219,6 +220,12 @@ namespace Cookbook.WinUI
         private void dodajNoviToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmClanakDetalji frm = new frmClanakDetalji();
+            frm.Show();
+        }
+
+        private void dodajNoviToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmRecept frm = new frmRecept();
             frm.Show();
         }
     }

@@ -1,26 +1,3 @@
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Threading.Tasks;
-//using AutoMapper;
-//using Cookbook.Model.Requests;
-//using Cookbook.WebAPI.Database;
-//using Cookbook.WebAPI.Filters;
-//using Cookbook.WebAPI.Security;
-//using Cookbook.WebAPI.Services;
-//using Microsoft.AspNetCore.Authentication;
-//using Microsoft.AspNetCore.Builder;
-//using Microsoft.AspNetCore.Hosting;
-//using Microsoft.AspNetCore.HttpsPolicy;
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.EntityFrameworkCore;
-//using Microsoft.Extensions.Configuration;
-//using Microsoft.Extensions.DependencyInjection;
-//using Microsoft.Extensions.Hosting;
-//using Microsoft.Extensions.Logging;
-//using Swashbuckle.AspNetCore.Swagger;
-//using Swashbuckle.AspNetCore.SwaggerGen;
-//using Swashbuckle.Swagger;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -100,7 +77,9 @@ namespace Cookbook.WebAPI
             services.AddScoped<ICRUDService<Model.MjernaKolicina, MjernaKolicinaSearchRequest, MjernaKolicinaUpsertRequest, MjernaKolicinaUpsertRequest>, MjernaKolicinaService>();
             services.AddScoped<ICRUDService<Model.VrstaClanka, VrstaClankaSearchRequest, VrstaClankaInsertRequest, VrstaClankaInsertRequest>, VrstaClankaService>();
             services.AddScoped<ICRUDService<Model.Clanak, ClanakSearchRequest, ClanakInsertRequest, ClanakInsertRequest>, ClanakService>();
-            
+            services.AddScoped<ICRUDService<Model.Recept, ReceptSearchRequest, ReceptUpsertRequest, ReceptUpsertRequest>, ReceptService>();
+            services.AddScoped<ICRUDService<Model.ReceptSastojak, ReceptSastojakSearchRequest, ReceptSastojakUpsertRequest, ReceptSastojakUpsertRequest>, ReceptSastojakService>();
+
             var connection = @"data source =.; initial catalog = Cookbook; integrated security = True;";
             services.AddDbContext<CookbookContext>(options => options.UseSqlServer(connection));
         }

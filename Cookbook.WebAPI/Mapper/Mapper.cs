@@ -47,6 +47,12 @@ namespace Cookbook.WebAPI.Mapper
 
             CreateMap<Database.Clanak, Model.Clanak>();
             CreateMap<Database.Clanak, ClanakInsertRequest>().ReverseMap();
+
+            CreateMap<Database.Recept, Model.Recept>();
+            CreateMap<Database.Recept, ReceptUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.ReceptSastojak, Model.ReceptSastojak>();
+            CreateMap<Database.ReceptSastojak, ReceptUpsertRequest>().ReverseMap();
         }
     }
 }
