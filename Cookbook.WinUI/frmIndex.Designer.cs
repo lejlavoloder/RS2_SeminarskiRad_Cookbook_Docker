@@ -55,11 +55,13 @@
             this.clanakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pretragaToolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajNoviToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.receptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajNoviToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajSastojakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.receptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dodajNoviToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretragaRecepataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -273,6 +275,30 @@
             this.dodajNoviToolStripMenuItem.Text = "Dodaj novi";
             this.dodajNoviToolStripMenuItem.Click += new System.EventHandler(this.dodajNoviToolStripMenuItem_Click);
             // 
+            // receptToolStripMenuItem
+            // 
+            this.receptToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dodajNoviToolStripMenuItem1,
+            this.dodajSastojakToolStripMenuItem,
+            this.pretragaRecepataToolStripMenuItem});
+            this.receptToolStripMenuItem.Name = "receptToolStripMenuItem";
+            this.receptToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
+            this.receptToolStripMenuItem.Text = "Recept";
+            // 
+            // dodajNoviToolStripMenuItem1
+            // 
+            this.dodajNoviToolStripMenuItem1.Name = "dodajNoviToolStripMenuItem1";
+            this.dodajNoviToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.dodajNoviToolStripMenuItem1.Text = "Dodaj novi";
+            this.dodajNoviToolStripMenuItem1.Click += new System.EventHandler(this.dodajNoviToolStripMenuItem1_Click);
+            // 
+            // dodajSastojakToolStripMenuItem
+            // 
+            this.dodajSastojakToolStripMenuItem.Name = "dodajSastojakToolStripMenuItem";
+            this.dodajSastojakToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dodajSastojakToolStripMenuItem.Text = "Dodaj sastojak";
+            this.dodajSastojakToolStripMenuItem.Click += new System.EventHandler(this.dodajSastojakToolStripMenuItem_Click);
+            // 
             // statusStrip
             // 
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -291,20 +317,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(49, 20);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // receptToolStripMenuItem
+            // pretragaRecepataToolStripMenuItem
             // 
-            this.receptToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dodajNoviToolStripMenuItem1});
-            this.receptToolStripMenuItem.Name = "receptToolStripMenuItem";
-            this.receptToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
-            this.receptToolStripMenuItem.Text = "Recept";
-            // 
-            // dodajNoviToolStripMenuItem1
-            // 
-            this.dodajNoviToolStripMenuItem1.Name = "dodajNoviToolStripMenuItem1";
-            this.dodajNoviToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.dodajNoviToolStripMenuItem1.Text = "Dodaj novi";
-            this.dodajNoviToolStripMenuItem1.Click += new System.EventHandler(this.dodajNoviToolStripMenuItem1_Click);
+            this.pretragaRecepataToolStripMenuItem.Name = "pretragaRecepataToolStripMenuItem";
+            this.pretragaRecepataToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pretragaRecepataToolStripMenuItem.Text = "Pretraga recepata";
+            this.pretragaRecepataToolStripMenuItem.Click += new System.EventHandler(this.pretragaRecepataToolStripMenuItem_Click);
             // 
             // frmIndex
             // 
@@ -361,6 +379,8 @@
         private System.Windows.Forms.ToolStripMenuItem dodajNoviToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem receptToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajNoviToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem dodajSastojakToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pretragaRecepataToolStripMenuItem;
     }
 }
 

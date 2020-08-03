@@ -27,5 +27,6 @@ namespace Cookbook.WebAPI.Services
             var list = q.ToList();
             return _mapper.Map<List<Model.ReceptSastojak>>(list);
         }
+   
     }
 }

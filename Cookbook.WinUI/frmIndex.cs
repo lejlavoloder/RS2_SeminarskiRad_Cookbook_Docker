@@ -225,7 +225,19 @@ namespace Cookbook.WinUI
 
         private void dodajNoviToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmRecept frm = new frmRecept();
+            frmDodajRecept frm = new frmDodajRecept();
+            frm.Show();
+        }
+
+        private void dodajSastojakToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDodajSastojak frm = new frmDodajSastojak();
+            frm.Show();
+        }
+
+        private void pretragaRecepataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReceptPretraga frm = new frmReceptPretraga();
             frm.Show();
         }
     }

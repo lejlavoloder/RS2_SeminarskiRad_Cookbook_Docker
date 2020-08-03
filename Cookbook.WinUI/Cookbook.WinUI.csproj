@@ -206,11 +206,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Recept\frmDetaljiRecepta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recept\frmDetaljiRecepta.Designer.cs">
+      <DependentUpon>frmDetaljiRecepta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recept\frmDodajSastojak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recept\frmDodajSastojak.Designer.cs">
+      <DependentUpon>frmDodajSastojak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recept\frmReceptPretraga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recept\frmReceptPretraga.Designer.cs">
+      <DependentUpon>frmReceptPretraga.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recept\frmRecept.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Recept\frmRecept.Designer.cs">
       <DependentUpon>frmRecept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recept\frmDodajRecept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recept\frmDodajRecept.Designer.cs">
+      <DependentUpon>frmDodajRecept.cs</DependentUpon>
     </Compile>
     <Compile Include="Sastojak\frmSastojak.cs">
       <SubType>Form</SubType>
@@ -288,8 +312,20 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Recept\frmDetaljiRecepta.resx">
+      <DependentUpon>frmDetaljiRecepta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recept\frmDodajSastojak.resx">
+      <DependentUpon>frmDodajSastojak.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Recept\frmRecept.resx">
       <DependentUpon>frmRecept.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recept\frmReceptPretraga.resx">
+      <DependentUpon>frmReceptPretraga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recept\frmDodajRecept.resx">
+      <DependentUpon>frmDodajRecept.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sastojak\frmSastojak.resx">
       <DependentUpon>frmSastojak.cs</DependentUpon>
