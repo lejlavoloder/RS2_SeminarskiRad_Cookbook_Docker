@@ -17,29 +17,29 @@ namespace Cookbook.WebAPI.Services
         public override List<Model.Recept> Get(ReceptSearchRequest search)
         {
             var q = _context.Set<Database.Recept>().AsQueryable();
-            if (search?.SlozenostId.HasValue == true) {
-                if (search?.KategorijaId.HasValue == true)
+            if (search?.SlozenostId.HasValue == true && search?.SlozenostId>0) {
+                if (search?.KategorijaId.HasValue == true && search?.KategorijaId>0)
                 {
                     q = q.Where(s => s.SlozenostId == search.SlozenostId && s.KategorijaId == search.KategorijaId);
                 }
-                else if (search?.GrupaJelaId.HasValue == true)
+                else if (search?.GrupaJelaId.HasValue == true && search?.GrupaJelaId>0)
                 {
                     q = q.Where(s => s.SlozenostId == search.SlozenostId && s.GrupaJelaId == search.GrupaJelaId);
                 } 
             }
-           else if (search?.GrupaJelaId.HasValue == true) { 
-                  if (search?.KategorijaId.HasValue == true)
+           else if (search?.GrupaJelaId.HasValue == true && search?.GrupaJelaId>0) { 
+                  if (search?.KategorijaId.HasValue == true && search.KategorijaId>0)
                 {
                     q = q.Where(s => s.GrupaJelaId == search.GrupaJelaId && s.KategorijaId == search.KategorijaId);
                 }
             }
             else
             {
-                if (search?.SlozenostId.HasValue == true)
+                if (search?.SlozenostId.HasValue == true && search?.SlozenostId>0)
                 {
                     q = q.Where(s => s.Slozenost.SlozenostId == search.SlozenostId);
                 }
-                else if(search?.KategorijaId.HasValue == true)
+                else if(search?.KategorijaId.HasValue == true && search?.KategorijaId>0)
                 {
                     q = q.Where(s => s.Kategorija.KategorijaId == search.KategorijaId);
                 }
@@ -50,11 +50,13 @@ namespace Cookbook.WebAPI.Services
 
             }
             var list = q.ToList();
-            var list1= _mapper.Map<List<Model.Recept>>(list);
+            var list1 = _mapper.Map<List<Model.Recept>>(list);
+       
             foreach(var ocjena in list1)
             {
-                ocjena.Ocjena=_context.Ocjena.Where(b=>b.ReceptId==ocjena.ReceptId)
-                    .Average(x => (decimal?)x.ocjena) ?? new decimal(0);
+                ocjena.Ocjena = _context.Ocjena.Where(b => b.ReceptId == ocjena.ReceptId)
+                    .Average(x => (decimal?)x.ocjena) ?? new decimal(0); 
+           
             }
             return list1;
         }

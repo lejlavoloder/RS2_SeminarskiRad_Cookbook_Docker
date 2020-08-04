@@ -40,7 +40,6 @@
             this.btnPretraga = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.ReceptId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tekst = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatumObjave = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +50,7 @@
             this.SlozenostId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GrupaJelaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Slika = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Recepti.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecept)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -135,7 +135,6 @@
             this.dgvRecept.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecept.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ReceptId,
-            this.Ocjena,
             this.Naziv,
             this.Tekst,
             this.DatumObjave,
@@ -145,7 +144,8 @@
             this.KategorijaId,
             this.SlozenostId,
             this.GrupaJelaId,
-            this.Slika});
+            this.Slika,
+            this.Ocjena});
             this.dgvRecept.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRecept.Location = new System.Drawing.Point(4, 19);
             this.dgvRecept.Margin = new System.Windows.Forms.Padding(4);
@@ -155,6 +155,7 @@
             this.dgvRecept.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRecept.Size = new System.Drawing.Size(904, 322);
             this.dgvRecept.TabIndex = 0;
+            this.dgvRecept.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvRecept_CellMouseDoubleClick);
             // 
             // btnPretraga
             // 
@@ -179,15 +180,6 @@
             this.ReceptId.ReadOnly = true;
             this.ReceptId.Visible = false;
             this.ReceptId.Width = 125;
-            // 
-            // Ocjena
-            // 
-            this.Ocjena.DataPropertyName = "Ocjena";
-            this.Ocjena.HeaderText = "Ocjena";
-            this.Ocjena.MinimumWidth = 6;
-            this.Ocjena.Name = "Ocjena";
-            this.Ocjena.ReadOnly = true;
-            this.Ocjena.Width = 125;
             // 
             // Naziv
             // 
@@ -284,6 +276,15 @@
             this.Slika.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Slika.Width = 150;
             // 
+            // Ocjena
+            // 
+            this.Ocjena.DataPropertyName = "Ocjena";
+            this.Ocjena.HeaderText = "Ocjena";
+            this.Ocjena.MinimumWidth = 6;
+            this.Ocjena.Name = "Ocjena";
+            this.Ocjena.ReadOnly = true;
+            this.Ocjena.Width = 125;
+            // 
             // frmReceptPretraga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -322,7 +323,6 @@
         private System.Windows.Forms.Button btnPretraga;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReceptId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ocjena;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tekst;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumObjave;
@@ -333,5 +333,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SlozenostId;
         private System.Windows.Forms.DataGridViewTextBoxColumn GrupaJelaId;
         private System.Windows.Forms.DataGridViewImageColumn Slika;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ocjena;
     }
 }

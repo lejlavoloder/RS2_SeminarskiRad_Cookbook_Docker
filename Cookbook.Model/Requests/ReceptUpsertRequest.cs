@@ -6,7 +6,7 @@ namespace Cookbook.Model.Requests
 {
  public class ReceptUpsertRequest
     {
-        public int ReceptId { get; set; }
+       // public int ReceptId { get; set; }
         public string Naziv { get; set; }
         public double VrijemePripreme { get; set; }
         public double VrijemeKuhanja { get; set; }

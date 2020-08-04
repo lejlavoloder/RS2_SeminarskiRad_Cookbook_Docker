@@ -21,6 +21,7 @@ namespace Cookbook.WebAPI.Database
             {
 
                 optionsBuilder.UseSqlServer("Server=.;Database=Cookbook;Trusted_Connection=True;");
+                
             }
 
         }

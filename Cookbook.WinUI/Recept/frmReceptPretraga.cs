@@ -136,5 +136,13 @@ namespace Cookbook.WinUI.Recept
                 errorProvider.SetError(cmbGrupaJela, null);
             }
         }
+
+        private void dgvRecept_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            var id = dgvRecept.SelectedRows[0].Cells[0].Value;
+            var frm = new frmDetaljiRecepta(int.Parse(id.ToString()));
+            frm.Show();
+        }
     }
 }

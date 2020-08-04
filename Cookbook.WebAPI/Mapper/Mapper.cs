@@ -54,6 +54,12 @@ namespace Cookbook.WebAPI.Mapper
             CreateMap<Database.ReceptSastojak, Model.ReceptSastojak>();
             CreateMap<Database.ReceptSastojak, ReceptSastojakUpsertRequest>().ReverseMap();
 
+
+
+            CreateMap<Database.Recept, Model.Recept>()
+           .ForMember(s => s.Ocjena, a =>
+            a.MapFrom(b => new Database.CookbookContext().Ocjena.Find(b.ReceptId).ocjena));
+
             CreateMap<Database.ReceptSastojak, Model.ReceptSastojak>()
           .ForMember(s =>s.Recept, a =>
           a.MapFrom(b => new Database.CookbookContext().Recept.Find(b.ReceptId).Naziv))

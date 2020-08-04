@@ -40,14 +40,11 @@
             this.cmbRecept = new System.Windows.Forms.ComboBox();
             this.Recept = new System.Windows.Forms.GroupBox();
             this.dgvReceptSastojak = new System.Windows.Forms.DataGridView();
-            this.ReceptId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MjernaKolicinaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MjernaJedinicaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.ReceptSastojakId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sastojak = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MjernaKolicina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MjernaJedinica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.Recept.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceptSastojak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -161,9 +158,6 @@
             this.dgvReceptSastojak.AllowUserToDeleteRows = false;
             this.dgvReceptSastojak.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReceptSastojak.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ReceptId,
-            this.MjernaKolicinaId,
-            this.MjernaJedinicaId,
             this.ReceptSastojakId,
             this.Sastojak,
             this.MjernaKolicina,
@@ -179,35 +173,9 @@
             this.dgvReceptSastojak.TabIndex = 0;
             this.dgvReceptSastojak.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvReceptSastojak_MouseDoubleClick);
             // 
-            // ReceptId
+            // errorProvider
             // 
-            this.ReceptId.DataPropertyName = "ReceptId";
-            this.ReceptId.HeaderText = "ReceptId";
-            this.ReceptId.MinimumWidth = 6;
-            this.ReceptId.Name = "ReceptId";
-            this.ReceptId.ReadOnly = true;
-            this.ReceptId.Visible = false;
-            this.ReceptId.Width = 125;
-            // 
-            // MjernaKolicinaId
-            // 
-            this.MjernaKolicinaId.DataPropertyName = "MjernaKolicinaId";
-            this.MjernaKolicinaId.HeaderText = "MjernaKolicinaId";
-            this.MjernaKolicinaId.MinimumWidth = 6;
-            this.MjernaKolicinaId.Name = "MjernaKolicinaId";
-            this.MjernaKolicinaId.ReadOnly = true;
-            this.MjernaKolicinaId.Visible = false;
-            this.MjernaKolicinaId.Width = 125;
-            // 
-            // MjernaJedinicaId
-            // 
-            this.MjernaJedinicaId.DataPropertyName = "MjernaJedinicaId";
-            this.MjernaJedinicaId.HeaderText = "MjernaJedinicaId";
-            this.MjernaJedinicaId.MinimumWidth = 6;
-            this.MjernaJedinicaId.Name = "MjernaJedinicaId";
-            this.MjernaJedinicaId.ReadOnly = true;
-            this.MjernaJedinicaId.Visible = false;
-            this.MjernaJedinicaId.Width = 125;
+            this.errorProvider.ContainerControl = this;
             // 
             // ReceptSastojakId
             // 
@@ -245,10 +213,6 @@
             this.MjernaJedinica.Name = "MjernaJedinica";
             this.MjernaJedinica.ReadOnly = true;
             this.MjernaJedinica.Width = 125;
-            // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
             // 
             // frmDodajSastojak
             // 
@@ -289,13 +253,10 @@
         private System.Windows.Forms.ComboBox cmbRecept;
         private System.Windows.Forms.GroupBox Recept;
         private System.Windows.Forms.DataGridView dgvReceptSastojak;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReceptId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MjernaKolicinaId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MjernaJedinicaId;
+        private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReceptSastojakId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sastojak;
         private System.Windows.Forms.DataGridViewTextBoxColumn MjernaKolicina;
         private System.Windows.Forms.DataGridViewTextBoxColumn MjernaJedinica;
-        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

@@ -36,6 +36,7 @@ namespace Cookbook.WinUI.Recept
                 cmbSastojak.SelectedValue = int.Parse(recept.SastojakId.ToString());
                 cmbMjernaKoličina.SelectedValue = int.Parse(recept.MjernaKolicinaId.ToString());
                 cmbMjernaJedinica.SelectedValue = int.Parse(recept.MjernaJedinicaId.ToString());
+           
             }
         }
         private async Task LoadMjernaKolicina()
@@ -83,7 +84,7 @@ namespace Cookbook.WinUI.Recept
                         var idObj2 = cmbSastojak.SelectedValue;
                         if ((int.TryParse(idObj.ToString(), out int MjernaJedinicaId))
                             && (int.TryParse(idObj1.ToString(), out int MjernaKolicinaId))
-                            && (int.TryParse(idObj.ToString(), out int SastojakId)))
+                            && (int.TryParse(idObj2.ToString(), out int SastojakId)))
                         {
                             var recept = await _receptSastojak.GetById<Model.ReceptSastojak>(_id);
                             request.MjernaJedinicaId = MjernaJedinicaId;

@@ -87,9 +87,10 @@ namespace Cookbook.WinUI.Recept
                             };
 
                             var sastojak = await _receptSastojak.Insert<Model.ReceptSastojak>(requestSastojak);
-                            MessageBox.Show("Uspješno sačuvani podaci");
-                            this.Close();
+                          
                         }
+                        MessageBox.Show("Uspješno sačuvani podaci");
+                        this.Close();
                     }
                 }
                 else

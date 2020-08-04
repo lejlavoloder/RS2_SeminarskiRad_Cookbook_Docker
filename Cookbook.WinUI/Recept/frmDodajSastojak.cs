@@ -175,7 +175,6 @@ namespace Cookbook.WinUI.Recept
 
         private void dgvReceptSastojak_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
             var id = dgvReceptSastojak.SelectedRows[0].Cells[0].Value;
             var frm = new frmUrediSastojak (int.Parse(id.ToString()));
             frm.Show();
