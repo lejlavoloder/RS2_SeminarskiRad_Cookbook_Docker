@@ -1,4 +1,5 @@
 ﻿using Cookbook.WinUI.Clanak;
+using Cookbook.WinUI.Dokumenti;
 using Cookbook.WinUI.GrupaJela;
 using Cookbook.WinUI.Kategorija;
 using Cookbook.WinUI.MjernaJedinica;
@@ -207,6 +208,7 @@ namespace Cookbook.WinUI
         private void dodajNovuToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmVrstaClankaDetalji frm = new frmVrstaClankaDetalji();
+            frm.MdiParent = this;
             frm.Show();
         }
 
@@ -220,24 +222,42 @@ namespace Cookbook.WinUI
         private void dodajNoviToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmClanakDetalji frm = new frmClanakDetalji();
+            frm.MdiParent = this;
             frm.Show();
         }
 
         private void dodajNoviToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmDodajRecept frm = new frmDodajRecept();
+            frm.MdiParent = this;
             frm.Show();
         }
 
         private void dodajSastojakToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDodajSastojak frm = new frmDodajSastojak();
+            frm.MdiParent = this;
             frm.Show();
         }
 
         private void pretragaRecepataToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReceptPretraga frm = new frmReceptPretraga();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void pretragaToolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            frmDokument frm = new frmDokument();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDokumentDetalji frm = new frmDokumentDetalji();
+            frm.MdiParent = this;
             frm.Show();
         }
     }

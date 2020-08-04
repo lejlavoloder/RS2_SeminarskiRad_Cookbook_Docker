@@ -139,6 +139,18 @@
     <Compile Include="Clanak\frmClanakDetalji.Designer.cs">
       <DependentUpon>frmClanakDetalji.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dokumenti\frmDokument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dokumenti\frmDokument.Designer.cs">
+      <DependentUpon>frmDokument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dokumenti\frmDokumentDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dokumenti\frmDokumentDetalji.Designer.cs">
+      <DependentUpon>frmDokumentDetalji.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +295,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clanak\frmClanakDetalji.resx">
       <DependentUpon>frmClanakDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dokumenti\frmDokument.resx">
+      <DependentUpon>frmDokument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dokumenti\frmDokumentDetalji.resx">
+      <DependentUpon>frmDokumentDetalji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>

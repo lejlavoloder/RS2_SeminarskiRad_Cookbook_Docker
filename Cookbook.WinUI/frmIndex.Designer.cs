@@ -58,10 +58,14 @@
             this.receptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajNoviToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajSastojakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretragaRecepataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.pretragaRecepataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretragaToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -79,10 +83,12 @@
             this.mjernaKoličinaToolStripMenuItem,
             this.vrstaČlankaToolStripMenuItem,
             this.clanakToolStripMenuItem,
-            this.receptToolStripMenuItem});
+            this.receptToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1015, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1229, 28);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -98,14 +104,14 @@
             // pretragaToolStripMenuItem
             // 
             this.pretragaToolStripMenuItem.Name = "pretragaToolStripMenuItem";
-            this.pretragaToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.pretragaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.pretragaToolStripMenuItem.Text = "Pretraga";
             this.pretragaToolStripMenuItem.Click += new System.EventHandler(this.pretragaToolStripMenuItem_Click);
             // 
             // dToolStripMenuItem
             // 
             this.dToolStripMenuItem.Name = "dToolStripMenuItem";
-            this.dToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.dToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.dToolStripMenuItem.Text = "Novi sastojak";
             this.dToolStripMenuItem.Click += new System.EventHandler(this.dToolStripMenuItem_Click);
             // 
@@ -288,16 +294,37 @@
             // dodajNoviToolStripMenuItem1
             // 
             this.dodajNoviToolStripMenuItem1.Name = "dodajNoviToolStripMenuItem1";
-            this.dodajNoviToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.dodajNoviToolStripMenuItem1.Size = new System.Drawing.Size(210, 26);
             this.dodajNoviToolStripMenuItem1.Text = "Dodaj novi";
             this.dodajNoviToolStripMenuItem1.Click += new System.EventHandler(this.dodajNoviToolStripMenuItem1_Click);
             // 
             // dodajSastojakToolStripMenuItem
             // 
             this.dodajSastojakToolStripMenuItem.Name = "dodajSastojakToolStripMenuItem";
-            this.dodajSastojakToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dodajSastojakToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.dodajSastojakToolStripMenuItem.Text = "Dodaj sastojak";
             this.dodajSastojakToolStripMenuItem.Click += new System.EventHandler(this.dodajSastojakToolStripMenuItem_Click);
+            // 
+            // pretragaRecepataToolStripMenuItem
+            // 
+            this.pretragaRecepataToolStripMenuItem.Name = "pretragaRecepataToolStripMenuItem";
+            this.pretragaRecepataToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
+            this.pretragaRecepataToolStripMenuItem.Text = "Pretraga recepata";
+            this.pretragaRecepataToolStripMenuItem.Click += new System.EventHandler(this.pretragaRecepataToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(14, 24);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pretragaToolStripMenuItem8,
+            this.dodajToolStripMenuItem});
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(96, 24);
+            this.toolStripMenuItem3.Text = "Dokumenti";
             // 
             // statusStrip
             // 
@@ -307,7 +334,7 @@
             this.statusStrip.Location = new System.Drawing.Point(0, 532);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip.Size = new System.Drawing.Size(1015, 26);
+            this.statusStrip.Size = new System.Drawing.Size(1229, 26);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -317,18 +344,25 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(49, 20);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // pretragaRecepataToolStripMenuItem
+            // pretragaToolStripMenuItem8
             // 
-            this.pretragaRecepataToolStripMenuItem.Name = "pretragaRecepataToolStripMenuItem";
-            this.pretragaRecepataToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.pretragaRecepataToolStripMenuItem.Text = "Pretraga recepata";
-            this.pretragaRecepataToolStripMenuItem.Click += new System.EventHandler(this.pretragaRecepataToolStripMenuItem_Click);
+            this.pretragaToolStripMenuItem8.Name = "pretragaToolStripMenuItem8";
+            this.pretragaToolStripMenuItem8.Size = new System.Drawing.Size(224, 26);
+            this.pretragaToolStripMenuItem8.Text = "Pretraga";
+            this.pretragaToolStripMenuItem8.Click += new System.EventHandler(this.pretragaToolStripMenuItem8_Click);
+            // 
+            // dodajToolStripMenuItem
+            // 
+            this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
+            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dodajToolStripMenuItem.Text = "Dodaj";
+            this.dodajToolStripMenuItem.Click += new System.EventHandler(this.dodajToolStripMenuItem_Click);
             // 
             // frmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1015, 558);
+            this.ClientSize = new System.Drawing.Size(1229, 558);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
@@ -381,6 +415,10 @@
         private System.Windows.Forms.ToolStripMenuItem dodajNoviToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem dodajSastojakToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pretragaRecepataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem pretragaToolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem;
     }
 }
 
