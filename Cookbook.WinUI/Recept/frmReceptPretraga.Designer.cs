@@ -40,6 +40,7 @@
             this.btnPretraga = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.ReceptId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tekst = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatumObjave = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -134,6 +135,7 @@
             this.dgvRecept.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecept.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ReceptId,
+            this.Ocjena,
             this.Naziv,
             this.Tekst,
             this.DatumObjave,
@@ -177,6 +179,15 @@
             this.ReceptId.ReadOnly = true;
             this.ReceptId.Visible = false;
             this.ReceptId.Width = 125;
+            // 
+            // Ocjena
+            // 
+            this.Ocjena.DataPropertyName = "Ocjena";
+            this.Ocjena.HeaderText = "Ocjena";
+            this.Ocjena.MinimumWidth = 6;
+            this.Ocjena.Name = "Ocjena";
+            this.Ocjena.ReadOnly = true;
+            this.Ocjena.Width = 125;
             // 
             // Naziv
             // 
@@ -311,6 +322,7 @@
         private System.Windows.Forms.Button btnPretraga;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReceptId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ocjena;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tekst;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumObjave;

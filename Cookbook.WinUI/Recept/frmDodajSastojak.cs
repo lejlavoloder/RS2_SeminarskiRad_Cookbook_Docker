@@ -20,7 +20,7 @@ namespace Cookbook.WinUI.Recept
         private readonly APIService _receptsastojak = new APIService("ReceptSastojak");
         private readonly APIService _recept = new APIService("Recept");
     
-        public frmDodajSastojak(int? ReceptId=null)
+        public frmDodajSastojak()
         {
             InitializeComponent();
         }
@@ -65,9 +65,10 @@ namespace Cookbook.WinUI.Recept
             var result = await _recept.Get<List<Model.Recept>>(null);
             cmbRecept.DisplayMember = "Naziv";
             cmbRecept.ValueMember = "ReceptId";
-            result.Insert(0, new Model.Recept());
-            //cmbSastojak.SelectedItem = null;
-            //cmbSastojak.SelectedText = "--Odaberite--";
+            result.Insert(0, new Model.Recept
+            {
+                Naziv = "Odaberite"
+            });
             cmbRecept.DataSource = result;
         }
         private async Task LoadSastojci()
@@ -75,9 +76,10 @@ namespace Cookbook.WinUI.Recept
             var result = await _sastojak.Get<List<Model.Sastojak>>(null);
             cmbSastojak.DisplayMember = "Naziv";
             cmbSastojak.ValueMember = "SastojakId";
-            result.Insert(0, new Model.Sastojak());
-            //cmbSastojak.SelectedItem = null;
-            //cmbSastojak.SelectedText = "--Odaberite--";
+            result.Insert(0, new Model.Sastojak
+            {
+                Naziv = "Odaberite"
+            });
             cmbSastojak.DataSource = result;
         }
         private  async Task LoadMjernaKolicina()
@@ -85,9 +87,8 @@ namespace Cookbook.WinUI.Recept
             var result = await _mjernakolicina.Get<List<Model.MjernaKolicina>>(null);
             cmbMjernaKoličina.DisplayMember = "Kolicina";
             cmbMjernaKoličina.ValueMember = "MjernaKolicinaId";
-            result.Insert(0, new Model.MjernaKolicina());
-            //cmbMjernaKoličina.SelectedItem = null;
-            //cmbMjernaKoličina.SelectedText = "--Odaberite--";
+            cmbMjernaKoličina.SelectedItem = null;
+            cmbMjernaKoličina.SelectedText = "--Odaberite--";
             cmbMjernaKoličina.DataSource = result;
         }
         private async Task LoadMjernaJedinica()
@@ -95,9 +96,10 @@ namespace Cookbook.WinUI.Recept
             var result = await _mjernajedinica.Get<List<Model.MjernaJedinica>>(null);
             cmbMjernaJedinica.DisplayMember = "Naziv";
             cmbMjernaJedinica.ValueMember = "MjernaJedinicaId";
-            result.Insert(0, new Model.MjernaJedinica());
-            //cmbMjernaJedinica.SelectedItem = null;
-            //cmbMjernaJedinica.SelectedText = "--Odaberite--";
+            result.Insert(0, new Model.MjernaJedinica
+            {
+                Naziv = "Odaberite"
+            });
             cmbMjernaJedinica.DataSource = result;
         }
 
@@ -169,6 +171,14 @@ namespace Cookbook.WinUI.Recept
             {
                 errorProvider.SetError(cmbMjernaKoličina, null);
             }
+        }
+
+        private void dgvReceptSastojak_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+            var id = dgvReceptSastojak.SelectedRows[0].Cells[0].Value;
+            var frm = new frmUrediSastojak (int.Parse(id.ToString()));
+            frm.Show();
         }
     }
 }

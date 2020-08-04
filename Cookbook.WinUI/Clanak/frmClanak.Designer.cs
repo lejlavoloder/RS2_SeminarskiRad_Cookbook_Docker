@@ -30,14 +30,14 @@
         {
             this.Clanak = new System.Windows.Forms.GroupBox();
             this.dgvClanak = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnDodaj = new System.Windows.Forms.Button();
-            this.cmbVrstaClanka = new System.Windows.Forms.ComboBox();
             this.ClanakId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tekst = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatumObjave = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VrstaClankaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnDodaj = new System.Windows.Forms.Button();
+            this.cmbVrstaClanka = new System.Windows.Forms.ComboBox();
             this.Clanak.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClanak)).BeginInit();
             this.SuspendLayout();
@@ -74,38 +74,7 @@
             this.dgvClanak.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClanak.Size = new System.Drawing.Size(633, 260);
             this.dgvClanak.TabIndex = 0;
-            this.dgvClanak.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvClanak_MouseDoubleClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(102, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 17);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Vrsta članka";
-            // 
-            // btnDodaj
-            // 
-            this.btnDodaj.Location = new System.Drawing.Point(643, 409);
-            this.btnDodaj.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(100, 28);
-            this.btnDodaj.TabIndex = 11;
-            this.btnDodaj.Text = "Dodaj novi";
-            this.btnDodaj.UseVisualStyleBackColor = true;
-            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
-            // 
-            // cmbVrstaClanka
-            // 
-            this.cmbVrstaClanka.FormattingEnabled = true;
-            this.cmbVrstaClanka.Location = new System.Drawing.Point(190, 18);
-            this.cmbVrstaClanka.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbVrstaClanka.Name = "cmbVrstaClanka";
-            this.cmbVrstaClanka.Size = new System.Drawing.Size(281, 24);
-            this.cmbVrstaClanka.TabIndex = 10;
-            this.cmbVrstaClanka.SelectedIndexChanged += new System.EventHandler(this.cmbVrstaClanka_SelectedIndexChanged);
+            this.dgvClanak.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvClanak_MouseDoubleClick_1);
             // 
             // ClanakId
             // 
@@ -153,6 +122,37 @@
             this.VrstaClankaId.ReadOnly = true;
             this.VrstaClankaId.Visible = false;
             this.VrstaClankaId.Width = 125;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(102, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 17);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Vrsta članka";
+            // 
+            // btnDodaj
+            // 
+            this.btnDodaj.Location = new System.Drawing.Point(643, 409);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(100, 28);
+            this.btnDodaj.TabIndex = 11;
+            this.btnDodaj.Text = "Dodaj novi";
+            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
+            // 
+            // cmbVrstaClanka
+            // 
+            this.cmbVrstaClanka.FormattingEnabled = true;
+            this.cmbVrstaClanka.Location = new System.Drawing.Point(190, 18);
+            this.cmbVrstaClanka.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbVrstaClanka.Name = "cmbVrstaClanka";
+            this.cmbVrstaClanka.Size = new System.Drawing.Size(281, 24);
+            this.cmbVrstaClanka.TabIndex = 10;
+            this.cmbVrstaClanka.SelectedIndexChanged += new System.EventHandler(this.cmbVrstaClanka_SelectedIndexChanged);
             // 
             // frmClanak
             // 

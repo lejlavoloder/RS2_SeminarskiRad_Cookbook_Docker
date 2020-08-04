@@ -57,7 +57,7 @@ namespace Cookbook.WinUI.Clanak
             frm.Show();
         }
 
-        private void dgvClanak_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void dgvClanak_MouseDoubleClick_1(object sender, MouseEventArgs e)
         {
             var id = dgvClanak.SelectedRows[0].Cells[0].Value;
             var frm = new frmClanakDetalji(int.Parse(id.ToString()));

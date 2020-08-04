@@ -132,11 +132,9 @@ namespace Cookbook.WinUI.Clanak
 
             }
 
-        private void cmbVrstaClanka_Validating(object sender, CancelEventArgs e)
-            
-        {
-            int.TryParse(cmbVrstaClanka.ToString(), out int n);
-            if (cmbVrstaClanka.SelectedValue == null || n==0)
+        private void cmbVrstaClanka_Validating(object sender, CancelEventArgs e)      
+        { 
+            if (cmbVrstaClanka.SelectedValue == null || (int)cmbVrstaClanka.SelectedValue==0)
             {
                 errorProvider.SetError(cmbVrstaClanka, Properties.Resources.Validation_RequiredField);
                 e.Cancel = true;
@@ -182,8 +180,6 @@ namespace Cookbook.WinUI.Clanak
                 errorProvider.SetError(richTextBtxtTekstox1, null);
             }
         }
-
-        
     }
     }
     

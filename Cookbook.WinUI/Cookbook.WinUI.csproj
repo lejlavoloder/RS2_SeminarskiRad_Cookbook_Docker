@@ -236,6 +236,12 @@
     <Compile Include="Recept\frmDodajRecept.Designer.cs">
       <DependentUpon>frmDodajRecept.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recept\frmUrediSastojak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recept\frmUrediSastojak.Designer.cs">
+      <DependentUpon>frmUrediSastojak.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sastojak\frmSastojak.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recept\frmDodajRecept.resx">
       <DependentUpon>frmDodajRecept.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recept\frmUrediSastojak.resx">
+      <DependentUpon>frmUrediSastojak.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sastojak\frmSastojak.resx">
       <DependentUpon>frmSastojak.cs</DependentUpon>

@@ -23,7 +23,8 @@ namespace Cookbook.WebAPI.Services
 
         public KorisnikLogin Authenticiraj(string username, string pass)
         {
-            var user = _context.Korisnik.Include("KorisnikUloga.Uloga").FirstOrDefault(x => x.KorisnickoIme == username);
+            var user = _context.Korisnik.Include("KorisnikUloga.Uloga")
+                .FirstOrDefault(x => x.KorisnickoIme == username);
 
             if (user != null)
             {

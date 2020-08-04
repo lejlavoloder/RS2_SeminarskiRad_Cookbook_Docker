@@ -22,5 +22,6 @@ namespace Cookbook.Model
         public DateTime DatumObjave { get; set; }
         public byte[] Slika { get; set; }
         public bool Odobren { get; set; }
+        public decimal Ocjena { get; set; }
     }
 }

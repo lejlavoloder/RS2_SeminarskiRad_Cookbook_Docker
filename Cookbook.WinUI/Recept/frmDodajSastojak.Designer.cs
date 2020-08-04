@@ -177,6 +177,7 @@
             this.dgvReceptSastojak.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReceptSastojak.Size = new System.Drawing.Size(815, 283);
             this.dgvReceptSastojak.TabIndex = 0;
+            this.dgvReceptSastojak.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvReceptSastojak_MouseDoubleClick);
             // 
             // ReceptId
             // 

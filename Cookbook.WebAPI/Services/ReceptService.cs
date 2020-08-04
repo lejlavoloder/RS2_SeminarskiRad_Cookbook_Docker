@@ -50,7 +50,13 @@ namespace Cookbook.WebAPI.Services
 
             }
             var list = q.ToList();
-            return _mapper.Map<List<Model.Recept>>(list);
+            var list1= _mapper.Map<List<Model.Recept>>(list);
+            foreach(var ocjena in list1)
+            {
+                ocjena.Ocjena=_context.Ocjena.Where(b=>b.ReceptId==ocjena.ReceptId)
+                    .Average(x => (decimal?)x.ocjena) ?? new decimal(0);
+            }
+            return list1;
         }
 
     }
