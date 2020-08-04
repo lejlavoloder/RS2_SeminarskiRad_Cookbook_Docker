@@ -79,6 +79,7 @@ namespace Cookbook.WebAPI
             services.AddScoped<ICRUDService<Model.Clanak, ClanakSearchRequest, ClanakInsertRequest, ClanakInsertRequest>, ClanakService>();
             services.AddScoped<ICRUDService<Model.Recept, ReceptSearchRequest, ReceptUpsertRequest, ReceptUpsertRequest>, ReceptService>();
             services.AddScoped<ICRUDService<Model.ReceptSastojak, ReceptSastojakSearchRequest, ReceptSastojakUpsertRequest, ReceptSastojakUpsertRequest>, ReceptSastojakService>();
+            services.AddScoped<IDokumentService, DokumentService>();
 
             var connection = @"data source =.; initial catalog = Cookbook; integrated security = True;";
             services.AddDbContext<CookbookContext>(options => options.UseSqlServer(connection));

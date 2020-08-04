@@ -44,6 +44,7 @@ namespace Cookbook.WebAPI.Database
         public virtual DbSet<Sastojak>Sastojak{get;set;}
         public virtual DbSet<Slozenost>Slozenost{get;set;}
        public virtual DbSet<Favoriti> Favoriti { get; set; }
+        public virtual DbSet<Dokument> Dokumenti { get; set; }
 
     }
 }
