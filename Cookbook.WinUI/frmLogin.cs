@@ -28,7 +28,8 @@ namespace Cookbook.WinUI
             try
             {
                 await _service.Get<dynamic>(null);
-                List<Model.Posjetilac> lista = await _servicelogin.Get<List<Model.Posjetilac>>(new PosjetilacSearchRequest
+                List<Model.Posjetilac> lista = await _servicelogin.
+                    Get<List<Model.Posjetilac>>(new PosjetilacSearchRequest
                 { KorisnickoIme = username });
                 if (lista.Count > 0)
                 {

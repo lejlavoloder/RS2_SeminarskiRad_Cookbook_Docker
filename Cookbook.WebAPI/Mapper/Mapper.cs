@@ -72,6 +72,22 @@ namespace Cookbook.WebAPI.Mapper
           a.MapFrom(b=>new Database.CookbookContext().MjernaJedinica.Find(b.MjernaJedinicaId).Naziv))
           .ForMember(s=>s.MjernaKolicina, a=>
           a.MapFrom(b=>new Database.CookbookContext().MjernaKolicina.Find(b.MjernaKolicinaId).Kolicina));
+
+            CreateMap<Database.Posjetilac, Model.Posjetilac>()
+                .ForMember(s => s.KorisnickoIme, a =>
+                  a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).KorisnickoIme))
+                .ForMember(s => s.Telefon, a =>
+                     a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Telefon))
+               .ForMember(s => s.Email, a =>
+                  a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Email))
+               .ForMember(s => s.Ime, a =>
+                a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Ime))
+                .ForMember(s => s.Prezime, a =>
+                a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Prezime))
+                  .ForMember(s => s.KorisnikId, a =>
+                     a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).KorisnikId));
+
+
         }
     }
 }

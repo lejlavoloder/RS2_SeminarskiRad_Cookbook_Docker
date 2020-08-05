@@ -61,17 +61,19 @@ namespace Cookbook.WebAPI.Services
         {
 
             var query = _context.Korisnik.AsQueryable();
-            if (!string.IsNullOrWhiteSpace(search?.Ime))
-            {
-                query = query.Where(x => x.Ime.ToLower().StartsWith(search.Ime) || x.Ime.ToUpper().StartsWith(search.Ime));
+            var n = _context.Posjetilac.AsQueryable();
+            
+                if (!string.IsNullOrWhiteSpace(search?.Ime))
+                {
+                    query = query.Where(x => x.Ime.ToLower().StartsWith(search.Ime) || x.Ime.ToUpper().StartsWith(search.Ime));
 
-            }
-            if (!string.IsNullOrWhiteSpace(search?.Prezime))
-            {
-                query = query.Where(x => x.Prezime.ToLower().StartsWith(search.Prezime) || x.Prezime.ToUpper().StartsWith(search.Prezime));
+                }
+                if (!string.IsNullOrWhiteSpace(search?.Prezime))
+                {
+                    query = query.Where(x => x.Prezime.ToLower().StartsWith(search.Prezime) || x.Prezime.ToUpper().StartsWith(search.Prezime));
 
-            }
-
+                }
+            
             var list = query.ToList();
             return _mapper.Map<List<Model.Korisnik>>(list);
         }
@@ -107,18 +109,19 @@ namespace Cookbook.WebAPI.Services
                 _context.KorisnikUloga.Add(korisniciUloge);
             }
 
-
+          _context.SaveChanges();
             // -------- dodano posebno 
             var korisnik = new Model.Korisnik()
             {
-                Ime = request.Ime,
-                Prezime = request.Prezime,
-                KorisnickoIme = request.KorisnickoIme,
-                Email = request.Email,
-                Telefon = request.Telefon
+                Ime = entity.Ime,
+                Prezime = entity.Prezime,
+                KorisnickoIme = entity.KorisnickoIme,
+                Email = entity.Email,
+                Telefon = entity.Telefon,
+                KorisnikId=entity.KorisnikId
             };
             //-----
-            _context.SaveChanges();
+         
 
             // return _mapper.Map<Model.Korisnici>(entity);
             return korisnik;

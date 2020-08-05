@@ -4,6 +4,7 @@ using Cookbook.WinUI.GrupaJela;
 using Cookbook.WinUI.Kategorija;
 using Cookbook.WinUI.MjernaJedinica;
 using Cookbook.WinUI.MjernaKolicina;
+using Cookbook.WinUI.Posjetitelj;
 using Cookbook.WinUI.Recept;
 using Cookbook.WinUI.Sastojak;
 using Cookbook.WinUI.Slozenost;
@@ -257,6 +258,20 @@ namespace Cookbook.WinUI
         private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDokumentDetalji frm = new frmDokumentDetalji();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void dodajNovogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPosjetiteljDetalji frm = new frmPosjetiteljDetalji();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void pretragaToolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            frmPosjetitelj frm = new frmPosjetitelj();
             frm.MdiParent = this;
             frm.Show();
         }

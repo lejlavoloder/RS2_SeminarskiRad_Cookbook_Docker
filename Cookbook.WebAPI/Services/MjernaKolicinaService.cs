@@ -21,6 +21,7 @@ namespace Cookbook.WebAPI.Services
             {
                 query = query.Where(n =>n.Kolicina==double.Parse(search.Kolicina));
             }
+            query = query.OrderBy(n=>n.Kolicina);
             var list = query.ToList();
             return _mapper.Map<List<Model.MjernaKolicina>>(list);
         }

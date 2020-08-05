@@ -27,13 +27,13 @@ namespace Cookbook.WebAPI.Controllers
         }
 
         [HttpPost]
-        public Model.Korisnik Insert(PosjetilacUpsertRequest request)
+        public Model.Posjetilac Insert(PosjetilacUpsertRequest request)
         {
             return _service.Insert(request);
         }
 
         [HttpPut("{id}")]
-        public Model.Korisnik Update(int id, [FromBody]KorisnikInsertRequest request)
+        public Model.Posjetilac Update(int id, [FromBody]PosjetilacUpsertRequest request)
         {
             return _service.Update(id, request);
         }

@@ -12,9 +12,9 @@ namespace Cookbook.WebAPI.Services
 
         Model.Posjetilac GetById(int id);
 
-        Model.Korisnik Insert(PosjetilacUpsertRequest request);
+        Model.Posjetilac Insert(PosjetilacUpsertRequest request);
 
-        Model.Korisnik Update(int id, KorisnikInsertRequest request);
+        Model.Posjetilac Update(int id, PosjetilacUpsertRequest request);
 
         Model.Korisnik AuthenticirajKupca(string username, string pass);
 
