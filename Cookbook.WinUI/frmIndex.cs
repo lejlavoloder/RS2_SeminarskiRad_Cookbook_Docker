@@ -1,5 +1,6 @@
 ﻿using Cookbook.WinUI.Clanak;
 using Cookbook.WinUI.Dokumenti;
+using Cookbook.WinUI.Favoriti;
 using Cookbook.WinUI.GrupaJela;
 using Cookbook.WinUI.Kategorija;
 using Cookbook.WinUI.MjernaJedinica;
@@ -274,6 +275,26 @@ namespace Cookbook.WinUI
             frmPosjetitelj frm = new frmPosjetitelj();
             frm.MdiParent = this;
             frm.Show();
+        }
+
+        private void pretragaToolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            frmFavoriti frm = new frmFavoriti();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void dodajNoviToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmFavoritiDetalji frm = new frmFavoritiDetalji();
+            frm.MdiParent = this;
+            frm.Show();
+
+        }
+
+        private void odjaviSeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

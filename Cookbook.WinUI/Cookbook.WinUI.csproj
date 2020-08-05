@@ -151,6 +151,18 @@
     <Compile Include="Dokumenti\frmDokumentDetalji.Designer.cs">
       <DependentUpon>frmDokumentDetalji.cs</DependentUpon>
     </Compile>
+    <Compile Include="Favoriti\frmFavoriti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Favoriti\frmFavoriti.Designer.cs">
+      <DependentUpon>frmFavoriti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Favoriti\frmFavoritiDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Favoriti\frmFavoritiDetalji.Designer.cs">
+      <DependentUpon>frmFavoritiDetalji.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +325,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dokumenti\frmDokumentDetalji.resx">
       <DependentUpon>frmDokumentDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Favoriti\frmFavoriti.resx">
+      <DependentUpon>frmFavoriti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Favoriti\frmFavoritiDetalji.resx">
+      <DependentUpon>frmFavoritiDetalji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
