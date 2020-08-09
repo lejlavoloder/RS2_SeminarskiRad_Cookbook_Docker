@@ -13,15 +13,23 @@ namespace Cookbook.MobileApp.Views
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class MainPage : MasterDetailPage
-    {
+        
+    { public APIService aPIServiceKupci = new APIService("Posjetilac");
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+
         public MainPage()
         {
             InitializeComponent();
 
             MasterBehavior = MasterBehavior.Popover;
+        }
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+        public MainPage(MenuItemType type)
+        {
+            InitializeComponent();
+
+            MasterBehavior = MasterBehavior.Popover;
+            _ = NavigateFromMenu((int)type);
         }
 
         public async Task NavigateFromMenu(int id)

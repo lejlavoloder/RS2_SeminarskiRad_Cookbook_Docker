@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-
+using Cookbook.Model;
 namespace Cookbook.MobileApp.ViewModels
 {
   public  class LoginViewModel:BaseViewModel
     {
         private readonly APIService _service = new APIService("Korisnik");
+       private readonly APIService _sevicePosjetitelji=new APIService("Posjetilac");
         public LoginViewModel()
         {
             LoginCommand = new Command(async () => await Login());
@@ -37,11 +38,32 @@ namespace Cookbook.MobileApp.ViewModels
             try
             {
                 await _service.Get<dynamic>(null);
-                Application.Current.MainPage = new MainPage();
+                Posjetilac posjetitelj = null;
+                List<Posjetilac> list = await _sevicePosjetitelji.Get<List<Posjetilac>>(null);
+                foreach(var k in list)
+                {
+                    if (k.KorisnickoIme == Username)
+                    {
+                        posjetitelj = k;
+                        break;
+                    }
+                }
+                if (posjetitelj != null)
+                {
+                    Application.Current.MainPage = new MainPage();
+                }
+                else
+                {
+                    Application.Current.MainPage = new MainPageAdmin();
+                }
             }
             catch(Exception ex)
             {
 
+            }
+            finally
+            {
+                IsBusy = false;
             }
         }
     }

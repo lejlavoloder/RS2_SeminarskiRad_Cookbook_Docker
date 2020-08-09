@@ -19,7 +19,7 @@ namespace Cookbook.MobileApp
       private  string _apiUrl= "http://localhost:53404/api";
 #endif
 #if RELEASE 
-        private  string _apiUrl= "http://mywebsite.azure.com/api/";
+        private  string _apiUrl= "http://mywebsite.com/api/";
 #endif
         public APIService(string route)
         {
@@ -101,6 +101,29 @@ namespace Cookbook.MobileApp
                 await Application.Current.MainPage.DisplayAlert("Greška", stringBuilder.ToString(), "OK");
                 return default(T);
             }
+        }
+        public async Task<T> Delete<T>(int id)
+        {
+            try
+            {
+                var url = $"{_apiUrl}/{_route}/{id}";
+
+                return await url.WithBasicAuth(Username, Password).DeleteAsync().ReceiveJson<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+
+                await Application.Current.MainPage.DisplayAlert("Greska", stringBuilder.ToString(), "OK");
+                return default(T);
+            }
+
         }
 
     }
