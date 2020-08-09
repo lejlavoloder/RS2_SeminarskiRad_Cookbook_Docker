@@ -3,15 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                xmlns:vm="clr-namespace:Cookbook.MobileApp.ViewModels"
+             xmlns:vm="clr-namespace:Cookbook.MobileApp.ViewModels"
              mc:Ignorable="d"
-             x:Class="Cookbook.MobileApp.Views.PrikazSlozenosti">
+             x:Class="Cookbook.MobileApp.Views.PrikazSastojaka">
     <ContentPage.BindingContext>
-        <vm:SlozenostViewModel>
-        </vm:SlozenostViewModel>
+        <vm:SastojakViewModel>
+        </vm:SastojakViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding SlozenostList}" >
+        <ListView ItemsSource="{Binding SastojakList}" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -25,16 +25,10 @@
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Opis: "  FontSize="12" ></Label>
-                                <Label Text="{Binding Opis}" 
-                                           LineBreakMode="NoWrap"
-                                           Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="13" />
 
                                 <Button Clicked="Button_Clicked" Text="Uredi" CornerRadius="7" HeightRequest="30" WidthRequest="60" Padding="3"
                                         TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+
                             </StackLayout>
 
                         </StackLayout>

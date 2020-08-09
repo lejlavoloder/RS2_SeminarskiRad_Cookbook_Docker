@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Cookbook.MobileApp.ViewModels
 {
-    public class UrediSlozenostViewModel
+   public class UrediVrstuClankaViewModel
     {
-        public Slozenost Slozenost { get; set; }
+        public VrstaClanka VrstaClanka { get; set; }
     }
 }

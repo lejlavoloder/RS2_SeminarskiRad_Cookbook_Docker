@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Cookbook.MobileApp.ViewModels
 {
-    public class UrediSlozenostViewModel
+   public class UrediSastojakViewModel
     {
-        public Slozenost Slozenost { get; set; }
+        public Sastojak Sastojak { get; set; }
     }
 }

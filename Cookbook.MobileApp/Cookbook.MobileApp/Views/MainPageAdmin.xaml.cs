@@ -41,58 +41,23 @@ namespace Cookbook.MobileApp.Views
                     case (int)MenuItemTypeAdmin.MjernaJedinica:
                         MenuPagesAdmin.Add(id, new NavigationPage(new MjernaJedinicaPage()));
                         break;
+                    case (int)MenuItemTypeAdmin.MjernaKolicina:
+                        MenuPagesAdmin.Add(id, new NavigationPage(new MjernaKolicinaPage()));
+                        break;
                     case (int)MenuItemTypeAdmin.GrupaJela:
                         MenuPagesAdmin.Add(id, new NavigationPage(new GrupaJelaPage()));
                         break;
-                        /*switch (id)
-                        {*/
-                        //case (int)MenuItemTypeAdmin.Browse:
-                        //    MenuPagesAdmin.Add(id, new NavigationPage(new ItemsPage()));
-                        //    break;
-                        //case (int)MenuItemTypeAdmin.About:
-                        //    MenuPagesAdmin.Add(id, new NavigationPage(new AboutPage()));
-                        //    break;                  
-                        /* case (int)MenuItemTypeAdmin.Zanr:
-                             MenuPagesAdmin.Add(id, new NavigationPage(new ZanrPage()));
-                             break;
-                         case (int)MenuItemTypeAdmin.Predstave:
-                             MenuPagesAdmin.Add(id, new NavigationPage(new PredstavaPage()));
-                             break;
-                         case (int)MenuItemTypeAdmin.Prikazivanja:
-                             MenuPagesAdmin.Add(id, new NavigationPage(new PrikazivanjePageAdmin()));
-                             break;
-                         case (int)MenuItemTypeAdmin.Sponzori:
-                             MenuPagesAdmin.Add(id, new NavigationPage(new SponzorPage()));
-                             break;
-                         case (int)MenuItemTypeAdmin.Uplate:
-                             MenuPagesAdmin.Add(id, new NavigationPage(new UplataPage()));
-                             break;
-                         case (int)MenuItemTypeAdmin.Sale:
-                             MenuPagesAdmin.Add(id, new NavigationPage(new SalaPageAdmin()));
-                             break;
-                         case (int)MenuItemTypeAdmin.Glumci:
-                             MenuPagesAdmin.Add(id, new NavigationPage(new GlumacPage()));
-                             break;
-                         case (int)MenuItemTypeAdmin.Gradovi:
-                             MenuPagesAdmin.Add(id, new NavigationPage(new GradPage()));
-                             break;
-                         case (int)MenuItemTypeAdmin.Komentari:
-                             MenuPagesAdmin.Add(id, new NavigationPage(new PrikazKomentaraPage()));
-                             break;
-                         case (int)MenuItemTypeAdmin.Rezervacije:
-                             MenuPagesAdmin.Add(id, new NavigationPage(new PrikazRezervacijaPage()));
-                             break;
-                         case (int)MenuItemTypeAdmin.Novosti:
-                             MenuPagesAdmin.Add(id, new NavigationPage(new NovostiPageAdmin()));
-                             break;
-                         case (int)MenuItemTypeAdmin.NagradnaIgra:
-                             MenuPagesAdmin.Add(id, new NavigationPage(new NagradnaIgraPageAdmin()));
-                             break;
-                         case (int)MenuItemTypeAdmin.Odjava:
+                    case (int)MenuItemTypeAdmin.Sastojak:
+                        MenuPagesAdmin.Add(id, new NavigationPage(new SastojakPage()));
+                        break;
+                    case (int)MenuItemTypeAdmin.VrstaClanka:
+                        MenuPagesAdmin.Add(id, new NavigationPage(new VrstaClankaPage()));
+                        break;
+                    case (int)MenuItemTypeAdmin.Odjava:
                              MenuPagesAdmin.Add(id, new NavigationPage(new LoginPage()));
                              break;
                      }
-                 }*/
+                 
                 }
                 var newPage = MenuPagesAdmin[id];
 
@@ -108,4 +73,3 @@ namespace Cookbook.MobileApp.Views
             }
         }
     }
-}

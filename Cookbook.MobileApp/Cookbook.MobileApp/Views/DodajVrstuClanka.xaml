@@ -5,18 +5,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModel="clr-namespace:Cookbook.MobileApp.ViewModels"
              mc:Ignorable="d"
-             x:Class="Cookbook.MobileApp.Views.DodajSlozenost">
+             x:Class="Cookbook.MobileApp.Views.DodajVrstuClanka">
     <ContentPage.BindingContext>
-        <viewModel:SlozenostViewModel>
-        </viewModel:SlozenostViewModel>
+        <viewModel:VrstaClankaViewModel>
+        </viewModel:VrstaClankaViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand">
                 <Label Text="Naziv"/>
                 <Entry x:Name="Naziv" Text="{Binding Naziv}"/>
-                <Label Text="Opis"/>
-                <Entry x:Name="Opis" Text="{Binding Opis}"/>
                 <Button Clicked="Button_Clicked"  HorizontalOptions="FillAndExpand" Text="Sačuvaj" BackgroundColor="LightGray"/>
                 <Label IsVisible="{Binding IsBusy}" Text="..."/>
             </StackLayout>

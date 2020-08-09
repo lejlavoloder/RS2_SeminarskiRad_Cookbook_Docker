@@ -21,13 +21,13 @@ namespace Cookbook.MobileApp.Views
 
             menuItems = new List<HomeMenuItemAdmin>
             {
-                //new HomeMenuItemAdmin {Id = MenuItemTypeAdmin.Browse, Title="Browse" },
-                //new HomeMenuItemAdmin {Id = MenuItemTypeAdmin.About, Title="About" },
-
                 new HomeMenuItemAdmin { Id = MenuItemTypeAdmin.Kategorija, Title = "Kategorija" },
                 new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.Slozenost, Title="Slozenost"},
                 new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.MjernaJedinica, Title="Mjerna jedinica"},
-                 new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.GrupaJela, Title="Grupa jela"},
+                new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.MjernaKolicina, Title="Mjerna količina"},
+                new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.GrupaJela, Title="Grupa jela"},
+                new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.Sastojak, Title="Sastojak"},
+                new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.VrstaClanka, Title="Vrsta članka"},
             };
             ListViewMenu.ItemsSource = menuItems;
 

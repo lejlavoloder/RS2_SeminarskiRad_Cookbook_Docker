@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:viewModels="clr-namespace:Cookbook.MobileApp.ViewModels"
+               xmlns:viewModels="clr-namespace:Cookbook.MobileApp.ViewModels"
              mc:Ignorable="d"
              x:Class="Cookbook.MobileApp.Views.SlozenostPage"
              Title="Slozenost">
@@ -13,15 +13,14 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
-        <StackLayout HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand">
-                <Button Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" Text="Dodaj" BackgroundColor="LightGray"></Button>
+            <StackLayout  HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand">
+                <Button Clicked="Button_Clicked"  HorizontalOptions="FillAndExpand" Text="Dodaj" BackgroundColor="LightGray"></Button>
                 <Label IsVisible="{Binding IsBusy}" Text="..."></Label>
                 <StackLayout>
-                    <StackLayout>
-                        <Button Clicked="Button_Clicked_1" Text="Prikaz" BackgroundColor="LightGray"></Button>
-                    </StackLayout>
+                    <Button Clicked="Button_Clicked_1" BackgroundColor="LightGray" Text="Prikaz" ></Button>
+
                 </StackLayout>
-        </StackLayout>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

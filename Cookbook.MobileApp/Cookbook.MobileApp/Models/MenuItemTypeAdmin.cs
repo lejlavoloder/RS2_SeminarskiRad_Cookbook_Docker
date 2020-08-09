@@ -11,6 +11,9 @@ namespace Cookbook.MobileApp.Models
         GrupaJela,
         MjernaJedinica,
         MjernaKolicina,
+        Sastojak,
+        Recept,
+        VrstaClanka,
         Odjava
     }
     public class HomeMenuItemAdmin

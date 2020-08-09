@@ -12,28 +12,28 @@ using Xamarin.Forms.Xaml;
 namespace Cookbook.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PrikazSlozenosti : ContentPage
+    public partial class PrikazSastojaka : ContentPage
     {
-        public APIService _service = new APIService("Slozenost");
+        public APIService _service = new APIService("Sastojak");
 
-        SlozenostViewModel vm = null;
-        public PrikazSlozenosti()
+        SastojakViewModel vm = null;
+        public PrikazSastojaka()
         {
             InitializeComponent();
-            BindingContext = vm = new SlozenostViewModel();
+            BindingContext = vm = new SastojakViewModel();
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await vm.PrikazSlozenosti();
+            await vm.PrikazSastojaka();
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var btn = sender as Button;
-            var item = btn.BindingContext as Slozenost;
+            var item = btn.BindingContext as Sastojak;
 
-            await Navigation.PushAsync(new UrediSlozenost(item));
+            await Navigation.PushAsync(new UrediSastojakPage(item));
 
         }
     }

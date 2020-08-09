@@ -11,27 +11,28 @@ using Xamarin.Forms.Xaml;
 namespace Cookbook.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MjernaJedinicaPage : ContentPage
+    public partial class SastojakPage : ContentPage
     {
-        MjernaJedinicaViewModel vm = null;
-        public MjernaJedinicaPage()
+        SastojakViewModel model = null;
+        public SastojakPage()
         {
             InitializeComponent();
-            BindingContext = vm = new MjernaJedinicaViewModel();
+            BindingContext = model = new SastojakViewModel();
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            //  await vm.Init();
         }
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new DodajMjernuJedinicu());
+            Navigation.PushAsync(new DodajSastojak());
 
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new PrikazMjerneJedinice());
+            Navigation.PushAsync(new PrikazSastojaka());
 
         }
     }

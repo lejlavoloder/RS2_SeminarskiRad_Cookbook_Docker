@@ -1,4 +1,5 @@
 ﻿using Cookbook.Model;
+using Cookbook.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using Cookbook.Model.Requests;
+
 
 namespace Cookbook.MobileApp.ViewModels
 {
@@ -14,22 +15,23 @@ namespace Cookbook.MobileApp.ViewModels
     {
         public SlozenostViewModel()
         {
+
             DodajSlozenostCommand = new Command(async () => await DodajSlozenost());
             PrikazSlozenostiCommand = new Command(async () => await PrikazSlozenosti());
         }
-    public ICommand DodajSlozenostCommand { get; set; }
-    public ICommand PrikazSlozenostiCommand { get; set; }
-    public ICommand InitCommand { get; set; }
-    private APIService _service = new APIService("Slozenost");
-    public ObservableCollection<Slozenost> SlozenostList { get; set; } = new ObservableCollection<Slozenost>();
-    public Slozenost Slozenost { get; set; }
+        public ICommand DodajSlozenostCommand { get; set; }
+        public ICommand PrikazSlozenostiCommand { get; set; }
+        public ICommand InitCommand { get; set; }
+
+        private APIService _service = new APIService("Slozenost");
+        public ObservableCollection<Slozenost> SlozenostList { get; set; } = new ObservableCollection<Slozenost>();
         public async Task DodajSlozenost()
         {
             IsBusy = true;
             await _service.Insert<Slozenost>(new SlozenostUpsertRequest()
             {
                 Naziv = _naziv,
-                Opis=_opis
+                Opis = _opis
             });
             await Application.Current.MainPage.DisplayAlert(" ", "Uspješno sačuvani podaci", "OK");
         }
@@ -44,18 +46,15 @@ namespace Cookbook.MobileApp.ViewModels
         }
         string _naziv = string.Empty;
         string _opis = string.Empty;
-        public string Naziv
-        {
-            get { return _naziv; }
-            set { SetProperty(ref _naziv, value); }
-        }
-
         public string Opis
         {
             get { return _opis; }
             set { SetProperty(ref _opis, value); }
         }
-
+        public string Naziv
+        {
+            get { return _naziv; }
+            set { SetProperty(ref _naziv, value); }
+        }
     }
-
 }

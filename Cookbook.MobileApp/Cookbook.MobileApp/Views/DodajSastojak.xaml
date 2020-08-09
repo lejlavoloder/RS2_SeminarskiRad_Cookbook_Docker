@@ -3,22 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:viewModel="clr-namespace:Cookbook.MobileApp.ViewModels"
+              xmlns:vm="clr-namespace:Cookbook.MobileApp.ViewModels"
              mc:Ignorable="d"
-             x:Class="Cookbook.MobileApp.Views.DodajSlozenost">
+             x:Class="Cookbook.MobileApp.Views.DodajSastojak">
     <ContentPage.BindingContext>
-        <viewModel:SlozenostViewModel>
-        </viewModel:SlozenostViewModel>
+        <vm:SastojakViewModel></vm:SastojakViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand">
-                <Label Text="Naziv"/>
-                <Entry x:Name="Naziv" Text="{Binding Naziv}"/>
-                <Label Text="Opis"/>
-                <Entry x:Name="Opis" Text="{Binding Opis}"/>
-                <Button Clicked="Button_Clicked"  HorizontalOptions="FillAndExpand" Text="Sačuvaj" BackgroundColor="LightGray"/>
-                <Label IsVisible="{Binding IsBusy}" Text="..."/>
+                <Label Text="Naziv"></Label>
+                <Entry x:Name="Naziv" Text="{Binding Naziv}"></Entry>
+
+                <Button Clicked="Button_Clicked"  HorizontalOptions="FillAndExpand" Text="Sačuvaj" BackgroundColor="LightGray"></Button>
+                <Label IsVisible="{Binding IsBusy}" Text="..."></Label>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

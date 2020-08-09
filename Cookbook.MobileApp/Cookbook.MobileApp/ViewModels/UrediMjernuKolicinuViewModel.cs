@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Cookbook.MobileApp.ViewModels
 {
-    public class UrediSlozenostViewModel
+    public class UrediMjernuKolicinuViewModel
     {
-        public Slozenost Slozenost { get; set; }
+        public MjernaKolicina MjernaKolicina { get; set; }
     }
 }

@@ -14,15 +14,15 @@ using Xamarin.Forms.Xaml;
 namespace Cookbook.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class UrediSlozenostPage : ContentPage
+    public partial class UrediSastojakPage : ContentPage
     {
-        public APIService _service = new APIService("Slozenost");
-        private Slozenost s = null;
-        public UrediSlozenostViewModel model { get; set; }
-        public UrediSlozenostPage(Slozenost ss)
+        public APIService _service = new APIService("Sastojak");
+        private Sastojak s = null;
+        public UrediSastojakViewModel model { get; set; }
+        public UrediSastojakPage(Sastojak ss)
         {
             InitializeComponent();
-            BindingContext = model = new UrediSlozenostViewModel() { slozenost = ss };
+            BindingContext = model = new UrediSastojakViewModel { Sastojak = ss };
             s = ss;
         }
         protected override void OnAppearing()
@@ -36,24 +36,19 @@ namespace Cookbook.MobileApp.Views
             {
                 await DisplayAlert("Greška", "Naziv se sastoji samo od slova i minimalno 4 karaktera", "OK");
             }
-            if (!Regex.IsMatch(this.Opis.Text, @"^[a-zA-Z ]+$") && this.Opis.Text.Length < 5)
-            {
-                await DisplayAlert("Greška", "Opis se sastoji samo od slova i minimalno 4 karaktera", "OK");
-            }
             else
             {
                 try
                 {
-                    SlozenostUpsertRequest req = new SlozenostUpsertRequest()
+                    SastojakInsertRequest req = new SastojakInsertRequest()
                     {
 
                         Naziv = this.Naziv.Text,
-                        Opis = this.Opis.Text
                     };
 
-                    await _service.Update<dynamic>(model.slozenost.SlozenostId, req);
+                    await _service.Update<dynamic>(model.Sastojak.SastojakId, req);
                     await DisplayAlert("OK", "Uspješno uneseni podaci", "OK");
-                    await Navigation.PushAsync(new PrikazSlozenosti());
+                    await Navigation.PushAsync(new PrikazSastojaka());
                 }
                 catch (Exception err)
                 {

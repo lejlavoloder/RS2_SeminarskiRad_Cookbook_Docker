@@ -12,14 +12,14 @@ using Xamarin.Forms.Xaml;
 namespace Cookbook.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DodajSlozenost : ContentPage
+    public partial class DodajSastojak : ContentPage
     {
-        SlozenostViewModel vm = null;
-        public APIService _service = new APIService("Slozenost");
-        public DodajSlozenost()
+        SastojakViewModel vm = null;
+        public APIService _service = new APIService("Sastojak");
+        public DodajSastojak()
         {
             InitializeComponent();
-            BindingContext = vm = new SlozenostViewModel();
+            BindingContext = vm = new SastojakViewModel();
         }
         protected override void OnAppearing()
         {
@@ -31,18 +31,13 @@ namespace Cookbook.MobileApp.Views
             {
                 await DisplayAlert("Greška", "Naziv se sastoji samo od slova i mora da sadrži minimalno 4 karaktera", "OK");
             }
-            else if (!Regex.IsMatch(this.Opis.Text, @"^[a-zA-Z ]+$") && this.Opis.Text.Length < 4)
-            {
-                await DisplayAlert("Greška", "Opis se sastoji samo od slova i mora da sadrži minimalno 4 karaktera", "OK");
-            }
             else
             {
                 try
                 {
                     vm.Naziv = this.Naziv.Text;
-                    vm.Opis = this.Opis.Text;
-                    await vm.DodajSlozenost();
-                    await Navigation.PushAsync(new PrikazSlozenosti());
+                    await vm.DodajSastojak();
+                    await Navigation.PushAsync(new PrikazSastojaka());
                 }
                 catch (Exception err)
                 {
