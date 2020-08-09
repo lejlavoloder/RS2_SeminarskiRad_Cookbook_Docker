@@ -5,12 +5,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:vm="clr-namespace:Cookbook.MobileApp.ViewModels"
+             xmlns:converters="clr-namespace:Cookbook.MobileApp.Converter"
              x:Class="Cookbook.MobileApp.Views.LoginPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.BindingContext>
         <vm:LoginViewModel></vm:LoginViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" Padding="10" VerticalOptions="CenterAndExpand">
+
+            <Image WidthRequest="300" Source="c3.png"></Image>
             <Label  Text="Korisničko ime"></Label>
             <Entry x:Name="KorisnickoIme" Text="{Binding Username}"></Entry>
 
