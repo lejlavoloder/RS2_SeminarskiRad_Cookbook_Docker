@@ -14,7 +14,9 @@ namespace Cookbook.MobileApp.Models
         Sastojak,
         Recept,
         VrstaClanka,
-        Odjava
+        Odjava,
+        About,
+        Browse
     }
     public class HomeMenuItemAdmin
     {

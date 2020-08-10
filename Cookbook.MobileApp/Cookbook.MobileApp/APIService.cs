@@ -79,7 +79,72 @@ namespace Cookbook.MobileApp
             }
 
         }
+        public async Task<T> Registration<T>(object request)
+        {
+            var url = $"{_apiUrl}/Registracija";
 
+            try
+            {
+                return await url.PostJsonAsync(request).ReceiveJson<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+                await Application.Current.MainPage.DisplayAlert("Greška", stringBuilder.ToString(), "OK");
+                return default(T);
+            }
+
+        }
+        public async Task<T> InsertPosjetioca<T>(object request)
+        {
+            var url = $"{_apiUrl}/Posjetilac";
+
+            try
+            {
+                return await url.PostJsonAsync(request).ReceiveJson<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+                await Application.Current.MainPage.DisplayAlert("Greška", stringBuilder.ToString(), "OK");
+                return default(T);
+            }
+
+        }
+        public async Task<T> Uloga<T>(object request)
+        {
+            var url = $"{_apiUrl}";
+
+            try
+            {
+                return await url.PostJsonAsync(request).ReceiveJson<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+                await Application.Current.MainPage.DisplayAlert("Greška", stringBuilder.ToString(), "OK");
+                return default(T);
+            }
+
+        }
         public async Task<T> Update<T>(int id, object request)
         {
             try

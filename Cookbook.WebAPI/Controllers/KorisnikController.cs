@@ -10,8 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cookbook.WebAPI.Controllers
-{
-  [Authorize]
+{[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class KorisnikController : ControllerBase
@@ -21,20 +20,21 @@ namespace Cookbook.WebAPI.Controllers
 
             _service = service;
         }
-       [HttpGet]
+        [Authorize]
+        [HttpGet]
         public List<Model.Korisnik> Get([FromQuery]KorisnikSearchRequest request)
         {
             return _service.Get(request);
         }
 
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         [HttpPost]
         public Model.Korisnik Insert(KorisnikInsertRequest request)
         {
             return _service.Insert(request);
         }
 
-       [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator")]
         [HttpPut("{id}")]
         public Model.Korisnik Update(int id, [FromBody]KorisnikInsertRequest request)
         {

@@ -24,7 +24,8 @@ namespace Cookbook.MobileApp.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            // MenuPagesAdmin.Add((int)MenuItemTypeAdmin.Browse, (NavigationPage)Detail);
+            MenuPagesAdmin.Add((int)MenuItemTypeAdmin.About, 
+                (NavigationPage)Detail);
         }
         public async Task NavigateFromMenu(int id)
         {

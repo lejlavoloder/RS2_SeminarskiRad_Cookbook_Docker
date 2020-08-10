@@ -21,5 +21,6 @@ namespace Cookbook.Model.Requests
         public string PasswordPotvrda { get; set; }
 
         public List<int> Uloge { get; set; } = new List<int>();
+        public int Uloga { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace Cookbook.MobileApp.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Početna";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 

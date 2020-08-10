@@ -21,7 +21,7 @@ namespace Cookbook.MobileApp.Views
 
             menuItems = new List<HomeMenuItemAdmin>
             {
-                new HomeMenuItemAdmin { Id = MenuItemTypeAdmin.Kategorija, Title = "Kategorija" },
+               new HomeMenuItemAdmin { Id = MenuItemTypeAdmin.Kategorija, Title = "Kategorija" },
                 new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.Slozenost, Title="Slozenost"},
                 new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.MjernaJedinica, Title="Mjerna jedinica"},
                 new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.MjernaKolicina, Title="Mjerna količina"},

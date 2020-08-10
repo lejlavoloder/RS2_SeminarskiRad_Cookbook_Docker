@@ -100,16 +100,27 @@ namespace Cookbook.WebAPI.Services
             _context.Korisnik.Add(entity);
             _context.SaveChanges();
 
-            foreach (var uloga in request.Uloge)
+            if (request.Uloge.Count()> 0)
+            {
+                foreach (var uloga in request.Uloge)
+                {
+                    Database.KorisnikUloga korisniciUloge = new Database.KorisnikUloga();
+                    korisniciUloge.KorisnikId = entity.KorisnikId;
+                    korisniciUloge.UlogaId = uloga;
+                    korisniciUloge.DatumIzmjene = DateTime.Now;
+                    _context.KorisnikUloga.Add(korisniciUloge);
+                }
+            }
+            else
             {
                 Database.KorisnikUloga korisniciUloge = new Database.KorisnikUloga();
                 korisniciUloge.KorisnikId = entity.KorisnikId;
-                korisniciUloge.UlogaId = uloga;
+                korisniciUloge.UlogaId = request.Uloga;
                 korisniciUloge.DatumIzmjene = DateTime.Now;
                 _context.KorisnikUloga.Add(korisniciUloge);
-            }
 
-          _context.SaveChanges();
+            }
+            _context.SaveChanges();
             // -------- dodano posebno 
             var korisnik = new Model.Korisnik()
             {
