@@ -15,6 +15,7 @@ namespace Cookbook.MobileApp.Views
     public partial class PrikazClankaPage : ContentPage
     {
         ClanakViewModel vm = null;
+        public APIService ApiClanak = new APIService("Clanak");
         public PrikazClankaPage()
         {  
             InitializeComponent();
@@ -31,6 +32,16 @@ namespace Cookbook.MobileApp.Views
             var item = btn.BindingContext as Clanak;
 
             await Navigation.PushAsync(new UrediClanak(item));
+
+        }
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            var item = btn.BindingContext as Clanak;
+            await ApiClanak.Delete<Clanak>(item.ClanakId);
+            await DisplayAlert("OK", "Uspješno ste izbrisali članak", "OK");
+           // await Navigation.PushAsync(new PrikazClankaPage());
 
         }
     }

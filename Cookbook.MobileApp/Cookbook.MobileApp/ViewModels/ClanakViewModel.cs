@@ -12,6 +12,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
+using Cookbook.MobileApp.Views;
 
 namespace Cookbook.MobileApp.ViewModels
 {//mogu li ti otvorit tudji kod hajde
@@ -102,7 +103,11 @@ namespace Cookbook.MobileApp.ViewModels
                 VrstaClankaId=_vrstaclankaid,
                 KorisnikId=korisnik.KorisnikId
             });
-            await Application.Current.MainPage.DisplayAlert(" ", "Uspješno sačuvani podaci", "OK");
+          
+            //DisplayAlert("Poruka", "Uspješno sačuvani podaci", "OK");
+
+            //Device.BeginInvokeOnMainThread(async () => { await Application.Current.MainPage.DisplayAlert("Poruka", "Uspjesno sacuvani podaci", "Ok"); });
+            //Application.Current.MainPage = new PrikazClankaPage();
         }
         public async Task PrikazClanaka()
         {

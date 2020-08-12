@@ -23,7 +23,7 @@
                 <Picker x:Name="VrstaClanka" ItemsSource="{Binding VrstaClankaList}" ItemDisplayBinding="{Binding Naziv}"></Picker>
             </StackLayout>
             <StackLayout>
-                <Button Text="Sacuvaj" Clicked="Button_Clicked"></Button>
+                <Button Text="Sačuvaj" Clicked="Button_Clicked"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -33,7 +33,9 @@ namespace Cookbook.MobileApp.Views
         {
             if (!Regex.IsMatch(this.Naziv.Text, @"^[a-zA-Z ]+$") && this.Naziv.Text.Length < 4)
             {
-                await DisplayAlert("Greška", "Polje naziv se sastoji samo od slova i minimalno 4 karaktera", "OK");
+                await Application.Current.MainPage.DisplayAlert("Greška", "Polje naziv se sastoji samo od slova i minimalno 4 karaktera", "OK");
+                
+               // await DisplayAlert("Greška", "Polje naziv se sastoji samo od slova i minimalno 4 karaktera", "OK");
             }
             else if (!Regex.IsMatch(this.Tekst.Text, @"^[a-zA-Z ]+$") && this.Tekst.Text.Length < 10)
             {
@@ -53,7 +55,10 @@ namespace Cookbook.MobileApp.Views
                    model.Tekst = this.Tekst.Text;
                    model.DatumVrijemeObjave = DateTime.Now;
                     await model.DodajClanak();
+                    await Application.Current.MainPage.DisplayAlert("Poruka", "Uspješno ste pohranili članak", "OK");
                     await Navigation.PushAsync(new PrikazClankaPage());
+                    //DisplayAlert("OK", "Uspješno ste izbrisali podatke", "OK");
+                    // Navigation.PushAsync(new PrikazClankaPage());
                 }
                 catch (Exception err)
                 {

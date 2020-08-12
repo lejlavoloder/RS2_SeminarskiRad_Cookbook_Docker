@@ -72,7 +72,7 @@ namespace Cookbook.MobileApp.Views
 
                     await Clanak.Update<dynamic>(model.clanak.ClanakId, req);
                     await DisplayAlert("OK", "Uspješno uneseni podaci", "OK");
-                    await Navigation.PushAsync(new PrikazClankaPage());
+                   // await Navigation.PushAsync(new PrikazClankaPage());
                 }
                 catch (Exception err)
                 {

@@ -53,7 +53,14 @@
 
                                 <Button Clicked="Button_Clicked" Text="Uredi" CornerRadius="7" HeightRequest="30" WidthRequest="60" Padding="3" TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
                             </StackLayout>
-                     
+                            <StackLayout>
+
+
+
+                                <Button Clicked="Button_Clicked_1" Text="Obrisi" CornerRadius="7" 
+                                        HeightRequest="30" WidthRequest="60" Padding="3" TextColor="White" 
+                                        BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+                            </StackLayout>
                         </StackLayout>
                  
 
