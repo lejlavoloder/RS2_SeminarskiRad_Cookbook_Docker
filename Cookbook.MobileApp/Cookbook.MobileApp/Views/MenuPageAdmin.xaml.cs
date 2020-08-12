@@ -28,6 +28,8 @@ namespace Cookbook.MobileApp.Views
                 new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.GrupaJela, Title="Grupa jela"},
                 new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.Sastojak, Title="Sastojak"},
                 new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.VrstaClanka, Title="Vrsta članka"},
+                new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.Članak, Title="Članak"},
+                new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.Odjava, Title="Odjava"},
             };
             ListViewMenu.ItemsSource = menuItems;
 

@@ -14,6 +14,7 @@ namespace Cookbook.MobileApp.Models
         Sastojak,
         Recept,
         VrstaClanka,
+        Članak,
         Odjava,
         About,
         Browse

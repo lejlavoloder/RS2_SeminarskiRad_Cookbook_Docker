@@ -6,6 +6,7 @@
              xmlns:vm="clr-namespace:Cookbook.MobileApp.ViewModels"
              mc:Ignorable="d"
              x:Class="Cookbook.MobileApp.Views.UrediGrupuJela">
+
     <ContentPage.Content>
         <StackLayout Padding="20">
             <StackLayout>

@@ -33,8 +33,12 @@ namespace Cookbook.MobileApp.ViewModels
         async Task Login()
         {
             IsBusy = true;
-            APIService.Username = Username;
-            APIService.Password = Password;
+            //TODO: Vratiti
+
+            //APIService.Username = Username;
+            //APIService.Password = Password; 
+            APIService.Username = "administrator";
+            APIService.Password = "test";
             try
             {
                 await _service.Get<dynamic>(null);

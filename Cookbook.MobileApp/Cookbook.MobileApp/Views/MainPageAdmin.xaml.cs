@@ -54,6 +54,9 @@ namespace Cookbook.MobileApp.Views
                     case (int)MenuItemTypeAdmin.VrstaClanka:
                         MenuPagesAdmin.Add(id, new NavigationPage(new VrstaClankaPage()));
                         break;
+                    case (int)MenuItemTypeAdmin.Članak:
+                        MenuPagesAdmin.Add(id, new NavigationPage(new ClanakPage()));
+                        break;
                     case (int)MenuItemTypeAdmin.Odjava:
                              MenuPagesAdmin.Add(id, new NavigationPage(new LoginPage()));
                              break;

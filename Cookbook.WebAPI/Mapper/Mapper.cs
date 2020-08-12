@@ -92,6 +92,10 @@ namespace Cookbook.WebAPI.Mapper
             CreateMap<Database.Favoriti, Model.Favoriti>()
                 .ForMember(s => s.Recept, a =>
                   a.MapFrom(b => new Database.CookbookContext().Recept.Find(b.ReceptId).Naziv));
+
+            CreateMap<Database.Clanak, Model.Clanak>()
+                .ForMember(s => s.VrstaClanka, a =>
+                  a.MapFrom(b => new Database.CookbookContext().VrstaClanka.Find(b.VrstaClankaId).Naziv));
         }
     }
 }
