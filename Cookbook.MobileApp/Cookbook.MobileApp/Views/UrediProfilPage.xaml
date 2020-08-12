@@ -15,7 +15,7 @@
         <ScrollView>
             <StackLayout Padding="20">
                 <StackLayout>
-                    <Label Text="Uredi profil" HorizontalOptions="CenterAndExpand" FontSize="Medium" />
+                    <Label Text="Uredi profil" HorizontalOptions="CenterAndExpand" FontSize="Medium"></Label>
                 </StackLayout>
                 <StackLayout>
                     <Label  Text="Ime"></Label>
@@ -23,7 +23,7 @@
                     <Label  Text="Prezime"></Label>
                     <Entry x:Name="Prezime" Text="{Binding korisnik.Prezime}"></Entry>
                     <Label  Text="Telefon"></Label>
-                    <Entry x:Name="Telefon" Text="{Binding korisnik.BrojTelefona}"></Entry>
+                    <Entry x:Name="Telefon" Text="{Binding korisnik.Telefon}"></Entry>
                     <Label  Text="Email"></Label>
                     <Entry x:Name="Email" Text="{Binding korisnik.Email}"></Entry>
                     <Label  Text="Korisnicko ime"></Label>
@@ -34,7 +34,7 @@
                     <Entry x:Name="PasswordPotvrda" Placeholder="Potvrda lozinke" IsPassword="True"></Entry>
                 </StackLayout>
                 <StackLayout>
-                    <Button Text="Sačuvaj " Clicked="Button_Clicked" TextColor="White" BackgroundColor="Blue"></Button>
+                    <Button Text="Sačuvaj " Clicked="Button_Clicked" TextColor="White" BackgroundColor="LightGray"></Button>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

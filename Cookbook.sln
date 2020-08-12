@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookbook.MobileApp.Android"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookbook.MobileApp.iOS", "Cookbook.MobileApp\Cookbook.MobileApp.iOS\Cookbook.MobileApp.iOS.csproj", "{D00F8885-5FC4-4603-A0F1-3C01BC1DABE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookbook.MobileApp", "Cookbook.MobileApp\Cookbook.MobileApp\Cookbook.MobileApp.csproj", "{132C2438-1D55-4E54-9369-071642332253}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cookbook.MobileApp", "Cookbook.MobileApp\Cookbook.MobileApp\Cookbook.MobileApp.csproj", "{132C2438-1D55-4E54-9369-071642332253}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

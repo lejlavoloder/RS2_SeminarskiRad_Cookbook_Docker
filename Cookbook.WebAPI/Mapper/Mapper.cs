@@ -60,6 +60,8 @@ namespace Cookbook.WebAPI.Mapper
 
             CreateMap<Database.Favoriti, Model.Favoriti>();
             CreateMap<Database.Favoriti, FavoritiUpsertRequest>().ReverseMap();
+            CreateMap<Database.Komentar, Model.Komentar>();
+            CreateMap<Database.Komentar, KomentarUpsertRequest>().ReverseMap();
 
             CreateMap<Database.Recept, Model.Recept>()
            .ForMember(s => s.Ocjena, a =>
@@ -89,6 +91,13 @@ namespace Cookbook.WebAPI.Mapper
                   .ForMember(s => s.KorisnikId, a =>
                      a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).KorisnikId));
 
+            CreateMap<Database.Komentar,Model.Komentar>()
+                .ForMember(s=>s.NazivRecepta, a=>
+                a.MapFrom(b=>new Database.CookbookContext().Recept.Find(b.ReceptId).Naziv))
+                .ForMember(s=>s.Posjetioc, a=>
+                a.MapFrom(b=>new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Ime
+                + " " + new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Prezime));
+              
             CreateMap<Database.Favoriti, Model.Favoriti>()
                 .ForMember(s => s.Recept, a =>
                   a.MapFrom(b => new Database.CookbookContext().Recept.Find(b.ReceptId).Naziv));

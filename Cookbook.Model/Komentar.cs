@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace Cookbook.WebAPI.Database
+namespace Cookbook.Model
 {
-    public partial class Komentar
+   public class Komentar
     {
         public int KomentarId { get; set; }
         public string Sadrzaj { get; set; }
         public DateTime Datum { get; set; }
         public bool Odobreno { get; set; }
-        public int ReceptId { get; set; }
-        public Recept Recept { get; set; }
         public int KorisnikId { get; set; }
-        public Korisnik Korisnik { get; set; }
+        public int ReceptId { get; set; }
+        public bool NijeOdobreno { get => !Odobreno; }
+        public string NazivRecepta { get; set; }
+        public string Posjetioc { get; set; }
+
     }
 }

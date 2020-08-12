@@ -13,9 +13,11 @@ namespace Cookbook.MobileApp.Models
         MjernaKolicina,
         Sastojak,
         Recept,
+        Komentar,
         VrstaClanka,
         Članak,
         Odjava,
+        UrediProfil,
         About,
         Browse
     }

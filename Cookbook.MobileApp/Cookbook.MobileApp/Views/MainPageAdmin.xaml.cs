@@ -1,4 +1,5 @@
 ﻿using Cookbook.MobileApp.Models;
+using Cookbook.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,7 @@ namespace Cookbook.MobileApp.Views
 {
     [DesignTimeVisible(false)]
     public partial class MainPageAdmin : MasterDetailPage
-    {
-        public APIService aPIServiceKorisnik = new APIService("Korisnik");
+    { public APIService _apiService = new APIService("Korisnik");
 
         Dictionary<int, NavigationPage> MenuPagesAdmin = 
             new Dictionary<int, NavigationPage>();
@@ -23,10 +23,17 @@ namespace Cookbook.MobileApp.Views
             InitializeComponent();
 
             MasterBehavior = MasterBehavior.Popover;
-
-            MenuPagesAdmin.Add((int)MenuItemTypeAdmin.About, 
-                (NavigationPage)Detail);
         }
+        public MainPageAdmin(MenuItemType type)
+        {
+
+            InitializeComponent();
+
+            MasterBehavior = MasterBehavior.Popover;
+
+            _ = NavigateFromMenu((int)type);
+        }
+
         public async Task NavigateFromMenu(int id)
         {
             if (!MenuPagesAdmin.ContainsKey(id))
@@ -57,10 +64,27 @@ namespace Cookbook.MobileApp.Views
                     case (int)MenuItemTypeAdmin.Članak:
                         MenuPagesAdmin.Add(id, new NavigationPage(new ClanakPage()));
                         break;
+                    case (int)MenuItemTypeAdmin.Komentar:
+                        MenuPagesAdmin.Add(id, new NavigationPage(new PrikazKomentaraPage()));
+                        break;
                     case (int)MenuItemTypeAdmin.Odjava:
                              MenuPagesAdmin.Add(id, new NavigationPage(new LoginPage()));
                              break;
-                     }
+                    case (int)MenuItemTypeAdmin.UrediProfil:
+                        Korisnik korisnik = new Korisnik();
+                        var username = APIService.Username;
+                        List<Korisnik> lista = await _apiService.Get<List<Korisnik>>(null);
+                        foreach (var k in lista)
+                        {
+                            if (k.KorisnickoIme == username)
+                            {
+                                korisnik = k;
+                                break;
+                            }
+                        }
+                        MenuPagesAdmin.Add(id, new NavigationPage(new UrediProfilPage(korisnik)));
+                        break;
+                }
                  
                 }
                 var newPage = MenuPagesAdmin[id];
