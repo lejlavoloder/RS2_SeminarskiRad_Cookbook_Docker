@@ -20,8 +20,8 @@ namespace Cookbook.MobileApp.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.UrediProfil, Title="Uredi profil" },
+                new HomeMenuItem {Id = MenuItemType.Odjava, Title="Odjava" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

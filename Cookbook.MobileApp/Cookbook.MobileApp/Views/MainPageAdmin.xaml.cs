@@ -67,6 +67,9 @@ namespace Cookbook.MobileApp.Views
                     case (int)MenuItemTypeAdmin.Komentar:
                         MenuPagesAdmin.Add(id, new NavigationPage(new PrikazKomentaraPage()));
                         break;
+                    case (int)MenuItemTypeAdmin.Recept:
+                        MenuPagesAdmin.Add(id, new NavigationPage(new ReceptPage()));
+                        break;
                     case (int)MenuItemTypeAdmin.Odjava:
                              MenuPagesAdmin.Add(id, new NavigationPage(new LoginPage()));
                              break;

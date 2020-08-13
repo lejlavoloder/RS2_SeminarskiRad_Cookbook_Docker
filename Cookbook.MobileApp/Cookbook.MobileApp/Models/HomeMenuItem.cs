@@ -6,8 +6,8 @@ namespace Cookbook.MobileApp.Models
 {
     public enum MenuItemType
     {
-        Browse,
-        About
+        UrediProfil,
+        Odjava
     }
     public class HomeMenuItem
     {

@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Cookbook.MobileApp.Models;
+using Cookbook.Model;
 
 namespace Cookbook.MobileApp.Views
 {
@@ -14,7 +15,7 @@ namespace Cookbook.MobileApp.Views
     [DesignTimeVisible(false)]
     public partial class MainPage : MasterDetailPage
         
-    { public APIService aPIServiceKupci = new APIService("Posjetilac");
+    { public APIService _korisnik = new APIService("Korisnik");
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
 
         public MainPage()
@@ -37,13 +38,24 @@ namespace Cookbook.MobileApp.Views
             if (!MenuPages.ContainsKey(id))
             {
                 switch (id)
-                {
-                    case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                {  case (int)MenuItemType.UrediProfil:
+                        Korisnik korisnik = new Korisnik();
+                        var username = APIService.Username;
+                        List<Korisnik> lista = await _korisnik.Get<List<Korisnik>>(null);
+                        foreach (var k in lista)
+                        {
+                            if (k.KorisnickoIme == username)
+                            {
+                                korisnik = k;
+                                break;
+                            }
+                        }
+                        MenuPages.Add(id, new NavigationPage(new UrediProfilPage(korisnik)));
                         break;
-                    case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                    case (int)MenuItemType.Odjava:
+                        MenuPages.Add(id, new NavigationPage(new LoginPage()));
                         break;
+                  
                 }
             }
 
