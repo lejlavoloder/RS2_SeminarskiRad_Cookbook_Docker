@@ -10,12 +10,12 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout  HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand">
-                <Button Clicked="Button_Clicked"  HorizontalOptions="FillAndExpand" Text="Dodaj" BackgroundColor="LightGray"></Button>
-                <Label IsVisible="{Binding IsBusy}" Text="..."></Label>
+
                 <StackLayout>
-                    <StackLayout>
-                        <Button Clicked="Button_Clicked" BackgroundColor="LightGray" Text="Pretraga" ></Button>
-                    </StackLayout>
+                    <Button Clicked="Button_Clicked" BackgroundColor="LightGray" Text="Pretraga recepata" ></Button>
+                </StackLayout>
+                <StackLayout>
+                    <Button Clicked="Button_Clicked_1" BackgroundColor="LightGray" Text="Prikaz recepata" ></Button>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

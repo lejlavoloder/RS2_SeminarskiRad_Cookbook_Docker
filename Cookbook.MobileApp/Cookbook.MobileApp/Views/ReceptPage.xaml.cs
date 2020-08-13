@@ -25,5 +25,10 @@ namespace Cookbook.MobileApp.Views
 
             Navigation.PushAsync(new PretragaRecepataPage());
         }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PrikazRecepataPage());
+        }
     }
 }

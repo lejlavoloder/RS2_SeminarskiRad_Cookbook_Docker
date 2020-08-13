@@ -12,31 +12,26 @@ using Xamarin.Forms.Xaml;
 namespace Cookbook.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PretragaRecepataPage : ContentPage
+    public partial class DetaljiReceptaPage : ContentPage
     {
-        ReceptViewModel model = null;
-        public PretragaRecepataPage()
+        ReceptDetaljiViewModel model =null;
+        public DetaljiReceptaPage(Recept r)
         {
             InitializeComponent();
-            BindingContext = model = new ReceptViewModel();
+            BindingContext = model = new ReceptDetaljiViewModel(r);
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await model.PretragaRecepata();
+            await model.Init();
+           
         }
-
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var btn = sender as Button;
-            var item = btn.BindingContext as Recept;
+            var item = btn.BindingContext as ReceptSastojak;
 
-            await Navigation.PushAsync(new DetaljiReceptaPage(item));
-        }
-
-        private void Button_Clicked_1(object sender, EventArgs e)
-        {
-
+            await Navigation.PushAsync(new UrediReceptSastojke(item));
         }
     }
 }

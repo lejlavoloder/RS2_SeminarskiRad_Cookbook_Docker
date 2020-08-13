@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:Cookbook.MobileApp.ViewModels"
+             xmlns:converters="clr-namespace:Cookbook.MobileApp.Converter"
+             x:Class="Cookbook.MobileApp.Views.UrediReceptPage">
+    <ContentPage.BindingContext>
+        <viewModel:UrediReceptViewModel>
+        </viewModel:UrediReceptViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="20">
+                <StackLayout>
+                    <Image WidthRequest="300" Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                    <Button Clicked="Button_Clicked_1" Text="Odaberi Sliku"/>
+                <Entry x:Name="Naziv"  Text="{Binding recept.Naziv}" Placeholder="Naziv recepta"></Entry>
+                <Picker x:Name="kategorija" ItemsSource="{Binding KategorijaList}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+                <Picker x:Name="grupajela" ItemsSource="{Binding GrupaJelaList}" ItemDisplayBinding="{Binding Naziv}"> </Picker>
+                <Picker x:Name="slozenost" ItemsSource="{Binding SlozenostList}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+                    <Entry x:Name="Tekst" Text="{Binding recept.Tekst}" Placeholder="Priprema recepta" ></Entry>
+                    <Entry x:Name="BrojLjudi" Text="{Binding recept.BrojLjudi}" Placeholder="Broj ljudi"></Entry>
+                    <Entry x:Name="VrijemeKuhanja" Text="{Binding recept.VrijemeKuhanja}" Placeholder="Vrijeme kuhanja u minutama"></Entry>
+                    <Label Text="Vrijeme pripreme"></Label>
+                    <Entry x:Name="VrijemePripreme" Text="{Binding recept.VrijemePripreme}" Placeholder="Vrijeme pripreme u minutama"></Entry>
+                    <Label Text="Datum i vrijeme objave"/>
+                    <DatePicker x:Name="DatumObjave" Date="{Binding recept.DatumObjave}"></DatePicker>
+                    <StackLayout>
+                     <Button Text="Sačuvaj" Clicked="Button_Clicked"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

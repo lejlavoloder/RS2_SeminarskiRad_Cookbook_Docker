@@ -25,8 +25,10 @@ namespace Cookbook.MobileApp.ViewModels
         public ReceptViewModel()
         {
             PretragaRecepataCommand = new Command(async () => await PretragaRecepata());
+            PrikazRecepataCommand = new Command(async()=>await PrikazRecepataPage());
         }
         public ICommand PretragaRecepataCommand { get; set; }
+        public ICommand PrikazRecepataCommand { get; set; }
 
         public ObservableCollection<Recept> ReceptList { get; set; } = new ObservableCollection<Recept>();
         public ObservableCollection<Kategorija> KategorijaList { get; set; } = new ObservableCollection<Kategorija>();
@@ -73,7 +75,18 @@ namespace Cookbook.MobileApp.ViewModels
 
             }
         }
-
+        public async Task PrikazRecepataPage()
+        {
+            var list = await _recept.Get<IEnumerable<Recept>>(null);
+            ReceptList.Clear();
+            foreach (var s in list)
+            {
+                if (s.Odobren == true)
+                {
+                    ReceptList.Add(s);
+                }
+            }
+        }
         public async Task PretragaRecepata()
         {
             if (GrupaJelaList.Count() == 0)
@@ -81,6 +94,7 @@ namespace Cookbook.MobileApp.ViewModels
                 var grupajelalist = await _grupajela.Get<List<GrupaJela>>(null);
                 foreach (var i in grupajelalist)
                 {
+                    
                     GrupaJelaList.Add(i);
                 }
             }
@@ -113,9 +127,11 @@ namespace Cookbook.MobileApp.ViewModels
                 ReceptList.Clear();
                 foreach (var i in list)
                 {
-                    ReceptList.Add(i);
+                    if (i.Odobren == true)
+                    {
+                        ReceptList.Add(i);
+                    }
                 }
-
             }
         }
     }

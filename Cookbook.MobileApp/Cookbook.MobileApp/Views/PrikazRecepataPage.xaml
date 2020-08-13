@@ -3,27 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:Cookbook.MobileApp.ViewModels"
              xmlns:converters="clr-namespace:Cookbook.MobileApp.Converter"
-             x:Class="Cookbook.MobileApp.Views.PretragaRecepataPage"
-             Title="Pretraga recepata">
+             x:Class="Cookbook.MobileApp.Views.PrikazRecepataPage"
+             Title="Prikaz recepata">
     <ContentPage.BindingContext>
         <viewModels:ReceptViewModel>
         </viewModels:ReceptViewModel>
-    </ContentPage.BindingContext> 
+    </ContentPage.BindingContext>
     <ContentPage.Resources>
-            <ResourceDictionary>
-                <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
-            </ResourceDictionary>
-        </ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout>
-            <Label>Odaberite kategoriju</Label>
-            <Picker ItemsSource="{Binding KategorijaList}" SelectedItem="{Binding SelectedKategorija}" ItemDisplayBinding="{Binding Naziv}"></Picker>
-            <Label>Odaberite grupu jela</Label>
-            <Picker ItemsSource="{Binding GrupaJelaList}" SelectedItem="{Binding SelectedGrupaJela}" ItemDisplayBinding="{Binding Naziv}"></Picker>
-            <Label>Odaberite složenost</Label>
-            <Picker ItemsSource="{Binding SlozenostList}" SelectedItem="{Binding SelectedSlozenost}" ItemDisplayBinding="{Binding Naziv}"></Picker>
-            </StackLayout>
+          
             <ListView ItemsSource="{Binding ReceptList}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -43,6 +36,27 @@
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="Broj ljudi: "  FontSize="12" ></Label>
                                     <Label Text="{Binding BrojLjudi}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Slozenost: "  FontSize="12" ></Label>
+                                    <Label Text="{Binding Slozenost}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Grupa jela: "  FontSize="12" ></Label>
+                                    <Label Text="{Binding GrupaJela}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Kategorija: "  FontSize="12" ></Label>
+                                    <Label Text="{Binding Kategorija}" 
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
@@ -68,9 +82,16 @@
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
                                 </StackLayout>
-
-                                <Button Clicked="Button_Clicked" Text="Prikaži detalje" CornerRadius="7" HeightRequest="35" WidthRequest="105" Padding="2"
-                                    TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+                                <StackLayout>
+                                    <Button Clicked="Button_Clicked" Text="Prikaži detalje" CornerRadius="7" HeightRequest="35"
+                                            WidthRequest="105" Padding="2"
+                  TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Button Clicked="Button_Clicked_1" Text="Uredi" CornerRadius="7" HeightRequest="35"
+                                            WidthRequest="105" Padding="2"
+                  TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+                                </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

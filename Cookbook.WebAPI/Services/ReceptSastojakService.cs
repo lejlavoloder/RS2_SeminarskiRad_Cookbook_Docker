@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace Cookbook.WebAPI.Services
 {
-    public class ReceptSastojakService:BaseCRUDService<Model.ReceptSastojak,ReceptSastojakSearchRequest,Database.ReceptSastojak,ReceptSastojakUpsertRequest,ReceptSastojakUpsertRequest>
+    public class ReceptSastojakService:BaseCRUDService<Model.ReceptSastojak,ReceptSastojakSearchRequest,Database.ReceptSastojak,
+        ReceptSastojakUpsertRequest,ReceptSastojakUpsertRequest>
     {
       public ReceptSastojakService(CookbookContext db, IMapper mapper):base(db,mapper) { }
         public override List<Model.ReceptSastojak> Get(ReceptSastojakSearchRequest search)
