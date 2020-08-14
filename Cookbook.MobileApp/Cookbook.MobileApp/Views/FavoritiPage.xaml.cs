@@ -16,6 +16,7 @@ namespace Cookbook.MobileApp.Views
     {
         FavoritiPrikazViewModel vm = null;
         public APIService _apiFavoriti = new APIService("Favoriti");
+        public APIService _apiRecept = new APIService("Recept");
         public FavoritiPage()
         {
             InitializeComponent();
@@ -29,13 +30,18 @@ namespace Cookbook.MobileApp.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-
             var btn = sender as Button;
             var item = btn.BindingContext as Favoriti;
-           // Recept r = await _apiFavoriti.GetById<Recept>(item.ReceptId);
             await _apiFavoriti.Delete<Favoriti>(item.FavoritiId);
             await DisplayAlert("OK", "Uspješno ste izbrisali sastojak", "OK");
             await Navigation.PushAsync(new FavoritiPage());
+        }
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            var item = btn.BindingContext as Favoriti;
+            Recept r = await _apiRecept.GetById<Recept>(item.ReceptId);
+            await Navigation.PushAsync(new ReceptFavoritiDetalji(item,r));
         }
     }
 }

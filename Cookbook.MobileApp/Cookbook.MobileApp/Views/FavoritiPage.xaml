@@ -23,6 +23,8 @@
                                            FontSize="13" />
                                     <Button Clicked="Button_Clicked" Text="Ukloni" CornerRadius="7" HeightRequest="30" WidthRequest="60" Padding="3"
                                         TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"></Button>
+                                    <Button Clicked="Button_Clicked_1" Text="Prikazi detalje" CornerRadius="7" HeightRequest="30" WidthRequest="100" Padding="3"
+                                        TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"></Button>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
