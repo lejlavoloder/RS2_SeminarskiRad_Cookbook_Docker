@@ -41,7 +41,7 @@ namespace Cookbook.MobileApp.Views
             var item = btn.BindingContext as Clanak;
             await ApiClanak.Delete<Clanak>(item.ClanakId);
             await DisplayAlert("OK", "Uspješno ste izbrisali članak", "OK");
-           // await Navigation.PushAsync(new PrikazClankaPage());
+           await Navigation.PushAsync(new PrikazClankaPage());
 
         }
     }

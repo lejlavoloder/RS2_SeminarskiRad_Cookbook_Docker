@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Cookbook.MobileApp.Views
+namespace Cookbook.MobileApp.Views.Posjetilac
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PretragaRecepataPage : ContentPage
+    public partial class PretragaRecepata : ContentPage
     {
         ReceptViewModel model = null;
-        public PretragaRecepataPage()
+        public PretragaRecepata()
         {
             InitializeComponent();
             BindingContext = model = new ReceptViewModel();
@@ -31,7 +31,7 @@ namespace Cookbook.MobileApp.Views
             var btn = sender as Button;
             var item = btn.BindingContext as Recept;
 
-            await Navigation.PushAsync(new DetaljiReceptaPage(item));
+            await Navigation.PushAsync(new DetaljiRecepta(item));
         }
     }
 }

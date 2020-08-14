@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Cookbook.MobileApp.ViewModels"
+             x:Class="Cookbook.MobileApp.Views.Posjetilac.DetaljiRecepta"
+             Title="Detalji recepta">
+    <ContentPage.BindingContext>
+        <viewModels:ReceptDetaljiViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+                <Label x:Name="Naziv" Text="{Binding Naziv}" FontSize="17"></Label>
+                <Label>Priprema recepta</Label>
+                <Label x:Name="Tekst" Text="{Binding Tekst}"  FontSize="15"></Label>
+                <ListView ItemsSource="{Binding ReceptSastojakList}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10" Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout>
+                                            <Label>Mjerna količina</Label>
+                                            <Label Text="{Binding MjernaKolicina}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout>
+                                            <Label>Mjerna jednica</Label>
+                                            <Label Text="{Binding MjernaJedinica}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout>
+                                            <Label>Sastojak</Label>
+                                            <Label Text="{Binding Sastojak}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                  </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage.Content>
+</ContentPage>
