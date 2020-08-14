@@ -18,8 +18,7 @@ namespace Cookbook.MobileApp.Models
         Članak,
         Odjava,
         UrediProfil,
-        About,
-        Browse
+       MojiFavoriti
     }
     public class HomeMenuItemAdmin
     {

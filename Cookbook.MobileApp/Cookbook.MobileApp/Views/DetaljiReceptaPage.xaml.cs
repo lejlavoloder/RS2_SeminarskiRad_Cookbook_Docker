@@ -15,6 +15,8 @@ namespace Cookbook.MobileApp.Views
     public partial class DetaljiReceptaPage : ContentPage
     {
         ReceptDetaljiViewModel model =null;
+        public APIService _apiRecept = new APIService("Recept");
+        public APIService _apiReceptSastojak = new APIService("ReceptSastojak");
         public DetaljiReceptaPage(Recept r)
         {
             InitializeComponent();
@@ -32,6 +34,16 @@ namespace Cookbook.MobileApp.Views
             var item = btn.BindingContext as ReceptSastojak;
 
             await Navigation.PushAsync(new UrediReceptSastojke(item));
+        }
+
+        private async  void Button_Clicked_1(object sender, EventArgs e)
+        { 
+            var btn = sender as Button;
+            var item = btn.BindingContext as ReceptSastojak;
+            Recept r = await _apiRecept.GetById<Recept>(item.ReceptId);
+            await _apiReceptSastojak.Delete<ReceptSastojak>(item.ReceptSastojakId);
+            await DisplayAlert("OK", "Uspješno ste izbrisali sastojak", "OK");
+            await Navigation.PushAsync(new DetaljiReceptaPage(r));
         }
     }
 }

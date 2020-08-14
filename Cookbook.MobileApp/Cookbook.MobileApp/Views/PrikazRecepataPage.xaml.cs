@@ -41,5 +41,14 @@ namespace Cookbook.MobileApp.Views
 
             await Navigation.PushAsync(new UrediReceptPage(item));
         }
+
+        private  async void Button_Clicked_2(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            var item = btn.BindingContext as Recept;
+            FavoritiViewModel model = new FavoritiViewModel();
+            model.r = item;
+            await model.Init();
+        }
     }
 }

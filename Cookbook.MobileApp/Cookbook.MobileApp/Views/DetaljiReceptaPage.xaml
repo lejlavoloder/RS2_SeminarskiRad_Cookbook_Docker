@@ -47,6 +47,9 @@
                                 <Button Clicked="Button_Clicked" Text="Uredi" CornerRadius="7" HeightRequest="35"
                                             WidthRequest="105" Padding="2"
                       TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+                                <Button Clicked="Button_Clicked_1" Text="Obrisi" CornerRadius="7" HeightRequest="35"
+                                            WidthRequest="105" Padding="2"
+                      TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
