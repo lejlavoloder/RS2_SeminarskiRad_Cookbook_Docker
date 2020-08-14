@@ -20,11 +20,13 @@ namespace Cookbook.MobileApp.Views
     {
         ItemsViewModel viewModel;
 
+
         public ItemsPage()
         {
             InitializeComponent();
 
             BindingContext = viewModel = new ItemsViewModel();
+            BindingContext = this;
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -41,7 +43,8 @@ namespace Cookbook.MobileApp.Views
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+            await Navigation.PushModalAsync
+                (new NavigationPage(new NewItemPage()));
         }
 
         protected override void OnAppearing()

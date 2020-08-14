@@ -14,11 +14,12 @@ namespace Cookbook.MobileApp
             InitializeComponent();
 
            // DependencyService.Register<MockDataStore>();
-            MainPage = new LoginPage();
+            MainPage = new ContentPage();
         }
 
         protected override void OnStart()
         {
+            MainPage = new LoginPage();
         }
 
         protected override void OnSleep()

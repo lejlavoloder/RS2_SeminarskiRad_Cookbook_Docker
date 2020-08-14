@@ -12,7 +12,8 @@ namespace Cookbook.MobileApp.Views
     [DesignTimeVisible(false)]
     public partial class MenuPage : ContentPage
     {
-        MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+        MainPage RootPage { 
+            get => Application.Current.MainPage as MainPage; }
         List<HomeMenuItem> menuItems;
         public MenuPage()
         {
@@ -21,6 +22,7 @@ namespace Cookbook.MobileApp.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.UrediProfil, Title="Uredi profil" },
+                new HomeMenuItem{Id=MenuItemType.MojiFavoriti, Title="Moji favoriti"},
                 new HomeMenuItem {Id = MenuItemType.Odjava, Title="Odjava" }
             };
 

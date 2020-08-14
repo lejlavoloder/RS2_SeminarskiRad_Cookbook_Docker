@@ -15,7 +15,8 @@ namespace Cookbook.MobileApp.Views
     [DesignTimeVisible(false)]
     public partial class MainPage : MasterDetailPage
         
-    { public APIService _korisnik = new APIService("Korisnik");
+    { public APIService _posjetilac = new APIService("Posjetilac");
+        public APIService _korisnik = new APIService("Korisnik");
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
 
         public MainPage()
@@ -51,6 +52,9 @@ namespace Cookbook.MobileApp.Views
                             }
                         }
                         MenuPages.Add(id, new NavigationPage(new UrediProfilPage(korisnik)));
+                        break;
+                    case (int)MenuItemType.MojiFavoriti:
+                        MenuPages.Add(id, new NavigationPage(new FavoritiPage()));
                         break;
                     case (int)MenuItemType.Odjava:
                         MenuPages.Add(id, new NavigationPage(new LoginPage()));
