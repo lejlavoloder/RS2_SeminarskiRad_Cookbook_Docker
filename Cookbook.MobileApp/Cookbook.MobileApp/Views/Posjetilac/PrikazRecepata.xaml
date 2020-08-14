@@ -24,7 +24,7 @@
                             <StackLayout Padding="10" Orientation="Vertical" VerticalOptions="Center">
                                 <StackLayout Orientation="Horizontal">
 
-                                    <Image WidthRequest="300"
+                                    <Image WidthRequest="300" HeightRequest="280"
                                        Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
@@ -90,7 +90,15 @@
                                
                                 <StackLayout>
                                     <Button Clicked="Button_Clicked_2" Text="Dodaj u favorite" CornerRadius="7" HeightRequest="35"
-                                            WidthRequest="105" Padding="2"
+                                            WidthRequest="115" Padding="2"
+                  TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Button Clicked="Button_Clicked_1" Text="Dodaj komentar" CornerRadius="7" HeightRequest="35"
+                                            WidthRequest="115" Padding="2"
+                  TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+                                    <Button Clicked="Button_Clicked_3" Text="Prikaz komentara" CornerRadius="7" HeightRequest="35"
+                                            WidthRequest="120" Padding="2"
                   TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
                                 </StackLayout>
                             </StackLayout>

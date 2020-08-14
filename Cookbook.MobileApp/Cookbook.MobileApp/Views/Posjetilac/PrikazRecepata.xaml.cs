@@ -41,5 +41,19 @@ namespace Cookbook.MobileApp.Views.Posjetilac
             model.r = item;
             await model.Init();
         }
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            var item = btn.BindingContext as Recept;
+            await Navigation.PushAsync(new DodajKomentar(item));
+        }
+
+        private async void Button_Clicked_3(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            var item = btn.BindingContext as Recept;
+            await Navigation.PushAsync(new PrikazKomentara(item));
+        }
     }
 }
