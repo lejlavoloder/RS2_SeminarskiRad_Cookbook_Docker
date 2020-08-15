@@ -59,6 +59,7 @@ namespace Cookbook.MobileApp.ViewModels
                     Application.Current.MainPage = new MainPageAdmin();
                 }
             }
+           
             catch(Exception ex)
             {
 

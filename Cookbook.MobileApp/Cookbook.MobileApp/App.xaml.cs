@@ -19,6 +19,7 @@ namespace Cookbook.MobileApp
 
         protected override void OnStart()
         {
+            Bootstrap.Instance.Setup();
             MainPage = new LoginPage();
         }
 

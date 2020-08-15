@@ -29,7 +29,7 @@ namespace Cookbook.WebAPI.Security
         }
 
         private bool Kupac = false;
-
+      
         protected async override Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             if (!Request.Headers.ContainsKey("Authorization"))

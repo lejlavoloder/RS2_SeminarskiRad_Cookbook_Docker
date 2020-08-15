@@ -13,7 +13,7 @@ namespace Cookbook.WinUI
 {
     public class APIService
     {
-        public static string Username { get; set; }
+       public static string Username { get; set; }
         public static string Password { get; set; }
 
         private readonly string _route;
@@ -21,20 +21,19 @@ namespace Cookbook.WinUI
         {
             _route = route;
         }
-
+       
         public async Task<T> Get<T>(object search)
         {
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
-
-            try
-            {
+           
+         try  {
                 if (search != null)
                 {
                     url += "?";
                     url += await search.ToQueryString();
                 }
 
-                return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+                return await url.WithBasicAuth( Username, Password ).GetJsonAsync<T>();
             }
             catch (FlurlHttpException ex)
             {

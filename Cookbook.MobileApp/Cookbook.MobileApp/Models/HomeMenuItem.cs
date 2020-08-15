@@ -10,6 +10,7 @@ namespace Cookbook.MobileApp.Models
         MojiFavoriti,
         Recepti,
         Članci,
+        Dokumenti,
         Odjava
     }
     public class HomeMenuItem

@@ -13,7 +13,7 @@ namespace Cookbook.WinUI
 {
     public partial class frmLogin : Form
     {
-        APIService _service = new APIService("Korisnik");
+        private readonly APIService _service = new APIService("Korisnik");
         APIService _servicelogin = new APIService("Posjetilac");
         public frmLogin()
         {
@@ -28,9 +28,7 @@ namespace Cookbook.WinUI
             try
             {
                 await _service.Get<dynamic>(null);
-                List<Model.Posjetilac> lista = await _servicelogin.
-                    Get<List<Model.Posjetilac>>(new PosjetilacSearchRequest
-                { KorisnickoIme = username });
+                List<Model.Posjetilac> lista = await _servicelogin.Get<List<Model.Posjetilac>>(new PosjetilacSearchRequest { KorisnickoIme = username });
                 if (lista.Count > 0)
                 {
                     Application.Restart();

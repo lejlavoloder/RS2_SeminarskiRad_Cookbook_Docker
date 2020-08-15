@@ -9,11 +9,13 @@ using Cookbook.WebAPI.Filters;
 using Cookbook.WebAPI.Security;
 using Cookbook.WebAPI.Services;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,7 +42,7 @@ namespace Cookbook.WebAPI
         {
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "eProdaja API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Cookbook API", Version = "v1" });
 
                 c.AddSecurityDefinition("basicAuth", new OpenApiSecurityScheme
                 {
@@ -59,8 +61,26 @@ namespace Cookbook.WebAPI
                 });
             });
 
-            services.AddMvc(x => x.Filters.Add<ErrorFilter>()).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-         
+          services.AddMvc
+             (x => x.Filters.Add<ErrorFilter>()).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddControllers();
+            /*  services.AddMvc(config => {
+                  var policy = new AuthorizationPolicyBuilder()
+                     .AddAuthenticationSchemes(new[] { BasicAuthenticationDefaults.AuthenticationScheme })
+                     .AddRequirements(new BasicAuthorizationRequirement())
+                     .Build();
+                  config.Filters.Add(new AuthorizeFilter(policy));
+              });*/
+
+            /*    services.AddMvc(config =>
+                {
+                    var policy = new AuthorizationPolicyBuilder()
+                                 .RequireAuthenticatedUser()
+                                 .Build();
+                    config.Filters.Add(new AuthorizeFilter(policy));
+                });*/
+
+            //  services.AddMvc(option => option.EnableEndpointRouting = false);
             services.AddAutoMapper(typeof(Startup));
             
             services.AddAuthentication("BasicAuthentication")
@@ -95,10 +115,13 @@ namespace Cookbook.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-           
-           // app.UseHttpsRedirection();
+        
+            // app.UseHttpsRedirection();
 
+            app.UseSwagger();
+      
             app.UseRouting();
+            app.UseHttpsRedirection();
 
             app.UseAuthentication();
 
@@ -109,7 +132,7 @@ namespace Cookbook.WebAPI
             {
                 endpoints.MapControllers();
             });
-            app.UseSwagger();
+            
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
