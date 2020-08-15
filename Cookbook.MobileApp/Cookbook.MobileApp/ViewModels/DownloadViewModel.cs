@@ -49,7 +49,7 @@ namespace Cookbook.MobileApp.ViewModels
             {
                 IsDownloading = true;
 
-                var url = "http://localhost:56404/api/Dokument/PreuzmiDokument/" + dokument.DokumentId;
+                var url = "http://localhost:53404/api/Dokument/PreuzmiDokument/" + dokument.DokumentId;
 
                 await _downloadService.DownloadFileAsync(url, progressIndicator, cts.Token);
             }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Cookbook.MobileApp.Services;
+using Cookbook.MobileApp.UWP.Services;
+using GalaSoft.MvvmLight.Ioc;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -53,6 +56,7 @@ namespace Cookbook.MobileApp.UWP
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 Xamarin.Forms.Forms.Init(e);
+                SimpleIoc.Default.Register<IFileService, FileService>();
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
