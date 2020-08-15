@@ -29,7 +29,7 @@ namespace Cookbook.MobileApp.ViewModels
         public Korisnik korisnik { get; set; }
         public ICommand DodajKomentarCommand { get; set; }
         public ICommand PrikazKomentaraCommand { get; set; }
-        public ObservableCollection<Komentar> KomentarList = new ObservableCollection<Komentar>();
+        public ObservableCollection<Komentar> KomentarList { get; set; } = new ObservableCollection<Komentar>();
         string _sadrzaj = string.Empty;
         public string Sadrzaj
         {

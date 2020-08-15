@@ -29,7 +29,7 @@ namespace Cookbook.MobileApp.Views.Posjetilac
         protected override void OnAppearing()
         {
             base.OnAppearing();
-        }
+         }
         private async void Button_Clicked(object sender, EventArgs e)
         {
             if (!Regex.IsMatch(this.Sadrzaj.Text, @"^[a-zA-Z ]+$") && this.Sadrzaj.Text.Length < 3)

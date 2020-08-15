@@ -8,8 +8,6 @@ namespace Cookbook.Model.Requests
     {
      
         public string Naziv { get; set; }
-
-      //  public int SastojakId { get; set; }
         public int? KategorijaId { get; set; }
         public int? GrupaJelaId { get; set; }
         public int? SlozenostId { get; set; }

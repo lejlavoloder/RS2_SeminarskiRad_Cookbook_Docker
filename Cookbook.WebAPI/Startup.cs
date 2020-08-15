@@ -82,7 +82,7 @@ namespace Cookbook.WebAPI
             services.AddScoped<IDokumentService, DokumentService>();
             services.AddScoped<ICRUDService<Model.Favoriti, FavoritiSearchRequest, FavoritiUpsertRequest, FavoritiUpsertRequest>, FavoritiService>();
             services.AddScoped<ICRUDService<Model.Komentar, KomentarSearchRequest, KomentarUpsertRequest, KomentarUpsertRequest>, KomentarService>();
-
+            services.AddScoped<ICRUDService<Model.Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest>, OcjenaService>();
             var connection = @"data source =.; initial catalog = Cookbook; integrated security = True;";
             services.AddDbContext<CookbookContext>(options => options.UseSqlServer(connection));
         }

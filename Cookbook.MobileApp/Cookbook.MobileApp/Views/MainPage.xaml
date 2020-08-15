@@ -12,14 +12,14 @@
     </MasterDetailPage.Master>
 
     <MasterDetailPage.Detail>
-        <NavigationPage>
+        <NavigationPage BackgroundColor="CornflowerBlue">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="iOS" Value="tab_feed.png"/>
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:ItemsPage />
+                <views:MapPage />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

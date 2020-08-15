@@ -71,6 +71,8 @@
 
                                 <Button Clicked="Button_Clicked" Text="Prikaži detalje" CornerRadius="7" HeightRequest="35" WidthRequest="105" Padding="2"
                                     TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+                                <Button Clicked="Button_Clicked1" Text="Ocijeni recept" CornerRadius="7" HeightRequest="35" WidthRequest="105" Padding="2"
+                                    TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

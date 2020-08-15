@@ -14,7 +14,7 @@ namespace Cookbook.MobileApp.Views.Posjetilac
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PrikazKomentara : ContentPage
     {
-        public KomentarViewModel model;
+      KomentarViewModel model=null;
         public PrikazKomentara(Recept recept)
         {
             InitializeComponent();

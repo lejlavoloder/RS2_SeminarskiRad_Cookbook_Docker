@@ -33,5 +33,12 @@ namespace Cookbook.MobileApp.Views.Posjetilac
 
             await Navigation.PushAsync(new DetaljiRecepta(item));
         }
+        private async void Button_Clicked1(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            var item = btn.BindingContext as Recept;
+
+            await Navigation.PushAsync(new OcijeniReceptPage(item));
+        }
     }
 }
