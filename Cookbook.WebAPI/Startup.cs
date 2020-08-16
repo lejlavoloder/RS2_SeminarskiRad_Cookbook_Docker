@@ -86,6 +86,7 @@ namespace Cookbook.WebAPI
             services.AddAuthentication("BasicAuthentication")
              .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
             services.AddScoped<IService<Model.Uloga, object>, BaseService<Model.Uloga, object, Uloga>>();
+            services.AddScoped<IPreporukaService, PreporukaService>();
             services.AddScoped<IKorisnikService, KorisnikService>();
             services.AddScoped<ILoginService, LoginService>();
             services.AddScoped<IKupacService, KupacService>();
@@ -103,6 +104,7 @@ namespace Cookbook.WebAPI
             services.AddScoped<ICRUDService<Model.Favoriti, FavoritiSearchRequest, FavoritiUpsertRequest, FavoritiUpsertRequest>, FavoritiService>();
             services.AddScoped<ICRUDService<Model.Komentar, KomentarSearchRequest, KomentarUpsertRequest, KomentarUpsertRequest>, KomentarService>();
             services.AddScoped<ICRUDService<Model.Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest>, OcjenaService>();
+       
             var connection = @"data source =.; initial catalog = Cookbook; integrated security = True;";
             services.AddDbContext<CookbookContext>(options => options.UseSqlServer(connection));
         }

@@ -25,6 +25,7 @@ namespace Cookbook.MobileApp.Views
                 new HomeMenuItem{Id=MenuItemType.MojiFavoriti, Title="Moji favoriti"},
                 new HomeMenuItem{Id=MenuItemType.Članci, Title="Članci"},
                 new HomeMenuItem{Id=MenuItemType.Recepti, Title="Recepti"},
+                new HomeMenuItem{Id=MenuItemType.SistemPreporuke, Title="Sistem preporuke"},
                 new HomeMenuItem{Id=MenuItemType.Dokumenti, Title="Dokumenti"},
                 new HomeMenuItem {Id = MenuItemType.Odjava, Title="Odjava" }
             };
