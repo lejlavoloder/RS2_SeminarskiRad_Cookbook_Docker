@@ -18,6 +18,7 @@ namespace Cookbook.MobileApp.Models
         Članak,
         Odjava,
         OdobriRecepte,
+        PrikazRegistrovanihPosjetilaca,
         UrediProfil,
        MojiFavoriti
     }

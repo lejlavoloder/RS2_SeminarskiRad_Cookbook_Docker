@@ -7,8 +7,9 @@
         <viewModel:UrediSastojakViewModel>
         </viewModel:UrediSastojakViewModel>
     </ContentPage.BindingContext>
-    <ContentPage.Content>
+    <ContentPage.Content>  <ScrollView>
         <StackLayout Padding="20">
+         
             <StackLayout>  
                 <Label Text="Mjerna jedinica"></Label>
                 <Picker x:Name="mjernajedinica" ItemsSource="{Binding MjernaJedinicaList}" ItemDisplayBinding="{Binding Naziv}"></Picker>
@@ -20,6 +21,7 @@
             <StackLayout>
                 <Button Text="Sačuvaj" Clicked="Button_Clicked"></Button>
             </StackLayout>
-        </StackLayout>
+        </StackLayout> 
+    </ScrollView>
     </ContentPage.Content>
 </ContentPage>

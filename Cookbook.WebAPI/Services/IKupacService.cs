@@ -16,7 +16,6 @@ namespace Cookbook.WebAPI.Services
 
         Model.Posjetilac Update(int id, PosjetilacUpsertRequest request);
 
-        Model.Korisnik AuthenticirajKupca(string username, string pass);
-
+  
     }
 }

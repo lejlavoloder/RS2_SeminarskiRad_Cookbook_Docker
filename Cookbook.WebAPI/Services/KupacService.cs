@@ -21,23 +21,6 @@ namespace Cookbook.WebAPI.Services
             _mapper = mapper;
         }
 
-
-        public Model.Korisnik AuthenticirajKupca(string username, string pass)
-        {
-            var user = _context.Korisnik.Where(x => x.KorisnickoIme == username).FirstOrDefault();
-
-            if (user != null)
-            {
-                var newHash = GenerateHash(user.LozinkaSalt, pass);
-
-                if (newHash == user.LozinkaHash)
-                {
-                    return _mapper.Map<Model.Korisnik>(user);
-                }
-            }
-            return null;
-        }
-
         public static string GenerateSalt()
         {
             var buf = new byte[16];
@@ -78,8 +61,21 @@ namespace Cookbook.WebAPI.Services
                 query = query.Where(x => x.Korisnik.KorisnickoIme.ToLower().StartsWith(search.KorisnickoIme) || x.Korisnik.KorisnickoIme.ToUpper().StartsWith(search.KorisnickoIme));
 
             }
+            var query1 = _context.Recept.AsQueryable();
             var list = query.ToList();
-            return _mapper.Map<List<Model.Posjetilac>>(list);
+            var list1= _mapper.Map<List<Model.Posjetilac>>(list);
+
+            foreach(var b in query1)
+            {
+              foreach(var c in list1)
+                {
+                    if (b.KorisnikId == c.KorisnikId && b.Odobren==true)
+                    {
+                        c.BrojObjavljenihRecepata++;
+                    }
+                }
+            }
+            return list1;
         }
 
         public Model.Posjetilac GetById(int id)

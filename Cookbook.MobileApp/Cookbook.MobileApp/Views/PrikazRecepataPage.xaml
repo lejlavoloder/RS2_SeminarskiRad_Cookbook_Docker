@@ -82,6 +82,13 @@
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
                                 </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Prosjecna ocjena: "  FontSize="12" ></Label>
+                                    <Label Text="{Binding Ocjena}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                </StackLayout>
                                 <StackLayout>
                                     <Button Clicked="Button_Clicked" Text="Prikaži detalje" CornerRadius="7" HeightRequest="35"
                                             WidthRequest="105" Padding="2"

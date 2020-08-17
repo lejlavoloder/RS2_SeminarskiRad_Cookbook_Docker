@@ -6,7 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Cookbook.MobileApp.Views.Posjetilac.PrikazNotifikacija"
-             Title="Prikaz notifikacija">
+             Title="Prikaz obavijesti">
     <ContentPage.BindingContext>
         <viewModel:NotifikacijaViewModel>
         </viewModel:NotifikacijaViewModel>

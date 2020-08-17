@@ -29,11 +29,12 @@ namespace Cookbook.MobileApp.Views
                 new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.Sastojak, Title="Sastojak"},
                 new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.VrstaClanka, Title="Vrsta članka"},
                 new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.Članak, Title="Članak"},
-                new HomeMenuItemAdmin{Id=       MenuItemTypeAdmin.Recept, Title="Recept"},
-                new HomeMenuItemAdmin{Id=       MenuItemTypeAdmin.Komentar, Title="Upravljanje komentarima"},
+                new HomeMenuItemAdmin{Id=       MenuItemTypeAdmin.Recept, Title="Recept"},      
+                new HomeMenuItemAdmin{Id= MenuItemTypeAdmin.OdobriRecepte, Title="Odobri recept"}, 
+                new HomeMenuItemAdmin{Id=      MenuItemTypeAdmin.MojiFavoriti, Title="Moji favoriti"},
+                new HomeMenuItemAdmin{Id=       MenuItemTypeAdmin.Komentar, Title="Upravljanje komentarima"}, 
+                new HomeMenuItemAdmin{Id=  MenuItemTypeAdmin.PrikazRegistrovanihPosjetilaca, Title="Registrovani posjetioci"},
                 new HomeMenuItemAdmin{Id=      MenuItemTypeAdmin.UrediProfil, Title="Uredi profil"},
-                 new HomeMenuItemAdmin{Id=      MenuItemTypeAdmin.MojiFavoriti, Title="Moji favoriti"},
-                 new HomeMenuItemAdmin{Id= MenuItemTypeAdmin.OdobriRecepte, Title="Odobri recept"},
                 new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.Odjava, Title="Odjava"},
             };
             ListViewMenu.ItemsSource = menuItems;

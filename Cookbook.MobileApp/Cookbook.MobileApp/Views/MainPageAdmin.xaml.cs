@@ -69,16 +69,16 @@ namespace Cookbook.MobileApp.Views
                         break;
                     case (int)MenuItemTypeAdmin.Recept:
                         MenuPagesAdmin.Add(id, new NavigationPage(new ReceptPage()));
+                        break;   
+                    case (int)MenuItemTypeAdmin.OdobriRecepte:
+                        MenuPagesAdmin.Add(id, new NavigationPage(new OdobriRecept()));
                         break;
                     case (int)MenuItemTypeAdmin.MojiFavoriti:
                         MenuPagesAdmin.Add(id, new NavigationPage(new FavoritiPage()));
                         break;
-                    case (int)MenuItemTypeAdmin.OdobriRecepte:
-                        MenuPagesAdmin.Add(id, new NavigationPage(new OdobriRecept()));
-                        break;
-                    case (int)MenuItemTypeAdmin.Odjava:
-                             MenuPagesAdmin.Add(id, new NavigationPage(new LoginPage()));
-                             break;
+                    case (int)MenuItemTypeAdmin.PrikazRegistrovanihPosjetilaca:
+                        MenuPagesAdmin.Add(id, new NavigationPage(new PrikazRegistrovanihPosjetioca()));
+                        break; 
                     case (int)MenuItemTypeAdmin.UrediProfil:
                         Korisnik korisnik = new Korisnik();
                         var username = APIService.Username;
@@ -93,6 +93,10 @@ namespace Cookbook.MobileApp.Views
                         }
                         MenuPagesAdmin.Add(id, new NavigationPage(new UrediProfilPage(korisnik)));
                         break;
+                    case (int)MenuItemTypeAdmin.Odjava:
+                             MenuPagesAdmin.Add(id, new NavigationPage(new LoginPage()));
+                             break;
+                   
                 }
                  
                 }

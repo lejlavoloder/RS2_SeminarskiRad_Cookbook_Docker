@@ -13,6 +13,7 @@ namespace Cookbook.Model
         public string Email { get; set; }
         public string Telefon { get; set; }
         public string KorisnickoIme { get; set; }
+        public int BrojObjavljenihRecepata { get; set; }
 
     }
 }
