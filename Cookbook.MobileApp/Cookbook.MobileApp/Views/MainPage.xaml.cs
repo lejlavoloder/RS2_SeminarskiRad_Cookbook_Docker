@@ -66,6 +66,9 @@ namespace Cookbook.MobileApp.Views
                     case (int)MenuItemType.Dokumenti:
                         MenuPages.Add(id, new NavigationPage(new Posjetilac.DokumentPage()));
                         break;
+                    case (int)MenuItemType.Obavijesti:
+                        MenuPages.Add(id, new NavigationPage(new Posjetilac.PrikazNotifikacija()));
+                        break;
                     case (int)MenuItemType.SistemPreporuke:
                         MenuPages.Add(id, new NavigationPage(new Posjetilac.SistemPreporuke()));
                         break;

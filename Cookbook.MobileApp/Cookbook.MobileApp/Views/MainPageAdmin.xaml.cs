@@ -73,6 +73,9 @@ namespace Cookbook.MobileApp.Views
                     case (int)MenuItemTypeAdmin.MojiFavoriti:
                         MenuPagesAdmin.Add(id, new NavigationPage(new FavoritiPage()));
                         break;
+                    case (int)MenuItemTypeAdmin.OdobriRecepte:
+                        MenuPagesAdmin.Add(id, new NavigationPage(new OdobriRecept()));
+                        break;
                     case (int)MenuItemTypeAdmin.Odjava:
                              MenuPagesAdmin.Add(id, new NavigationPage(new LoginPage()));
                              break;

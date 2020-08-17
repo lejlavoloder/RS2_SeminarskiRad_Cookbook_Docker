@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:Cookbook.MobileApp.Converter"
+            xmlns:viewModel="clr-namespace:Cookbook.MobileApp.ViewModels" 
+             x:Class="Cookbook.MobileApp.Views.OdobriRecept"
+             Title="Odobravanje recepata">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewModel:OdobriReceptViewModel>
+        </viewModel:OdobriReceptViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding ReceptList}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Naziv}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image WidthRequest="300"
+                                       Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Datum objave: "  FontSize="12" ></Label>
+                                <Label Text="{Binding DatumObjave}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Tekst: "  FontSize="12" ></Label>
+                                <Label Text="{Binding Tekst}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                            </StackLayout>
+
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Odobren: "  FontSize="12" ></Label>
+                                <Label Text="{Binding Odobren}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Korisnik" FontSize="12"></Label>
+                                <Label Text="{Binding Korisnik}" FontSize="13"></Label>
+                            </StackLayout>
+
+                            <Button Clicked="Button_Clicked" Text="Odobri" IsVisible="{Binding NijeOdobreno}"
+                                    CornerRadius="7" HeightRequest="30" WidthRequest="60" Padding="3" TextColor="White" BackgroundColor="Blue" 
+                                    HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

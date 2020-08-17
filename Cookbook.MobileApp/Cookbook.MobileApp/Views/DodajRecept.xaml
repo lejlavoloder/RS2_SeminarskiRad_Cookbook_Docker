@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:viewModel="clr-namespace:Cookbook.MobileApp.ViewModels"
+            xmlns:converters="clr-namespace:Cookbook.MobileApp.Converter"
+             x:Class="Cookbook.MobileApp.Views.DodajRecept"
+             Title="Dodaj recept">
+    <ContentPage.BindingContext>
+        <viewModel:ReceptDodajViewModel>
+        </viewModel:ReceptDodajViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv">
+                
+            </converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0"  HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand" x:Name="CrveniGrid" BackgroundColor="Red">
+                <Label Text="Naziv"></Label>
+                <Entry x:Name="Naziv" Text="{Binding Naziv}"></Entry>
+
+                <Label Text="Slozenost"></Label>
+                <Picker x:Name="SlozenostPicker" ItemsSource="{Binding SlozenostList}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+
+                <Label Text="Grupa jela"></Label>
+                <Picker x:Name="GrupaJelaPicker" ItemsSource="{Binding GrupaJelaList}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+
+                <Label Text="Kategorija"></Label>
+                <Picker x:Name="KategorijaPicker" ItemsSource="{Binding KategorijaList}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+
+                <Label Text="Tekst"></Label>
+                <Entry x:Name="Tekst" Text="{Binding Tekst}"></Entry>
+            </StackLayout>
+            <StackLayout Grid.Row="0"  HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand"  x:Name="ZutiGrid" BackgroundColor="Yellow" IsVisible="False">
+                <Label Text="Datum i vrijeme objave"></Label>
+                <DatePicker x:Name="DatumObjave" IsEnabled="True"></DatePicker>
+
+                <Label Text="Vrijeme kuhanja"></Label>
+                <Entry x:Name="VrijemeKuhanja" Text="{Binding VrijemeKuhanja}"></Entry>
+
+                <Label Text="Vrijeme pripreme"></Label>
+                <Entry x:Name="VrijemePripreme" Text="{Binding VrijemePripreme}"></Entry>
+
+                <Label Text="Broj ljudi"></Label>
+                <Entry x:Name="BrojLjudi" Text="{Binding BrojLjudi}"></Entry>
+
+                <Image WidthRequest="300" Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                <Button Clicked="Button_Clicked_1" Text="Odaberi Sliku"/>
+
+                <Button Clicked="Button_Clicked"  HorizontalOptions="FillAndExpand" Text="Sačuvaj" BackgroundColor="LightGray"></Button>
+                <Label IsVisible="{Binding IsBusy}" Text="..."></Label>
+            </StackLayout>
+            <StackLayout x:Name="stackSastojci" HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand">
+                <ListView ItemsSource="{Binding ReceptSastojakList}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10" Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout>
+                                            <Label>Mjerna količina</Label>
+                                            <Label Text="{Binding MjernaKolicina}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout>
+                                            <Label>Mjerna jednica</Label>
+                                            <Label Text="{Binding MjernaJedinica}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout>
+                                            <Label>Sastojak</Label>
+                                            <Label Text="{Binding Sastojak}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <Button Clicked="Button_Clicked" Text="Uredi" CornerRadius="7" HeightRequest="35"
+                                            WidthRequest="105" Padding="2"
+                      TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+                                    <Button Clicked="Button_Clicked_1" Text="Obrisi" CornerRadius="7" HeightRequest="35"
+                                            WidthRequest="105" Padding="2"
+                      TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Button  Grid.Row="1" BackgroundColor="Green" Text="Promjeni grid" Clicked="ChangeGrid_Click"/>
+        <!--<ScrollView IsVisible="False">
+            <StackLayout  HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand">
+
+                <Label Text="Naziv"></Label>
+                <Entry x:Name="Naziv" Text="{Binding Naziv}"></Entry>
+                
+                <Label Text="Slozenost"></Label>
+                <Picker x:Name="SlozenostPicker" ItemsSource="{Binding SlozenostList}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+
+                <Label Text="Grupa jela"></Label>
+                <Picker x:Name="GrupaJelaPicker" ItemsSource="{Binding GrupaJelaList}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+
+                <Label Text="Kategorija"></Label>
+                <Picker x:Name="KategorijaPicker" ItemsSource="{Binding KategorijaList}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+
+                <Label Text="Tekst"></Label>
+                <Entry x:Name="Tekst" Text="{Binding Tekst}"></Entry>
+
+                <Label Text="Datum i vrijeme objave"></Label>
+                <DatePicker x:Name="DatumObjave" IsEnabled="True"></DatePicker>
+              
+                <Label Text="Vrijeme kuhanja"></Label>
+                <Entry x:Name="VrijemeKuhanja" Text="{Binding VrijemeKuhanja}"></Entry>
+
+                <Label Text="Vrijeme pripreme"></Label>
+                <Entry x:Name="VrijemePripreme" Text="{Binding VrijemePripreme}"></Entry>
+
+                <Label Text="Broj ljudi"></Label>
+                <Entry x:Name="BrojLjudi" Text="{Binding BrojLjudi}"></Entry>
+
+                <Image WidthRequest="300" Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                <Button Clicked="Button_Clicked_1" Text="Odaberi Sliku"/>
+
+                <Button Clicked="Button_Clicked"  HorizontalOptions="FillAndExpand" Text="Sačuvaj" BackgroundColor="LightGray"></Button>
+                <Label IsVisible="{Binding IsBusy}" Text="..."></Label>
+
+            </StackLayout>
+
+        </ScrollView>-->
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

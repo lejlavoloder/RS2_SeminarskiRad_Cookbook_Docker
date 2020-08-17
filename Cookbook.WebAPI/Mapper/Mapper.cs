@@ -48,6 +48,10 @@ namespace Cookbook.WebAPI.Mapper
             CreateMap<Database.Clanak, Model.Clanak>();
             CreateMap<Database.Clanak, ClanakInsertRequest>().ReverseMap();
 
+            CreateMap<Database.Notifikacija, Model.Notifikacija>();
+            CreateMap<Database.Notifikacija, NotifikacijaUpsertRequest>().ReverseMap();
+
+
             CreateMap<Database.Recept, Model.Recept>();
             CreateMap<Database.Recept, ReceptUpsertRequest>().ReverseMap();
 
@@ -76,6 +80,10 @@ namespace Cookbook.WebAPI.Mapper
           .ForMember(s=>s.MjernaKolicina, a=>
           a.MapFrom(b=>new Database.CookbookContext().MjernaKolicina.Find(b.MjernaKolicinaId).Kolicina));
 
+            CreateMap<Database.Notifikacija, Model.Notifikacija>()
+                 .ForMember(s => s.Recept, a =>
+                   a.MapFrom(b => new Database.CookbookContext().Recept.Find(b.ReceptId).Naziv));
+            
             CreateMap<Database.Posjetilac, Model.Posjetilac>()
                 .ForMember(s => s.KorisnickoIme, a =>
                   a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).KorisnickoIme))
@@ -117,7 +125,11 @@ namespace Cookbook.WebAPI.Mapper
                 .ForMember(s => s.GrupaJela, a =>
                   a.MapFrom(b => new Database.CookbookContext().GrupaJela.Find(b.GrupaJelaId).Naziv))
                 .ForMember(s => s.Ocjena, a =>
-                 a.MapFrom(b => new Database.CookbookContext().Ocjena.Find(b.ReceptId).ocjena)); 
+                 a.MapFrom(b => new Database.CookbookContext().Ocjena.Find(b.ReceptId).ocjena))
+                .ForMember(s => s.Korisnik, a =>
+                  a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Ime + " " +
+                  new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Prezime));
+                
      }
     }
 }

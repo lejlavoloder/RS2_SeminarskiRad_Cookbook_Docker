@@ -13,6 +13,7 @@ namespace Cookbook.Model
         public int BrojLjudi { get; set; }
         public string Tekst { get; set; }
         public int KorisnikId { get; set; }
+        public string Korisnik { get; set; }
         public int KategorijaId { get; set; }
         public string Kategorija { get; set; }
         public int GrupaJelaId { get; set; }
@@ -22,6 +23,7 @@ namespace Cookbook.Model
         public DateTime DatumObjave { get; set; }
         public byte[] Slika { get; set; }
         public bool Odobren { get; set; }
+        public bool NijeOdobreno { get => !Odobren; }
         public decimal Ocjena { get; set; }
     }
 }

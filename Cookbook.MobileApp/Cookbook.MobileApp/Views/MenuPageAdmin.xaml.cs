@@ -33,6 +33,7 @@ namespace Cookbook.MobileApp.Views
                 new HomeMenuItemAdmin{Id=       MenuItemTypeAdmin.Komentar, Title="Upravljanje komentarima"},
                 new HomeMenuItemAdmin{Id=      MenuItemTypeAdmin.UrediProfil, Title="Uredi profil"},
                  new HomeMenuItemAdmin{Id=      MenuItemTypeAdmin.MojiFavoriti, Title="Moji favoriti"},
+                 new HomeMenuItemAdmin{Id= MenuItemTypeAdmin.OdobriRecepte, Title="Odobri recept"},
                 new HomeMenuItemAdmin{  Id  =  MenuItemTypeAdmin.Odjava, Title="Odjava"},
             };
             ListViewMenu.ItemsSource = menuItems;
