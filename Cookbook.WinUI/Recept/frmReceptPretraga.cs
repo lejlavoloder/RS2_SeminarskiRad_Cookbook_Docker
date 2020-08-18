@@ -33,9 +33,6 @@ namespace Cookbook.WinUI.Recept
             var result = await _kategorija.Get<List<Model.Kategorija>>(null);
             cmbKategorija.DisplayMember = "Naziv";
             cmbKategorija.ValueMember = "KategorijaId";
-            //result.Insert(0, new Model.Kategorija());
-            //cmbKategorija.SelectedItem = null;
-            //cmbKategorija.SelectedText = "--Odaberite--";
             result.Insert(0, new Model.Kategorija
             {
                 Naziv = "Odaberite"
@@ -48,9 +45,6 @@ namespace Cookbook.WinUI.Recept
             var result = await _grupajela.Get<List<Model.GrupaJela>>(null);
             cmbGrupaJela.DisplayMember = "Naziv";
             cmbGrupaJela.ValueMember = "GrupaJelaId";
-            //result.Insert(0, new Model.GrupaJela());
-            //cmbGrupaJela.SelectedItem = null;
-            //cmbGrupaJela.SelectedText = "--Odaberite--";
             result.Insert(0, new Model.GrupaJela
             {
                 Naziv = "Odaberite"
@@ -95,10 +89,6 @@ namespace Cookbook.WinUI.Recept
             });
             dgvRecept.AutoGenerateColumns = false;
             dgvRecept.DataSource = result;
-            //foreach (DataGridViewRow row in dgvRecept.Rows)
-            //{
-            //    row.Height = 100;
-            //}
         }
 
         private void cmbKategorija_Validating(object sender, CancelEventArgs e)

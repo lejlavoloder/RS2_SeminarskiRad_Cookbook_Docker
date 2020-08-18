@@ -70,8 +70,6 @@ namespace Cookbook.WinUI.Sastojak
             {
                 errorProvider.SetError(txtNaziv, null);
             }
-        }
-
-       
+        }  
     }
 }

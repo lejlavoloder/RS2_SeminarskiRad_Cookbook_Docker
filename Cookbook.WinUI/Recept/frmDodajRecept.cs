@@ -114,7 +114,7 @@ namespace Cookbook.WinUI.Recept
                     {
                         SastojakId = SastojakId,
                         Sastojak = sastojci.FirstOrDefault(x => x.SastojakId == SastojakId).Naziv,
-                        MjernaJedinicaId = MjernaKolicinaId,
+                        MjernaJedinicaId = MjernaJedinicaId,
                         MjernaJedinica = mjerneJedinice.FirstOrDefault(x => x.MjernaJedinicaId == MjernaJedinicaId).Naziv,
                         MjernaKolicinaId = MjernaKolicinaId,
                         MjernaKolicina = mjerneKolicine.FirstOrDefault(x => x.MjernaKolicinaId == MjernaKolicinaId).Kolicina,

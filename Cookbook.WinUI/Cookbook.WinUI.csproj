@@ -260,12 +260,6 @@
     <Compile Include="Recept\frmReceptPretraga.Designer.cs">
       <DependentUpon>frmReceptPretraga.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recept\frmRecept.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Recept\frmRecept.Designer.cs">
-      <DependentUpon>frmRecept.cs</DependentUpon>
-    </Compile>
     <Compile Include="Recept\frmDodajRecept.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -377,9 +371,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recept\frmDodajSastojak.resx">
       <DependentUpon>frmDodajSastojak.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Recept\frmRecept.resx">
-      <DependentUpon>frmRecept.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recept\frmReceptPretraga.resx">
       <DependentUpon>frmReceptPretraga.cs</DependentUpon>
