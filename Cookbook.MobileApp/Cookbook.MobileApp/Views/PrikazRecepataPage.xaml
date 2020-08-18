@@ -101,7 +101,7 @@
                                 </StackLayout>
                                 <StackLayout>
                                     <Button Clicked="Button_Clicked_2" Text="Dodaj u favorite" CornerRadius="7" HeightRequest="35"
-                                            WidthRequest="105" Padding="2"
+                                            WidthRequest="115" Padding="2"
                   TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
                                 </StackLayout>
                                 <StackLayout>

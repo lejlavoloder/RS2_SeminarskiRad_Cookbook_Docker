@@ -18,14 +18,11 @@ namespace Cookbook.WebAPI.Services
         {
             var q = _context.Set<Database.Ocjena>().AsQueryable();
 
-            if (search?.ReceptId.HasValue == true)
+            if (search?.ReceptId.HasValue == true && search?.PosjetilacId.HasValue == true)
             {
-                q = q.Where(s => s.Recept.ReceptId == search.ReceptId);
+                q = q.Where(s => s.Recept.ReceptId == search.ReceptId && s.Posjetilac.PosjetilacId==search.PosjetilacId);
             }
-            if (search?.PosjetilacId.HasValue == true)
-            {
-                q = q.Where(s => s.Posjetilac.PosjetilacId == search.PosjetilacId);
-            }
+          
             var list = q.ToList();
             return _mapper.Map<List<Model.Ocjena>>(list);
         }

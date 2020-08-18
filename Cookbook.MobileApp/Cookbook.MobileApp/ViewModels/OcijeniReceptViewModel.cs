@@ -12,9 +12,9 @@ namespace Cookbook.MobileApp.ViewModels
 {
     public class OcijeniReceptViewModel:BaseViewModel
     {
-        APIService _ocjenaAPI = new APIService("Ocjena");
-        APIService _recept = new APIService("Recept");
-        APIService _posjetilac = new APIService("Posjetilac");
+        APIService _apiocjena = new APIService("Ocjena");
+        APIService _apirecept = new APIService("Recept");
+        APIService _apiposjetilac = new APIService("Posjetilac");
 
         public Recept recept { get; set; }
         public Ocjena ocjena { get; set; }
@@ -48,10 +48,9 @@ namespace Cookbook.MobileApp.ViewModels
         public ICommand InitCommand { get; set; }
         public async Task Init()
         {
-
             Posjetilac posjetilac = new Posjetilac();
             var username = APIService.Username;
-            List<Posjetilac> lista = await _posjetilac.Get<List<Posjetilac>>(null);
+            List<Posjetilac> lista = await _apiposjetilac.Get<List<Posjetilac>>(null);
             foreach (var posjetilac1 in lista)
             {
                 if (posjetilac1.KorisnickoIme == username)
@@ -65,7 +64,7 @@ namespace Cookbook.MobileApp.ViewModels
                 ReceptId = recept.ReceptId,
                 PosjetilacId = posjetilac.PosjetilacId
             };
-            var ocjene = await _ocjenaAPI.Get<List<Ocjena>>(null);
+            var ocjene = await _apiocjena.Get<List<Ocjena>>(req);
             if (ocjene != null && ocjene.Count > 0)
             {
                 ocjena = ocjene[0];
@@ -78,10 +77,10 @@ namespace Cookbook.MobileApp.ViewModels
             IsBusy = true;
             if (ocjena != null)
             {
-                await _ocjenaAPI.Delete<Ocjena>(ocjena.OcjenaId);
+                await _apiocjena.Delete<Ocjena>(ocjena.OcjenaId);
             }
 
-            ocjena = await _ocjenaAPI.Insert<Ocjena>(new OcjenaUpsertRequest()
+            ocjena = await _apiocjena.Insert<Ocjena>(new OcjenaUpsertRequest()
             {
                 ocjena = _ocjena,
                 PosjetilacId =_posjetilacId,

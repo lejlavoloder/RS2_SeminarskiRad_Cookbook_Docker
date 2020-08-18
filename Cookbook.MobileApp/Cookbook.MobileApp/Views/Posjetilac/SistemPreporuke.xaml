@@ -28,18 +28,18 @@
                                     <Image WidthRequest="300" HeightRequest="280"
                                        Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
                                     <StackLayout Orientation="Horizontal">
-                                        <Label Text="Naziv:     " FontSize="Small"/>
+                                       
                                         <Label Text="{Binding Naziv}"                                            
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="Small" />
+                                           FontSize="18" />
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">
-                                        <Label Text="Vrijeme pripreme:      " FontSize="Small"/>
+                                        <Label Text="Vrijeme pripreme u minutama:      " FontSize="14"/>
                                         <Label Text="{Binding VrijemePripreme}" 
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="Small" />
+                                           FontSize="14" />
                                     </StackLayout>
                                 </StackLayout>
 

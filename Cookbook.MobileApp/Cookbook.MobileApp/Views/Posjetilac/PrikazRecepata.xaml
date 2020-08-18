@@ -98,7 +98,7 @@
                                             WidthRequest="115" Padding="2"
                   TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
                                     <Button Clicked="Button_Clicked_3" Text="Prikaz komentara" CornerRadius="7" HeightRequest="35"
-                                            WidthRequest="120" Padding="2"
+                                            WidthRequest="123" Padding="2"
                   TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
                                 </StackLayout>
                             </StackLayout>
