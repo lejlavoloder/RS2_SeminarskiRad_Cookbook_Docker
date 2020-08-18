@@ -12,6 +12,7 @@ namespace Cookbook.MobileApp.Models
         Članci,
         Dokumenti,
         Obavijesti,
+        MojiRecepti,
         SistemPreporuke,
         Odjava
     }

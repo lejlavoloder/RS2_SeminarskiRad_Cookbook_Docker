@@ -4,6 +4,7 @@ using Cookbook.Model.Requests;
 using Plugin.Media;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,26 +12,23 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Xamarin.Forms.DataGrid;
-using System.Collections.ObjectModel;
 using Xamarin.Forms.Internals;
+using Xamarin.Forms.Xaml;
 
-namespace Cookbook.MobileApp.Views
+namespace Cookbook.MobileApp.Views.Posjetilac
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DodajRecept : ContentPage
+    public partial class DodajReceptPage : ContentPage
     {
         private List<Layout<View>> stackLayouts = new List<Layout<View>>();
         APIService _apiKorisnik = new APIService("Korisnik");
         APIService _apiReceptSastojak = new APIService("ReceptSastojak");
-        ReceptDodajViewModel model = null;
+        DodajReceptPosjetiocViewModel model = null;
         ObservableCollection<ReceptSastojak> ReceptSastojakList { get; set; } = new ObservableCollection<ReceptSastojak>();
-        
-        public DodajRecept()
+        public DodajReceptPage()
         {
             InitializeComponent();
-            BindingContext = model = new ReceptDodajViewModel();
+            BindingContext = model = new DodajReceptPosjetiocViewModel();
             stackLayouts = new List<Layout<View>>
             {
                 prviPage,
@@ -87,7 +85,7 @@ namespace Cookbook.MobileApp.Views
             {
                 await DisplayAlert("Greška", "Potrebno je unijeti minimalno 2 sastojka", "OK");
             }
-            else if(!Regex.IsMatch(this.Naziv.Text, @"^[a-zA-Z ]+$") && this.Naziv.Text.Length < 4)
+            else if (!Regex.IsMatch(this.Naziv.Text, @"^[a-zA-Z ]+$") && this.Naziv.Text.Length < 4)
             {
                 await DisplayAlert("Greška", "Naziv se sastoji samo od slova", "OK");
             }
@@ -146,10 +144,11 @@ namespace Cookbook.MobileApp.Views
                     model.DatumVrijemeObjave = DateTime.Now;
                     model.VrijemeKuhanja = Convert.ToInt32(this.VrijemeKuhanja.Text);
                     model.VrijemePripreme = Convert.ToInt32(this.VrijemePripreme.Text);
+                   
                     model.BrojLjudi = Convert.ToInt32(this.BrojLjudi.Text);
                     await model.DodajRecept();
                     ReceptSastojakList.ForEach(x => x.ReceptId = model.recept.ReceptId);
-                    foreach(var i in ReceptSastojakList)
+                    foreach (var i in ReceptSastojakList)
                     {
                         ReceptSastojakUpsertRequest requestSastojak = new ReceptSastojakUpsertRequest()
                         {
@@ -159,7 +158,7 @@ namespace Cookbook.MobileApp.Views
                             ReceptId = i.ReceptId
 
                         };
-                       await _apiReceptSastojak.Insert<ReceptSastojak>(requestSastojak);
+                        await _apiReceptSastojak.Insert<ReceptSastojak>(requestSastojak);
                     }
                     await Application.Current.MainPage.DisplayAlert("Poruka", "Uspješno ste pohranili recept", "OK");
                     await Navigation.PushAsync(new PrikazRecepataPage());
@@ -214,7 +213,8 @@ namespace Cookbook.MobileApp.Views
             {
                 await DisplayAlert("Greška", "Trebate odabrati sastojak", "OK");
             }
-            else { 
+            else
+            {
                 MjernaKolicina mjernakolicina = this.MjernaKolicinaPicker.SelectedItem as MjernaKolicina;
                 MjernaJedinica mjernajedinica = this.MjernaJedinicaPicker.SelectedItem as MjernaJedinica;
                 Sastojak sastojak = this.SastojakPicker.SelectedItem as Sastojak;
@@ -230,9 +230,9 @@ namespace Cookbook.MobileApp.Views
                 ReceptSastojakList.Add(receptsastojak);
                 dataGrid.ItemsSource = ReceptSastojakList.Select(x => new
                 {
-                  x.MjernaKolicina,
-                  x.MjernaJedinica,
-                  x.Sastojak
+                    x.MjernaKolicina,
+                    x.MjernaJedinica,
+                    x.Sastojak
                 }).ToArray();
                 this.SastojakPicker.SelectedItem = 0;
                 this.MjernaJedinicaPicker.SelectedItem = 0;
@@ -241,9 +241,5 @@ namespace Cookbook.MobileApp.Views
                 petiPage.IsVisible = false;
             }
         }
-
-       
-
     }
-
 }

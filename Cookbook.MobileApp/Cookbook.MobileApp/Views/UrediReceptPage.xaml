@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModel="clr-namespace:Cookbook.MobileApp.ViewModels"
              xmlns:converters="clr-namespace:Cookbook.MobileApp.Converter"
-             x:Class="Cookbook.MobileApp.Views.UrediReceptPage">
+             x:Class="Cookbook.MobileApp.Views.UrediReceptPage"
+             Title="Uredi recept">
     <ContentPage.BindingContext>
         <viewModel:UrediReceptViewModel>
         </viewModel:UrediReceptViewModel>

@@ -10,53 +10,43 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Cookbook.MobileApp.Views
+namespace Cookbook.MobileApp.Views.Posjetilac
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PrikazRecepataPage : ContentPage
+    public partial class MojiRecepti : ContentPage
     {
-        ReceptViewModel vm = null;
         public APIService _apiRecept = new APIService("Recept");
         public APIService _apiReceptSastojak = new APIService("ReceptSastojak");
         public APIService _apiKomentar = new APIService("Komentar");
         public APIService _apiOcjena = new APIService("Ocjena");
         public APIService _apiFavoriti = new APIService("Favoriti");
-        public PrikazRecepataPage()
+        MojiReceptiViewModel model = null;
+        public MojiRecepti()
         {
             InitializeComponent();
-            BindingContext = vm = new ReceptViewModel();
+            BindingContext = model = new MojiReceptiViewModel();
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await vm.PrikazRecepataPage();
-        }
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            var btn = sender as Button;
-            var item = btn.BindingContext as Recept;
-
-            await Navigation.PushAsync(new DetaljiReceptaPage(item));
-        }
-
-        private async void Button_Clicked_1(object sender, EventArgs e)
-        {
-            var btn = sender as Button;
-            var item = btn.BindingContext as Recept;
-
-            await Navigation.PushAsync(new UrediReceptPage(item));
-        }
-
-        private  async void Button_Clicked_2(object sender, EventArgs e)
-        {
-            var btn = sender as Button;
-            var item = btn.BindingContext as Recept;
-            FavoritiViewModel model = new FavoritiViewModel();
-            model.r = item;
             await model.Init();
         }
 
-        private async void Button_Clicked_3(object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            var item = btn.BindingContext as Recept;
+            Navigation.PushAsync(new DetaljiRecepta(item));
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            var item = btn.BindingContext as Recept;
+            Navigation.PushAsync(new UrediRecept(item));
+        }
+
+        private async void Button_Clicked_2(object sender, EventArgs e)
         {
             var btn = sender as Button;
             var item = btn.BindingContext as Recept;
@@ -94,7 +84,7 @@ namespace Cookbook.MobileApp.Views
             }
             await _apiRecept.Delete<Recept>(item.ReceptId);
             await DisplayAlert("OK", "Uspješno ste izbrisali recept", "OK");
-            await Navigation.PushAsync(new PrikazRecepataPage());
+            await Navigation.PushAsync(new MojiRecepti());
         }
     }
 }

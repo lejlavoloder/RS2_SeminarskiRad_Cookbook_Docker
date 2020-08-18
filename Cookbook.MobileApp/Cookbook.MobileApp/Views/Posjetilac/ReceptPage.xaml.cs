@@ -30,5 +30,10 @@ namespace Cookbook.MobileApp.Views.Posjetilac
         {
             Navigation.PushAsync(new PrikazRecepata());
         }
+
+        private void Button_Clicked_2(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new DodajReceptPage());
+        }
     }
 }

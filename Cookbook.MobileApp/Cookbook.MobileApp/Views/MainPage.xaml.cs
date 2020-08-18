@@ -63,6 +63,9 @@ namespace Cookbook.MobileApp.Views
                     case (int)MenuItemType.Recepti:
                         MenuPages.Add(id, new NavigationPage(new Posjetilac.ReceptPage()));
                         break;
+                    case (int)MenuItemType.MojiRecepti:
+                        MenuPages.Add(id, new NavigationPage(new Posjetilac.MojiRecepti()));
+                        break;
                     case (int)MenuItemType.Dokumenti:
                         MenuPages.Add(id, new NavigationPage(new Posjetilac.DokumentPage()));
                         break;

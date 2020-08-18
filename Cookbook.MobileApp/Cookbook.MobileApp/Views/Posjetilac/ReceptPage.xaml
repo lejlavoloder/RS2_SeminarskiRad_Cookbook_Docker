@@ -17,6 +17,9 @@
                 <StackLayout>
                     <Button Clicked="Button_Clicked_1" BackgroundColor="LightGray" Text="Prikaz recepata" ></Button>
                 </StackLayout>
+                <StackLayout>
+                    <Button Clicked="Button_Clicked_2" BackgroundColor="LightGray" Text="Dodaj recepat" ></Button>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

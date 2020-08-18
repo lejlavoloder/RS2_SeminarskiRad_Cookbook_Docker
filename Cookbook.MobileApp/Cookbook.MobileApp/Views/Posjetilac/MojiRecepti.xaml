@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cookbook.MobileApp.Views.Posjetilac.MojiRecepti"
+             xmlns:viewModel="clr-namespace:Cookbook.MobileApp.ViewModels"
+             xmlns:converters="clr-namespace:Cookbook.MobileApp.Converter"
+             Title="Moji recepti">
+    <ContentPage.BindingContext>
+        <viewModel:MojiReceptiViewModel>
+        </viewModel:MojiReceptiViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+            <ListView ItemsSource="{Binding ReceptList}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Vertical" VerticalOptions="Center">
+                                <StackLayout Orientation="Horizontal">
+
+                                    <Image WidthRequest="300" HeightRequest="280"
+                                       Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Naziv}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="15" />
+                                </StackLayout> 
+                                <Label Text="Priprema: "  FontSize="12" ></Label>
+                                    <StackLayout Orientation="Horizontal">
+                                       
+                                        <Label Text="{Binding Tekst}" 
+                                           LineBreakMode="WordWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                    <Label Text="Broj ljudi: "  FontSize="12" ></Label>
+                                    <Label Text="{Binding BrojLjudi}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Slozenost: "  FontSize="12" ></Label>
+                                    <Label Text="{Binding Slozenost}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Grupa jela: "  FontSize="12" ></Label>
+                                    <Label Text="{Binding GrupaJela}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Kategorija: "  FontSize="12" ></Label>
+                                    <Label Text="{Binding Kategorija}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Vrijeme kuhanja u minutama: "  FontSize="12" ></Label>
+                                    <Label Text="{Binding VrijemeKuhanja}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Vrijeme pripreme u minutama: "  FontSize="12" ></Label>
+                                    <Label Text="{Binding VrijemePripreme}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Datum i vrijeme objave recepta: "  FontSize="12" ></Label>
+                                    <Label Text="{Binding DatumObjave}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                </StackLayout>
+                                <StackLayout>
+            <Button Clicked="Button_Clicked" Text="Detalji" CornerRadius="7" HeightRequest="30"
+                                            WidthRequest="60" Padding="2"
+                      TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+                <Button Clicked="Button_Clicked_1" Text="Uredi" CornerRadius="7" HeightRequest="30"
+                                            WidthRequest="60" Padding="2"
+                      TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+                <Button Clicked="Button_Clicked_2" Text="Obrisi" CornerRadius="7" HeightRequest="30"
+                                            WidthRequest="60" Padding="2"
+                      TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+       </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+           
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
