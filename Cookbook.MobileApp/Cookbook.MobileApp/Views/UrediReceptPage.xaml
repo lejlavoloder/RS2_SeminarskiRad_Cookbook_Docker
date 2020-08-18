@@ -21,12 +21,18 @@
                     <Image WidthRequest="300" Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
                     <Button Clicked="Button_Clicked_1" Text="Odaberi Sliku"/>
                 <Entry x:Name="Naziv"  Text="{Binding recept.Naziv}" Placeholder="Naziv recepta"></Entry>
+                        <Label  Text="Naziv kategorije"></Label>
                 <Picker x:Name="kategorija" ItemsSource="{Binding KategorijaList}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+                        <Label Text="Naziv grupe jela"></Label>
                 <Picker x:Name="grupajela" ItemsSource="{Binding GrupaJelaList}" ItemDisplayBinding="{Binding Naziv}"> </Picker>
-                <Picker x:Name="slozenost" ItemsSource="{Binding SlozenostList}" ItemDisplayBinding="{Binding Naziv}"></Picker>
-                    <Entry x:Name="Tekst" Text="{Binding recept.Tekst}" Placeholder="Priprema recepta" ></Entry>
-                    <Entry x:Name="BrojLjudi" Text="{Binding recept.BrojLjudi}" Placeholder="Broj ljudi"></Entry>
-                    <Entry x:Name="VrijemeKuhanja" Text="{Binding recept.VrijemeKuhanja}" Placeholder="Vrijeme kuhanja u minutama"></Entry>
+                        <Label Text="Naziv slozenosti"></Label>
+                 <Picker x:Name="slozenost" ItemsSource="{Binding SlozenostList}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+                        <Label Text="Priprema recepta"></Label>
+                        <Entry x:Name="Tekst" Text="{Binding recept.Tekst}" Placeholder="Priprema recepta" ></Entry>
+                        <Label Text="Broj ljudi"></Label>
+                        <Entry x:Name="BrojLjudi" Text="{Binding recept.BrojLjudi}" Placeholder="Broj ljudi"></Entry>
+                        <Label Text="Vrijeme kuhanja"></Label>
+                        <Entry x:Name="VrijemeKuhanja" Text="{Binding recept.VrijemeKuhanja}" Placeholder="Vrijeme kuhanja u minutama"></Entry>
                     <Label Text="Vrijeme pripreme"></Label>
                     <Entry x:Name="VrijemePripreme" Text="{Binding recept.VrijemePripreme}" Placeholder="Vrijeme pripreme u minutama"></Entry>
                     <Label Text="Datum i vrijeme objave"/>

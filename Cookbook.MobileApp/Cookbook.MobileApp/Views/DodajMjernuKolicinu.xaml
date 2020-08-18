@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:Cookbook.MobileApp.ViewModels"
              mc:Ignorable="d"
-             x:Class="Cookbook.MobileApp.Views.DodajMjernuKolicinu">
+             x:Class="Cookbook.MobileApp.Views.DodajMjernuKolicinu"
+             Title="Dodaj mjernu količinu">
     <ContentPage.BindingContext>
         <viewModels:MjernaKolicinaViewModel>
         </viewModels:MjernaKolicinaViewModel>

@@ -28,28 +28,32 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10" Orientation="Vertical" VerticalOptions="Center">
+                            <StackLayout Padding="10" Orientation="Vertical">
                                 <StackLayout Orientation="Horizontal">
-
-                                    <Image WidthRequest="300"
-                                       Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
-                                </StackLayout>
-                                <StackLayout Orientation="Horizontal">
+                                   
                                     <Label Text="{Binding Naziv}" 
-                                           LineBreakMode="NoWrap"
+                                           LineBreakMode="WordWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="15" />
+                                           FontSize="16" />
+                                </StackLayout>
+                               
+                                    <Label Text="Priprema recepta: "  FontSize="12" ></Label> 
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Tekst}" 
+                                           LineBreakMode="WordWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="Broj ljudi: "  FontSize="12" ></Label>
-                                    <Label Text="{Binding BrojLjudi}" 
+                                    <Label Text="Datum i vrijeme objave: "  FontSize="12" ></Label>
+                                    <Label Text="{Binding DatumObjave}" 
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="Vrijeme kuhanja u minutama: "  FontSize="12" ></Label>
-                                    <Label Text="{Binding VrijemeKuhanja}" 
+                                    <Label Text="Broj ljudi: "  FontSize="12" ></Label>
+                                    <Label Text="{Binding BrojLjudi}" 
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
@@ -62,11 +66,16 @@
                                            FontSize="13" />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="Datum i vrijeme objave recepta: "  FontSize="12" ></Label>
-                                    <Label Text="{Binding DatumObjave}" 
+                                    <Label Text="Vrijeme kuhanja u minutama: "  FontSize="12" ></Label>
+                                    <Label Text="{Binding VrijemeKuhanja}" 
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+
+                                    <Image WidthRequest="300"
+                                       Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
                                 </StackLayout>
 
                                 <Button Clicked="Button_Clicked" Text="Prikaži detalje" CornerRadius="7" HeightRequest="35" WidthRequest="105" Padding="2"

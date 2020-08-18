@@ -19,7 +19,7 @@
                             <StackLayout Padding="10" Orientation="Horizontal">
                                 <StackLayout Orientation="Vertical">
                                     <StackLayout>
-                                        <Label>Mjerna količina</Label>
+                                        <Label FontSize="15">Mjerna količina</Label>
                                         <Label Text="{Binding MjernaKolicina}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
@@ -28,7 +28,7 @@
                                 </StackLayout>
                                 <StackLayout Orientation="Vertical">
                                     <StackLayout>
-                                        <Label>Mjerna jednica</Label>
+                                        <Label FontSize="15">Mjerna jednica</Label>
                                         <Label Text="{Binding MjernaJedinica}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
@@ -37,18 +37,18 @@
                                 </StackLayout>
                                 <StackLayout Orientation="Vertical">
                                     <StackLayout>
-                                        <Label>Sastojak</Label>
+                                        <Label  FontSize="15">Sastojak</Label>
                                         <Label Text="{Binding Sastojak}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
                                            FontSize="16" />
                                     </StackLayout>
                                 </StackLayout>
-                                <Button Clicked="Button_Clicked" Text="Uredi" CornerRadius="7" HeightRequest="35"
-                                            WidthRequest="105" Padding="2"
+                                <Button Clicked="Button_Clicked" Text="Uredi" CornerRadius="7" HeightRequest="30"
+                                            WidthRequest="60" Padding="2"
                       TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
-                                <Button Clicked="Button_Clicked_1" Text="Obrisi" CornerRadius="7" HeightRequest="35"
-                                            WidthRequest="105" Padding="2"
+                                <Button Clicked="Button_Clicked_1" Text="Obrisi" CornerRadius="7" HeightRequest="30"
+                                            WidthRequest="60" Padding="2"
                       TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
                             </StackLayout>
                         </ViewCell>

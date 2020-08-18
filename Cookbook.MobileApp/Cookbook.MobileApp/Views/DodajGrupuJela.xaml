@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-          
              mc:Ignorable="d"
-             x:Class="Cookbook.MobileApp.Views.DodajGrupuJela">
+             x:Class="Cookbook.MobileApp.Views.DodajGrupuJela"
+             Title="Dodaj grupu jela">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand">

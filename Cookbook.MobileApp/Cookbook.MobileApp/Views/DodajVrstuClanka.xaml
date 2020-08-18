@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModel="clr-namespace:Cookbook.MobileApp.ViewModels"
              mc:Ignorable="d"
-             x:Class="Cookbook.MobileApp.Views.DodajVrstuClanka">
+             x:Class="Cookbook.MobileApp.Views.DodajVrstuClanka"
+             Title="Dodaj vrstu članka">
     <ContentPage.BindingContext>
         <viewModel:VrstaClankaViewModel>
         </viewModel:VrstaClankaViewModel>

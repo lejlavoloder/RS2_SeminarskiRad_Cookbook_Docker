@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:Cookbook.MobileApp.ViewModels"
              mc:Ignorable="d"
-             x:Class="Cookbook.MobileApp.Views.DodajKategoriju">
+             x:Class="Cookbook.MobileApp.Views.DodajKategoriju"
+             Title="Dodaj kategoriju">
     <ContentPage.BindingContext>
         <vm:KategorijaViewModel></vm:KategorijaViewModel>
     </ContentPage.BindingContext>

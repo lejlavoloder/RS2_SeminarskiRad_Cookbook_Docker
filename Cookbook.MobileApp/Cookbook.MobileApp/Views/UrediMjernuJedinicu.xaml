@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModel="clr-namespace:Cookbook.MobileApp.ViewModels"
              mc:Ignorable="d"
-             x:Class="Cookbook.MobileApp.Views.UrediMjernuJedinicu">
+             x:Class="Cookbook.MobileApp.Views.UrediMjernuJedinicu"
+             Title="Uredi mjernu jedinicu">
     <ContentPage.Content>
         <StackLayout Padding="20">
             <StackLayout>

@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
               xmlns:vm="clr-namespace:Cookbook.MobileApp.ViewModels"
              mc:Ignorable="d"
-             x:Class="Cookbook.MobileApp.Views.DodajSastojak">
+             x:Class="Cookbook.MobileApp.Views.DodajSastojak"
+             Title="Dodaj sastojak">
     <ContentPage.BindingContext>
         <vm:SastojakViewModel></vm:SastojakViewModel>
     </ContentPage.BindingContext>

@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                 xmlns:vm="clr-namespace:Cookbook.MobileApp.ViewModels"
              mc:Ignorable="d"
-             x:Class="Cookbook.MobileApp.Views.PrikazSlozenosti">
+             x:Class="Cookbook.MobileApp.Views.PrikazSlozenosti"
+             Title="Prikaz složenosti">
     <ContentPage.BindingContext>
         <vm:SlozenostViewModel>
         </vm:SlozenostViewModel>

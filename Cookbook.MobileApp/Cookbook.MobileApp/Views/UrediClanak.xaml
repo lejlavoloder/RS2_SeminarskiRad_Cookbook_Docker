@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModel="clr-namespace:Cookbook.MobileApp.ViewModels"
              mc:Ignorable="d"
-             x:Class="Cookbook.MobileApp.Views.UrediClanak">
+             x:Class="Cookbook.MobileApp.Views.UrediClanak"
+             Title="Uredi članak">
     <ContentPage.BindingContext>
         <viewModel:UrediClanakViewModel>
         </viewModel:UrediClanakViewModel>

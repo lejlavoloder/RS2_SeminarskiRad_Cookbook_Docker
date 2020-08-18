@@ -6,7 +6,7 @@
              xmlns:vm="clr-namespace:Cookbook.MobileApp.ViewModels"
              mc:Ignorable="d"
              x:Class="Cookbook.MobileApp.Views.PrikazKategorije"
-             Title="Prikaz komentara">
+             Title="Prikaz kategorija">
     <ContentPage.BindingContext>
         <vm:KategorijaViewModel>
         </vm:KategorijaViewModel>

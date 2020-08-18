@@ -24,55 +24,56 @@
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Broj ljudi: "  FontSize="15" ></Label>
+                        <Label Text="Broj ljudi: "  FontSize="14" ></Label>
                         <Label Text="{Binding BrojLjudi}" 
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="14" />
+                                           FontSize="13" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Slozenost: "  FontSize="15" ></Label>
+                        <Label Text="Slozenost: "  FontSize="14" ></Label>
                         <Label Text="{Binding Slozenost}" 
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="14" />
+                                           FontSize="13" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Grupa jela: "  FontSize="15" ></Label>
+                        <Label Text="Grupa jela: "  FontSize="14" ></Label>
                         <Label Text="{Binding GrupaJela}" 
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="14" />
+                                           FontSize="13" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Kategorija: "  FontSize="15" ></Label>
+                        <Label Text="Kategorija: "  FontSize="14" ></Label>
                         <Label Text="{Binding Kategorija}" 
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="14" />
+                                           FontSize="13" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Vrijeme kuhanja u minutama: "  FontSize="15" ></Label>
+                        <Label Text="Vrijeme kuhanja u minutama: "  FontSize="14" ></Label>
                         <Label Text="{Binding VrijemeKuhanja}" 
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="14" />
+                                           FontSize="13" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Vrijeme pripreme u minutama: "  FontSize="15" ></Label>
+                        <Label Text="Vrijeme pripreme u minutama: "  FontSize="14" ></Label>
                         <Label Text="{Binding VrijemePripreme}" 
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="14" />
-                    </StackLayout>
+                                           FontSize="13" />
+                    </StackLayout> 
+                    <Label Text="Priprema:" FontSize="14" ></Label>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Priprema:" FontSize="15" ></Label>
+                      
                         <Label Text="{Binding Tekst}" 
-                                           LineBreakMode="NoWrap"
+                                           LineBreakMode="WordWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="14" />
+                                           FontSize="13" />
                     </StackLayout>
-                    <Label FontSize="15">Sastojci:</Label>
+                    <Label FontSize="14">Sastojci:</Label>
                     <ListView ItemsSource="{Binding ReceptSastojakList}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -80,29 +81,29 @@
                                 <StackLayout Padding="10" Orientation="Horizontal">
                                             <StackLayout Orientation="Vertical">
                                            <StackLayout>
-                                                <Label>Mjerna količina</Label>
+                                                <Label FontSize="14">Mjerna količina</Label>
                                                 <Label Text="{Binding MjernaKolicina}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" />
+                                           FontSize="13" />
                                             </StackLayout>
                                         </StackLayout>
                                         <StackLayout Orientation="Vertical">
                                             <StackLayout>
-                                                <Label>Mjerna jednica</Label>
+                                                <Label FontSize="14">Mjerna jednica</Label>
                                                 <Label Text="{Binding MjernaJedinica}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" />
+                                           FontSize="13" />
                                             </StackLayout>
                                         </StackLayout>
                                         <StackLayout Orientation="Vertical">
                                             <StackLayout>
-                                                <Label>Sastojak</Label>
+                                                <Label FontSize="14">Sastojak</Label>
                                                 <Label Text="{Binding Sastojak}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" />
+                                           FontSize="13" />
                                             </StackLayout>
                                         </StackLayout>
                                     </StackLayout>
