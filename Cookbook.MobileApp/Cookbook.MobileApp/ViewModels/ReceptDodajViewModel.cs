@@ -8,29 +8,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace Cookbook.MobileApp.ViewModels
 {
     public class ReceptDodajViewModel : BaseViewModel
     {
+        private readonly APIService _apisastojak = new APIService("Sastojak");
+        private readonly APIService _apimjernakolicina = new APIService("MjernaKolicina");
+        private readonly APIService _apimjernajedinica = new APIService("MjernaJedinica");
         private readonly APIService _apigrupajela = new APIService("GrupaJela");
         private readonly APIService _apikategorija = new APIService("Kategorija");
         private readonly APIService _apislozenost = new APIService("Slozenost");
         private readonly APIService _apikorisnik = new APIService("Korisnik");
         private readonly APIService _apirecept = new APIService("Recept");
         private readonly APIService _apireceptSastojak = new APIService("ReceptSastojak");
+        public Recept recept { get; set; }
         public ReceptDodajViewModel()
         {
             InitCommand = new Command(async () => await Init());
             DodajReceptCommand = new Command(async () => await DodajRecept());
+            DodajSastojakCommand = new Command(async () => await DodajSastojak());
             byte[] defaultPhoto = File.ReadAllBytes("no-photo.png");
             Slika = defaultPhoto;
         }
         public ObservableCollection<GrupaJela> GrupaJelaList { get; set; } = new ObservableCollection<GrupaJela>();
+        public ObservableCollection<MjernaJedinica> MjernaJedinicaList { get; set; } = new ObservableCollection<MjernaJedinica>();
+        public ObservableCollection<MjernaKolicina> MjernaKolicinaList { get; set; } = new ObservableCollection<MjernaKolicina>();
+        public ObservableCollection<Sastojak> SastojakList { get; set; } = new ObservableCollection<Sastojak>();
         public ObservableCollection<Kategorija> KategorijaList { get; set; } = new ObservableCollection<Kategorija>();
         public ObservableCollection<Slozenost> SlozenostList { get; set; } = new ObservableCollection<Slozenost>();
         public ObservableCollection<ReceptSastojak> ReceptSastojakList { get; set; } = new ObservableCollection<ReceptSastojak>();
         public ICommand InitCommand { get; set; }
+        public ICommand DodajSastojakCommand { get; set; }
         public ICommand DodajReceptCommand { get; set; }
         public async Task Init()
         {
@@ -53,6 +63,27 @@ namespace Cookbook.MobileApp.ViewModels
             foreach (var h in list2)
             {
                 KategorijaList.Add(h);
+            }
+        }
+        public async Task DodajSastojak()
+        {
+            var list = await _apisastojak.Get<IEnumerable<Sastojak>>(null);
+            SastojakList.Clear();
+            foreach(var b in list)
+            {
+                SastojakList.Add(b);
+            }
+            var list1 = await _apimjernajedinica.Get<IEnumerable<MjernaJedinica>>(null);
+            MjernaJedinicaList.Clear();
+            foreach (var b in list1)
+            {
+                MjernaJedinicaList.Add(b);
+            }
+            var list2 = await _apimjernakolicina.Get<IEnumerable<MjernaKolicina>>(null);
+            MjernaKolicinaList.Clear();
+            foreach (var b in list2)
+            {
+                MjernaKolicinaList.Add(b);
             }
         }
         DateTime _datumObjave = DateTime.Now;
@@ -151,23 +182,9 @@ namespace Cookbook.MobileApp.ViewModels
                 VrijemePripreme = _vrijemepripreme,
                 KorisnikId = korisnik.KorisnikId
             });
-
-            if(result.ReceptId > 0)
-            {
-                foreach (var item in _sastojci)
-                {
-                    await _apireceptSastojak.Insert<ReceptSastojak>(new ReceptSastojakUpsertRequest()
-                    {
-                        ReceptId = result.ReceptId,
-                        MjernaJedinicaId = item.MjernaJedinicaId,
-                        MjernaKolicinaId = item.MjernaKolicinaId,
-                        SastojakId = item.SastojakId
-                    });
-                }
-                
+            recept = result;
+           
             }
         }
 
-
     }
-}

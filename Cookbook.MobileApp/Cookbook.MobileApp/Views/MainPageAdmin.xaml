@@ -11,7 +11,7 @@
     </MasterDetailPage.Master>
 
     <MasterDetailPage.Detail>
-        <NavigationPage BackgroundColor="LightBlue">
+        <NavigationPage BackgroundColor="CornflowerBlue">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="iOS" Value="tab_feed.png"/>

@@ -12,28 +12,82 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Forms.DataGrid;
+using System.Collections.ObjectModel;
+using Xamarin.Forms.Internals;
 
 namespace Cookbook.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DodajRecept : ContentPage
     {
+        private List<Layout<View>> stackLayouts = new List<Layout<View>>();
         APIService _apiKorisnik = new APIService("Korisnik");
+        APIService _apiReceptSastojak = new APIService("ReceptSastojak");
         ReceptDodajViewModel model = null;
-        List<ReceptSastojak> ReceptSastojakList = new List<ReceptSastojak>();
+        ObservableCollection<ReceptSastojak> ReceptSastojakList { get; set; } = new ObservableCollection<ReceptSastojak>();
+        
         public DodajRecept()
         {
             InitializeComponent();
             BindingContext = model = new ReceptDodajViewModel();
+            stackLayouts = new List<Layout<View>>
+            {
+                prviPage,
+                drugiPage,
+                treciPage,
+                cetvrtiPage,
+                petiPage
+            };
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
         }
+        private void prethodni_Clicked(object sender, EventArgs e)
+        {
+            var visibleStackIndex = stackLayouts.IndexOf(stackLayouts.FirstOrDefault(X => X.IsVisible));
+            if (visibleStackIndex > 0)
+            {
+                stackLayouts[visibleStackIndex].IsVisible = false;
+                stackLayouts[visibleStackIndex - 1].IsVisible = true;
+
+                sljedeci.IsEnabled = true;
+
+                if (visibleStackIndex - 1 == 0)
+                    prethodni.IsEnabled = false;
+            }
+        }
+
+        private void sljedeci_Clicked(object sender, EventArgs e)
+        {
+            var visibleStackIndex = stackLayouts.IndexOf(stackLayouts.FirstOrDefault(X => X.IsVisible));
+            if (visibleStackIndex < stackLayouts.Count - 1)
+            {
+                stackLayouts[visibleStackIndex].IsVisible = false;
+                stackLayouts[visibleStackIndex + 1].IsVisible = true;
+
+                prethodni.IsEnabled = true;
+
+                if (visibleStackIndex + 1 == stackLayouts.Count - 1)
+                {
+                    sljedeci.IsEnabled = false;
+                }
+                if (visibleStackIndex == 2)
+                {
+                    sljedeci.IsEnabled = false;
+                }
+            }
+
+        }
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(this.Naziv.Text, @"^[a-zA-Z ]+$") && this.Naziv.Text.Length < 4)
+            if (ReceptSastojakList.Count() <= 1)
+            {
+                await DisplayAlert("Greška", "Potrebno je unijeti minimalno 2 sastojka", "OK");
+            }
+            else if(!Regex.IsMatch(this.Naziv.Text, @"^[a-zA-Z ]+$") && this.Naziv.Text.Length < 4)
             {
                 await DisplayAlert("Greška", "Naziv se sastoji samo od slova", "OK");
             }
@@ -94,6 +148,19 @@ namespace Cookbook.MobileApp.Views
                     model.VrijemePripreme = Convert.ToInt32(this.VrijemePripreme.Text);
                     model.BrojLjudi = Convert.ToInt32(this.BrojLjudi.Text);
                     await model.DodajRecept();
+                    ReceptSastojakList.ForEach(x => x.ReceptId = model.recept.ReceptId);
+                    foreach(var i in ReceptSastojakList)
+                    {
+                        ReceptSastojakUpsertRequest requestSastojak = new ReceptSastojakUpsertRequest()
+                        {
+                            SastojakId = i.SastojakId,
+                            MjernaJedinicaId = i.MjernaJedinicaId,
+                            MjernaKolicinaId = i.MjernaKolicinaId,
+                            ReceptId = i.ReceptId
+
+                        };
+                       await _apiReceptSastojak.Insert<ReceptSastojak>(requestSastojak);
+                    }
                     await Application.Current.MainPage.DisplayAlert("Poruka", "Uspješno ste pohranili recept", "OK");
                     await Navigation.PushAsync(new PrikazRecepataPage());
                 }
@@ -126,23 +193,52 @@ namespace Cookbook.MobileApp.Views
             }
 
         }
-
-        private void ChangeGrid_Click(object sender, EventArgs e)
+        private async void dodajSastojak_Clicked(object sender, EventArgs e)
         {
-            List<ReceptSastojak> sastojaks = new List<ReceptSastojak>();
+            await model.DodajSastojak();
+            cetvrtiPage.IsVisible = false;
+            petiPage.IsVisible = true;
+        }
 
-
-
-
-            if (CrveniGrid.IsVisible)
+        private async void SacuvajSastojak_Clicked(object sender, EventArgs e)
+        {
+            if (this.MjernaKolicinaPicker.SelectedItem == null)
             {
-                CrveniGrid.IsVisible = false;
-                ZutiGrid.IsVisible = true;
+                await DisplayAlert("Greška", "Trebate odabrati mjernu kolicinu jela", "OK");
             }
-            else
+            else if (this.MjernaJedinicaPicker.SelectedItem == null)
             {
-                ZutiGrid.IsVisible = false;
-                CrveniGrid.IsVisible = true;
+                await DisplayAlert("Greška", "Trebate odabrati mjernu jedinicu", "OK");
+            }
+            else if (this.SastojakPicker.SelectedItem == null)
+            {
+                await DisplayAlert("Greška", "Trebate odabrati sastojak", "OK");
+            }
+            else { 
+                MjernaKolicina mjernakolicina = this.MjernaKolicinaPicker.SelectedItem as MjernaKolicina;
+                MjernaJedinica mjernajedinica = this.MjernaJedinicaPicker.SelectedItem as MjernaJedinica;
+                Sastojak sastojak = this.SastojakPicker.SelectedItem as Sastojak;
+                ReceptSastojak receptsastojak = new ReceptSastojak
+                {
+                    MjernaJedinicaId = mjernajedinica.MjernaJedinicaId,
+                    MjernaJedinica = mjernajedinica.Naziv,
+                    SastojakId = sastojak.SastojakId,
+                    Sastojak = sastojak.Naziv,
+                    MjernaKolicinaId = mjernakolicina.MjernaKolicinaId,
+                    MjernaKolicina = mjernakolicina.Kolicina
+                };
+                ReceptSastojakList.Add(receptsastojak);
+                dataGrid.ItemsSource = ReceptSastojakList.Select(x => new
+                {
+                  x.MjernaKolicina,
+                  x.MjernaJedinica,
+                  x.Sastojak
+                }).ToArray();
+                this.SastojakPicker.SelectedItem = 0;
+                this.MjernaJedinicaPicker.SelectedItem = 0;
+                this.MjernaKolicinaPicker.SelectedItem = 0;
+                cetvrtiPage.IsVisible = true;
+                petiPage.IsVisible = false;
             }
         }
     }
