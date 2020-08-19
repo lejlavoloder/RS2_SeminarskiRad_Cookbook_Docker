@@ -33,7 +33,7 @@ namespace Cookbook.MobileApp.Views
             var btn = sender as Button;
             var item = btn.BindingContext as Favoriti;
             await _apiFavoriti.Delete<Favoriti>(item.FavoritiId);
-            await DisplayAlert("OK", "Uspješno ste izbrisali sastojak", "OK");
+            await DisplayAlert("OK", "Uspješno ste izbrisali svog favorita", "OK");
             await Navigation.PushAsync(new FavoritiPage());
         }
         private async void Button_Clicked_1(object sender, EventArgs e)
