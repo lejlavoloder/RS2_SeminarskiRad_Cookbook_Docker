@@ -30,7 +30,7 @@
                            <StackLayout Orientation="Horizontal">
                                 <Label Text="Naziv: "  FontSize="12" ></Label>
                                 <Label Text="{Binding Naziv}" 
-                                           LineBreakMode="NoWrap"
+                                           LineBreakMode="WordWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
                             </StackLayout>
@@ -41,10 +41,10 @@
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
                             </StackLayout>
+                            <Label Text="Tekst: "  FontSize="12" ></Label>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Tekst: "  FontSize="12" ></Label>
                                 <Label Text="{Binding Tekst}" 
-                                           LineBreakMode="NoWrap"
+                                           LineBreakMode="WordWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
                             </StackLayout>

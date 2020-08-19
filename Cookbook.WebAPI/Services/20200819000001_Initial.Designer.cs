@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cookbook.WebAPI.Migrations
 {
     [DbContext(typeof(CookbookContext))]
-    [Migration("20200721150224_P")]
-    partial class P
+    [Migration("20200819000001_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,6 +50,27 @@ namespace Cookbook.WebAPI.Migrations
                     b.HasIndex("VrstaClankaId");
 
                     b.ToTable("Clanak");
+                });
+
+            modelBuilder.Entity("Cookbook.WebAPI.Database.Dokument", b =>
+                {
+                    b.Property<int>("DokumentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NazivDokumenta")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Sadrzaj")
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("DokumentId");
+
+                    b.ToTable("Dokumenti");
                 });
 
             modelBuilder.Entity("Cookbook.WebAPI.Database.Favoriti", b =>
@@ -119,6 +140,9 @@ namespace Cookbook.WebAPI.Migrations
 
                     b.Property<int>("KorisnikId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Odobreno")
+                        .HasColumnType("bit");
 
                     b.Property<int>("ReceptId")
                         .HasColumnType("int");
@@ -238,6 +262,9 @@ namespace Cookbook.WebAPI.Migrations
 
                     b.Property<int>("ReceptId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Sadrzaj")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("NotifikacijaId");
 

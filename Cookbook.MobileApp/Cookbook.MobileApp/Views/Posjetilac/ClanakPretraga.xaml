@@ -23,11 +23,11 @@
 
                                 <StackLayout Orientation="Vertical">
                                     <Label Text="{Binding Naziv}" 
-                                           LineBreakMode="NoWrap" 
+                                           LineBreakMode="WordWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
                                            FontSize="16" />
                                     <Label Text="{Binding Tekst}" 
-                                           LineBreakMode="NoWrap"
+                                           LineBreakMode="WordWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
                                     <Label Text="{Binding DatumObjave}" 

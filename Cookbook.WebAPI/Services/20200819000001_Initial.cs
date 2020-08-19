@@ -3,10 +3,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Cookbook.WebAPI.Migrations
 {
-    public partial class P : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Dokumenti",
+                columns: table => new
+                {
+                    DokumentId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NazivDokumenta = table.Column<string>(nullable: true),
+                    Sadrzaj = table.Column<byte[]>(nullable: true),
+                    FileName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Dokumenti", x => x.DokumentId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "GrupaJela",
                 columns: table => new
@@ -290,6 +305,7 @@ namespace Cookbook.WebAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Sadrzaj = table.Column<string>(nullable: true),
                     Datum = table.Column<DateTime>(nullable: false),
+                    Odobreno = table.Column<bool>(nullable: false),
                     ReceptId = table.Column<int>(nullable: false),
                     KorisnikId = table.Column<int>(nullable: false)
                 },
@@ -317,6 +333,7 @@ namespace Cookbook.WebAPI.Migrations
                     NotifikacijaId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ReceptId = table.Column<int>(nullable: false),
+                    Sadrzaj = table.Column<string>(nullable: true),
                     DatumSlanja = table.Column<DateTime>(nullable: false),
                     IsProcitano = table.Column<bool>(nullable: false)
                 },
@@ -503,6 +520,9 @@ namespace Cookbook.WebAPI.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Clanak");
+
+            migrationBuilder.DropTable(
+                name: "Dokumenti");
 
             migrationBuilder.DropTable(
                 name: "Favoriti");
