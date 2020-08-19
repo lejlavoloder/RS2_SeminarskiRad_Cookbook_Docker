@@ -47,7 +47,7 @@ namespace Cookbook.MobileApp.Views
                     ReceptId=item.ReceptId
                 }); 
 
-                await Application.Current.MainPage.DisplayAlert(" ", "Uspjesno ste odobrili komentar korisnika: " + " " + item.Korisnik+
+                await Application.Current.MainPage.DisplayAlert(" ", "Uspjesno ste odobrili recept korisnika: " + " " + item.Korisnik+
                     " za recept: " + item.Naziv, "OK");
             }
             else
