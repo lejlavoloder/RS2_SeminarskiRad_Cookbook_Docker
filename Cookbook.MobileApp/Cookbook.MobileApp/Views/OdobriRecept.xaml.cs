@@ -43,7 +43,7 @@ namespace Cookbook.MobileApp.Views
                 {
                     DatumSlanja = DateTime.Now,
                     IsProcitano = false,
-                    Sadrzaj = "Poštovani   " + item.Korisnik + " vaš recept je uspješno objavljen",
+                    Sadrzaj = "Poštovani  " + item.Korisnik + " vaš recept je uspješno objavljen.",
                     ReceptId=item.ReceptId
                 }); 
 

@@ -40,7 +40,10 @@ namespace Cookbook.MobileApp.ViewModels
 
             foreach (var item in list)
             {
-                ReceptList.Add(item);
+                if (item.Odobren == true)
+                {
+                    ReceptList.Add(item);
+                }
             }
         }
 
