@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Cookbook.Model.Requests;
 using Cookbook.WebAPI.Database;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace Cookbook.WebAPI.Services
         }
         public override List<Model.Ocjena> Get(OcjenaSearchRequest search)
         {
-            var q = _context.Set<Database.Ocjena>().AsQueryable();
+            var q = _context.Set<Database.Ocjena>().Include(x => x.Recept).AsQueryable();
 
             if (search?.ReceptId.HasValue == true && search?.PosjetilacId.HasValue == true)
             {
@@ -25,6 +26,11 @@ namespace Cookbook.WebAPI.Services
           
             var list = q.ToList();
             return _mapper.Map<List<Model.Ocjena>>(list);
+        }
+
+        public override Model.Ocjena GetById(int id)
+        {
+            return _mapper.Map<Model.Ocjena>(_context.Ocjena.Include(x => x.Recept).FirstOrDefault(x => x.OcjenaId == id));
         }
     }
 }

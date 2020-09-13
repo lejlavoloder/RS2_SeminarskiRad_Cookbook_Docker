@@ -19,11 +19,13 @@
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="15" />
+                            </StackLayout>
                                 <Label>Napisao/la:</Label>
-                                <Label Text="{Binding Posjetioc}" 
+                            <Label Text="{Binding Posjetioc}" 
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="15" />
+                            <StackLayout>
                                 <Label Text="{Binding Datum}"></Label>
                             </StackLayout>
                         </StackLayout>

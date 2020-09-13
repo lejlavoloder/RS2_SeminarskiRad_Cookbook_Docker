@@ -72,63 +72,54 @@ namespace Cookbook.WebAPI.Mapper
 
             CreateMap<Database.ReceptSastojak, Model.ReceptSastojak>()
           .ForMember(s =>s.Recept, a =>
-          a.MapFrom(b => new Database.CookbookContext().Recept.Find(b.ReceptId).Naziv))
+          a.MapFrom(b => b.Recept.Naziv))
           .ForMember(s=>s.Sastojak,a=>
-          a.MapFrom(b=>new Database.CookbookContext().Sastojak.Find(b.SastojakId).Naziv))
+          a.MapFrom(b=> b.Sastojak.Naziv))
           .ForMember(s=>s.MjernaJedinica, a=>
-          a.MapFrom(b=>new Database.CookbookContext().MjernaJedinica.Find(b.MjernaJedinicaId).Naziv))
+          a.MapFrom(b=>b.MjernaJedinica.Naziv))
           .ForMember(s=>s.MjernaKolicina, a=>
-          a.MapFrom(b=>new Database.CookbookContext().MjernaKolicina.Find(b.MjernaKolicinaId).Kolicina));
+          a.MapFrom(b=>b.MjernaKolicina.Kolicina));
 
             CreateMap<Database.Notifikacija, Model.Notifikacija>()
                  .ForMember(s => s.Recept, a =>
-                   a.MapFrom(b => new Database.CookbookContext().Recept.Find(b.ReceptId).Naziv));
-            
+                   a.MapFrom(b => b.Recept.Naziv));
+
             CreateMap<Database.Posjetilac, Model.Posjetilac>()
-                .ForMember(s => s.KorisnickoIme, a =>
-                  a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).KorisnickoIme))
-                .ForMember(s => s.Telefon, a =>
-                     a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Telefon))
-               .ForMember(s => s.Email, a =>
-                  a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Email))
-               .ForMember(s => s.Ime, a =>
-                a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Ime))
-                .ForMember(s => s.Prezime, a =>
-                a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Prezime))
-                  .ForMember(s => s.KorisnikId, a =>
-                     a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).KorisnikId));
+                .ForMember(s => s.KorisnickoIme, a => a.MapFrom(b => b.Korisnik.KorisnickoIme))
+                .ForMember(s => s.Telefon, a => a.MapFrom(b => b.Korisnik.Telefon))
+               .ForMember(s => s.Email, a => a.MapFrom(b => b.Korisnik.Email))
+               .ForMember(s => s.Ime, a => a.MapFrom(b => b.Korisnik.Ime))
+                .ForMember(s => s.Prezime, a => a.MapFrom(b => b.Korisnik.Prezime));
 
             CreateMap<Database.Ocjena, Model.Ocjena>()
                 .ForMember(s => s.Recept, a =>
-                  a.MapFrom(b => new Database.CookbookContext().Recept.Find(b.ReceptId).Naziv));
+                  a.MapFrom(b => b.Recept.Naziv));
 
             CreateMap<Database.Komentar,Model.Komentar>()
                 .ForMember(s=>s.NazivRecepta, a=>
-                a.MapFrom(b=>new Database.CookbookContext().Recept.Find(b.ReceptId).Naziv))
+                a.MapFrom(b=>b.Recept.Naziv))
                 .ForMember(s=>s.Posjetioc, a=>
-                a.MapFrom(b=>new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Ime
-                + " " + new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Prezime));
+                a.MapFrom(b=>$"{b.Korisnik.Ime} {b.Korisnik.Prezime}"));
               
             CreateMap<Database.Favoriti, Model.Favoriti>()
                 .ForMember(s => s.Recept, a =>
-                  a.MapFrom(b => new Database.CookbookContext().Recept.Find(b.ReceptId).Naziv));
+                  a.MapFrom(b =>b.Recept.Naziv));
 
             CreateMap<Database.Clanak, Model.Clanak>()
                 .ForMember(s => s.VrstaClanka, a =>
-                  a.MapFrom(b => new Database.CookbookContext().VrstaClanka.Find(b.VrstaClankaId).Naziv));
+                  a.MapFrom(b =>b.VrstaClanka.Naziv));
 
             CreateMap<Database.Recept, Model.Recept>()
                 .ForMember(s => s.Slozenost, a =>
-                  a.MapFrom(b => new Database.CookbookContext().Slozenost.Find(b.SlozenostId).Naziv))
+                  a.MapFrom(b => b.Slozenost.Naziv))
                 .ForMember(s => s.Kategorija, a =>
-                  a.MapFrom(b => new Database.CookbookContext().Kategorija.Find(b.KategorijaId).Naziv))
+                  a.MapFrom(b => b.Kategorija.Naziv))
                 .ForMember(s => s.GrupaJela, a =>
-                  a.MapFrom(b => new Database.CookbookContext().GrupaJela.Find(b.GrupaJelaId).Naziv))
+                  a.MapFrom(b => b.GrupaJela.Naziv))
                 .ForMember(s => s.Ocjena, a =>
-                 a.MapFrom(b => new Database.CookbookContext().Ocjena.Find(b.ReceptId).ocjena))
+                 a.MapFrom(b => b.Ocjena.Any() ? b.Ocjena.First().ocjena : 0))
                 .ForMember(s => s.Korisnik, a =>
-                  a.MapFrom(b => new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Ime + " " +
-                  new Database.CookbookContext().Korisnik.Find(b.KorisnikId).Prezime));
+                  a.MapFrom(b => $"{b.Korisnik.Ime} {b.Korisnik.Prezime}"));
                 
      }
     }

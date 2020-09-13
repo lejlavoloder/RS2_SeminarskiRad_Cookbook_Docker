@@ -40,7 +40,7 @@ namespace Cookbook.MobileApp.Views
         {
             var btn = sender as Button;
             var item = btn.BindingContext as Favoriti;
-            Recept r = await _apiRecept.GetById<Recept>(item.ReceptId);
+            Recept r = await _apiRecept.GetById<Model.Recept>(item.ReceptId);
             await Navigation.PushAsync(new ReceptFavoritiDetalji(item,r));
         }
     }

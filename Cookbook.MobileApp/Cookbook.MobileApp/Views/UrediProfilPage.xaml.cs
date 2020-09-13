@@ -78,7 +78,7 @@ namespace Cookbook.MobileApp.Views
                     };
                     var lozinka = APIService.Password;
                     var korisnicko = APIService.Username;
-                    await _korisnik.Update<dynamic>(korisnickiprofil.korisnik.KorisnikId, req);
+                    await _korisnik.Update<Korisnik>(korisnickiprofil.korisnik.KorisnikId, req);
                     await DisplayAlert("OK", "Uspješno uneseni podaci", "OK");
                     if (lozinka != this.Password.Text || korisnicko != this.KorisnickoIme.Text)
                     {

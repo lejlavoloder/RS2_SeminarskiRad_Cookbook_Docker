@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Cookbook.Model.Requests;
 using Cookbook.WebAPI.Database;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace Cookbook.WebAPI.Services
         }
         public override List<Model.Clanak> Get(ClanakSearchRequest search)
         {
-            var query = _context.Clanak.AsQueryable();
+            var query = _context.Clanak.Include(x => x.VrstaClanka).AsQueryable();
             if (!string.IsNullOrEmpty(search?.Naziv) && search?.VrstaClankaId.HasValue==true)
             {
                 query = query.Where(s => s.Naziv.Equals(search.Naziv) && s.VrstaClankaId == search.VrstaClankaId);
@@ -34,6 +35,11 @@ namespace Cookbook.WebAPI.Services
                 }
             var list = query.ToList();
             return _mapper.Map<List<Model.Clanak>>(list);
+        }
+
+        public override Model.Clanak GetById(int id)
+        {
+            return _mapper.Map<Model.Clanak>(_context.Clanak.Include(x => x.VrstaClanka).FirstOrDefault(x => x.ClanakId == id));
         }
     }
 }

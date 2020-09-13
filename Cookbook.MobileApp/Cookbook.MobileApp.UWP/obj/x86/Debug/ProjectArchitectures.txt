@@ -1,0 +1,1 @@
+C:\Users\User\source\repos\Cookbook\Cookbook.MobileApp\Cookbook.MobileApp.UWP\Cookbook.MobileApp.UWP.csproj;x86

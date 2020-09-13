@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Cookbook.Model.Requests;
 using Cookbook.WebAPI.Database;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,13 @@ namespace Cookbook.WebAPI.Services
         }
         public override List<Model.Recept> Get(ReceptSearchRequest search)
         {
-            var q = _context.Set<Database.Recept>().AsQueryable();
+            var q = _context.Set<Recept>()
+                .Include(x => x.Kategorija)
+                .Include(x => x.Slozenost)
+                .Include(x => x.GrupaJela)
+                .Include(x => x.Ocjena)
+                .Include(x => x.Korisnik)
+                .AsQueryable();
             if (search?.SlozenostId.HasValue == true && search?.SlozenostId>0) {
                 if (search?.KategorijaId.HasValue == true && search?.KategorijaId>0)
                 {
@@ -56,11 +63,16 @@ namespace Cookbook.WebAPI.Services
             {
                 ocjena.Ocjena = _context.Ocjena.Where(b => b.ReceptId == ocjena.ReceptId)
                     .Average(x => (decimal?)x.ocjena) ?? new decimal(0); 
-           
             }
             return list1;
         }
-
+        public override Model.Recept GetById(int id)
+        {
+            return _mapper.Map<Model.Recept>(_context.Recept.Include(b => b.Slozenost)
+                .Include(b => b.Kategorija)
+                .Include(b => b.GrupaJela)
+                .Include(b => b.Korisnik)
+                .Include(b => b.Ocjena).FirstOrDefault(b => b.ReceptId == id));
+        }
     }
-
 }

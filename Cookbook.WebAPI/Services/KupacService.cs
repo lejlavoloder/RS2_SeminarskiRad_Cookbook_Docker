@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Cookbook.Model.Requests;
 using Cookbook.WebAPI.Database;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,7 @@ namespace Cookbook.WebAPI.Services
 
         public List<Model.Posjetilac> Get(PosjetilacSearchRequest search)
         {
-            var query = _context.Posjetilac.AsQueryable();
+            var query = _context.Posjetilac.Include(x => x.Korisnik).AsQueryable();
 
 
             if (!string.IsNullOrWhiteSpace(search?.Ime))
@@ -63,7 +64,7 @@ namespace Cookbook.WebAPI.Services
             }
             var query1 = _context.Recept.AsQueryable();
             var list = query.ToList();
-            var list1= _mapper.Map<List<Model.Posjetilac>>(list);
+            var list1 = _mapper.Map<List<Model.Posjetilac>>(list);
 
             foreach(var b in query1)
             {
@@ -80,7 +81,7 @@ namespace Cookbook.WebAPI.Services
 
         public Model.Posjetilac GetById(int id)
         {
-            var entity = _context.Posjetilac.Find(id);
+            var entity = _context.Posjetilac.Include(x => x.Korisnik).FirstOrDefault(x => x.PosjetilacId == id);
 
             return _mapper.Map<Model.Posjetilac>(entity);
         }

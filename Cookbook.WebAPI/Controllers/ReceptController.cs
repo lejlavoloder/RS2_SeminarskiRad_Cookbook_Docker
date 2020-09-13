@@ -16,6 +16,5 @@ namespace Cookbook.WebAPI.Controllers
         public ReceptController(ICRUDService<Model.Recept, ReceptSearchRequest, ReceptUpsertRequest, ReceptUpsertRequest> service) : base(service)
         {
         }
-
     }
 }

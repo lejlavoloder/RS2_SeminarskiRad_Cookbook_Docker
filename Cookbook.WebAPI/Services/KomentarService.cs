@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Cookbook.Model.Requests;
 using Cookbook.WebAPI.Database;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace Cookbook.WebAPI.Services
 
         public override List<Model.Komentar> Get(KomentarSearchRequest search)
         {
-            var q = _context.Set<Database.Komentar>().AsQueryable();
+            var q = _context.Set<Database.Komentar>().Include(x => x.Recept).Include(x => x.Korisnik).AsQueryable();
             if (!string.IsNullOrEmpty(search?.Naziv) && search?.ReceptId.HasValue == true)
             {
                 q = q.Where(s => s.Recept.Naziv.Equals(search.Naziv) && s.ReceptId == search.ReceptId);
@@ -40,6 +41,11 @@ namespace Cookbook.WebAPI.Services
             q = q.OrderBy(x => x.Recept.Naziv);
             var list = q.ToList();
             return _mapper.Map<List<Model.Komentar>>(list);
+        }
+
+        public override Model.Komentar GetById(int id)
+        {
+            return _mapper.Map<Model.Komentar>(_context.Komentar.Include(x => x.Korisnik).Include(x => x.Recept).FirstOrDefault(x => x.KomentarId == id));
         }
     }
 }

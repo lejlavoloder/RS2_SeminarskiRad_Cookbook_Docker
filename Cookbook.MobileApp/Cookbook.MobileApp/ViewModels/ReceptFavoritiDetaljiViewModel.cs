@@ -1,4 +1,5 @@
 ﻿using Cookbook.Model;
+using Cookbook.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,13 +14,19 @@ namespace Cookbook.MobileApp.ViewModels
     {
         public Favoriti favoriti { get; set; }
         public APIService _apiRecept = new APIService("Recept");
+        public APIService _apiSlozenost = new APIService("Slozenost");
+        public APIService _apiKategorija = new APIService("Kategorija");
+        public APIService _apiGrupaJela = new APIService("GrupaJela");
         public APIService _apiReceptSastojak = new APIService("ReceptSastojak");
-        
+        public string kat;
+        public string sloz;
+        public string grupajela;
         public ReceptFavoritiDetaljiViewModel(Recept r, Favoriti f) : base()
         {
             recept = r;
             favoriti = f; 
             InitCommand = new Command(async () => await Init());
+            //kat=_apiGrupaJela.Get<Model.GrupaJela>
         }
         public ReceptFavoritiDetaljiViewModel()
         {
@@ -39,7 +46,6 @@ namespace Cookbook.MobileApp.ViewModels
         public string Tekst => recept.Tekst;
         public async Task Init()
         {
-           
             var receptsastojci = await _apiReceptSastojak.Get<IEnumerable<ReceptSastojak>>(null);
             ReceptSastojakList.Clear();
             foreach (var sastojci in receptsastojci)

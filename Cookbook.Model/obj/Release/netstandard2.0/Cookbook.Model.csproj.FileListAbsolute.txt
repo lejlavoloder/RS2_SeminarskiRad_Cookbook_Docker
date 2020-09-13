@@ -1,0 +1,9 @@
+C:\Users\User\source\repos\Cookbook\Cookbook.Model\bin\Release\netstandard2.0\Cookbook.Model.deps.json
+C:\Users\User\source\repos\Cookbook\Cookbook.Model\bin\Release\netstandard2.0\Cookbook.Model.dll
+C:\Users\User\source\repos\Cookbook\Cookbook.Model\bin\Release\netstandard2.0\Cookbook.Model.pdb
+C:\Users\User\source\repos\Cookbook\Cookbook.Model\obj\Release\netstandard2.0\Cookbook.Model.csprojAssemblyReference.cache
+C:\Users\User\source\repos\Cookbook\Cookbook.Model\obj\Release\netstandard2.0\Cookbook.Model.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\Cookbook\Cookbook.Model\obj\Release\netstandard2.0\Cookbook.Model.AssemblyInfo.cs
+C:\Users\User\source\repos\Cookbook\Cookbook.Model\obj\Release\netstandard2.0\Cookbook.Model.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Cookbook\Cookbook.Model\obj\Release\netstandard2.0\Cookbook.Model.dll
+C:\Users\User\source\repos\Cookbook\Cookbook.Model\obj\Release\netstandard2.0\Cookbook.Model.pdb

@@ -21,7 +21,6 @@ namespace Cookbook.WebAPI.Controllers
 
             _service = service;
         }
-
         [HttpGet]
         public List<Model.Korisnik> Get([FromQuery]KorisnikSearchRequest request)
         {
@@ -35,7 +34,6 @@ namespace Cookbook.WebAPI.Controllers
             return _service.Insert(request);
         }
 
-        [Authorize(Roles = "Administrator")]
         [HttpPut("{id}")]
         public Model.Korisnik Update(int id, [FromBody]KorisnikInsertRequest request)
         {

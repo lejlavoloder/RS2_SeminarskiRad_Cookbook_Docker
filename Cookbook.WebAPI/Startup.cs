@@ -64,23 +64,7 @@ namespace Cookbook.WebAPI
           services.AddMvc
              (x => x.Filters.Add<ErrorFilter>()).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddControllers();
-            /*  services.AddMvc(config => {
-                  var policy = new AuthorizationPolicyBuilder()
-                     .AddAuthenticationSchemes(new[] { BasicAuthenticationDefaults.AuthenticationScheme })
-                     .AddRequirements(new BasicAuthorizationRequirement())
-                     .Build();
-                  config.Filters.Add(new AuthorizeFilter(policy));
-              });*/
-
-            /*    services.AddMvc(config =>
-                {
-                    var policy = new AuthorizationPolicyBuilder()
-                                 .RequireAuthenticatedUser()
-                                 .Build();
-                    config.Filters.Add(new AuthorizeFilter(policy));
-                });*/
-
-            //  services.AddMvc(option => option.EnableEndpointRouting = false);
+          
             services.AddAutoMapper(typeof(Startup));
             
             services.AddAuthentication("BasicAuthentication")
@@ -105,7 +89,7 @@ namespace Cookbook.WebAPI
             services.AddScoped<ICRUDService<Model.Komentar, KomentarSearchRequest, KomentarUpsertRequest, KomentarUpsertRequest>, KomentarService>();
             services.AddScoped<ICRUDService<Model.Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest>, OcjenaService>();
             services.AddScoped<ICRUDService<Model.Notifikacija, NotifikacijaSearchRequest, NotifikacijaUpsertRequest, NotifikacijaUpsertRequest>, NotifikacijaService>();
-            var connection = @"data source =.; initial catalog = Cookbook; integrated security = True;";
+            var connection = Configuration.GetConnectionString("Cookbook");
             services.AddDbContext<CookbookContext>(options => options.UseSqlServer(connection));
         }
 
@@ -118,7 +102,7 @@ namespace Cookbook.WebAPI
                 app.UseDeveloperExceptionPage();
             }
         
-            // app.UseHttpsRedirection();
+             app.UseHttpsRedirection();
 
             app.UseSwagger();
       

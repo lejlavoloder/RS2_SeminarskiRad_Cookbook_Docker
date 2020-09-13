@@ -25,5 +25,7 @@ namespace Cookbook.Model
         public bool Odobren { get; set; }
         public bool NijeOdobreno { get => !Odobren; }
         public decimal Ocjena { get; set; }
+        public int UkupanBrojRecepata { get; set; }
+        public decimal UkupnaOcjena { get; set; }
     }
 }

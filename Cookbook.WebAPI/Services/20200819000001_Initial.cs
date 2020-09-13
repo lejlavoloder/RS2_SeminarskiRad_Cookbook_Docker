@@ -164,7 +164,7 @@ namespace Cookbook.WebAPI.Migrations
                         column: x => x.KorisnikId,
                         principalTable: "Korisnik",
                         principalColumn: "KorisnikId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -194,25 +194,25 @@ namespace Cookbook.WebAPI.Migrations
                         column: x => x.GrupaJelaId,
                         principalTable: "GrupaJela",
                         principalColumn: "GrupaJelaId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Recept_Kategorija_KategorijaId",
                         column: x => x.KategorijaId,
                         principalTable: "Kategorija",
                         principalColumn: "KategorijaId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Recept_Korisnik_KorisnikId",
                         column: x => x.KorisnikId,
                         principalTable: "Korisnik",
                         principalColumn: "KorisnikId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Recept_Slozenost_SlozenostId",
                         column: x => x.SlozenostId,
                         principalTable: "Slozenost",
                         principalColumn: "SlozenostId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -233,13 +233,13 @@ namespace Cookbook.WebAPI.Migrations
                         column: x => x.KorisnikId,
                         principalTable: "Korisnik",
                         principalColumn: "KorisnikId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_KorisnikUloga_Uloga_UlogaId",
                         column: x => x.UlogaId,
                         principalTable: "Uloga",
                         principalColumn: "UlogaId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -262,13 +262,13 @@ namespace Cookbook.WebAPI.Migrations
                         column: x => x.KorisnikId,
                         principalTable: "Korisnik",
                         principalColumn: "KorisnikId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Clanak_VrstaClanka_VrstaClankaId",
                         column: x => x.VrstaClankaId,
                         principalTable: "VrstaClanka",
                         principalColumn: "VrstaClankaId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -288,13 +288,14 @@ namespace Cookbook.WebAPI.Migrations
                         column: x => x.KorisnikId,
                         principalTable: "Korisnik",
                         principalColumn: "KorisnikId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Favoriti_Recept_ReceptId",
                         column: x => x.ReceptId,
                         principalTable: "Recept",
                         principalColumn: "ReceptId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction,
+                        onUpdate:ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -317,7 +318,7 @@ namespace Cookbook.WebAPI.Migrations
                         column: x => x.KorisnikId,
                         principalTable: "Korisnik",
                         principalColumn: "KorisnikId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Komentar_Recept_ReceptId",
                         column: x => x.ReceptId,
@@ -345,7 +346,7 @@ namespace Cookbook.WebAPI.Migrations
                         column: x => x.ReceptId,
                         principalTable: "Recept",
                         principalColumn: "ReceptId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -366,7 +367,7 @@ namespace Cookbook.WebAPI.Migrations
                         column: x => x.PosjetilacId,
                         principalTable: "Posjetilac",
                         principalColumn: "PosjetilacId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Ocjena_Recept_ReceptId",
                         column: x => x.ReceptId,
@@ -394,25 +395,25 @@ namespace Cookbook.WebAPI.Migrations
                         column: x => x.MjernaJedinicaId,
                         principalTable: "MjernaJedinica",
                         principalColumn: "MjernaJedinicaId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_ReceptSastojak_MjernaKolicina_MjernaKolicinaId",
                         column: x => x.MjernaKolicinaId,
                         principalTable: "MjernaKolicina",
                         principalColumn: "MjernaKolicinaId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_ReceptSastojak_Recept_ReceptId",
                         column: x => x.ReceptId,
                         principalTable: "Recept",
                         principalColumn: "ReceptId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_ReceptSastojak_Sastojak_SastojakId",
                         column: x => x.SastojakId,
                         principalTable: "Sastojak",
                         principalColumn: "SastojakId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
